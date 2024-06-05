@@ -1,5 +1,7 @@
 package com.auspost.postcode.PostCode;
 
-public interface PostCodeRespository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface PostCodeRespository extends JpaRepository<PostCode, Long> {
 
 }
