@@ -3,6 +3,7 @@ package com.auspost.postcode.PostCode;
 import java.util.Set;
 
 import com.auspost.postcode.Suburb.Suburb;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -32,6 +33,7 @@ public class PostCode {
     private String postcode;
 
     // postcode is the owner so responsible for updating the join table
+    @JsonManagedReference
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "postcode_suburb", joinColumns = @JoinColumn(name = "postcode_id"), inverseJoinColumns = @JoinColumn(name = "suburb_id"))
     Set<Suburb> associatedSuburbs;

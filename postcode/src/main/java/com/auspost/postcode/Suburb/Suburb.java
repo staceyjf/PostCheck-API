@@ -3,6 +3,7 @@ package com.auspost.postcode.Suburb;
 import java.util.Set;
 
 import com.auspost.postcode.PostCode.PostCode;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -35,6 +36,7 @@ public class Suburb {
     private AustralianState state;
 
     // a set will ensure we don't have duplicate postcodes associated
+    @JsonBackReference
     @ManyToMany(mappedBy = "associatedSuburbs")
     Set<PostCode> associatedPostcodes;
 

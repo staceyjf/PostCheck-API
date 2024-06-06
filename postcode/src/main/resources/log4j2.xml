@@ -13,6 +13,9 @@
         <File name="LogFile" fileName="app.log">
             <PatternLayout pattern="${LOG_PATTERN_FILE}" />
         </File>
+            <File name="LogFileErrors" fileName="error.log">
+        <PatternLayout pattern="${LOG_PATTERN_FILE}" />
+    </File>
     </Appenders>
 
     <Loggers>
@@ -20,7 +23,11 @@
             <AppenderRef ref="Console"/>
         </AsyncRoot>
 
-        <Logger name="postcode" level="info" additivity="true">
+        <Logger name="error" level="error" additivity="true">
+          <AppenderRef ref="LogFileErrors"/>
+        </Logger>    
+
+        <Logger name="fullLogs" level="info" additivity="true">
           <AppenderRef ref="LogFile"/>
         </Logger>    
     </Loggers>
