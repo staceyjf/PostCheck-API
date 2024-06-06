@@ -25,7 +25,7 @@ public class PostCodeService {
     private ModelMapper mapper;
 
     @Autowired
-    private PostCodeRespository repo;
+    private PostCodeRepository repo;
 
     // add in subrub service
 

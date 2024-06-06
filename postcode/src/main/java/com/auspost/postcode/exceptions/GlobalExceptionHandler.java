@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @ControllerAdvice
 public class GlobalExceptionHandler {
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
+    private static final Logger errorLogger = LogManager.getLogger("error");
 
     // helper method to create a user facing error message and log the error
     private ResponseEntity<GlobalError> createErrorResponse(HttpStatus status, Exception ex, String message) {
         GlobalError error = new GlobalError(status, ex);
         error.setErrorMessage(message);
         fullLogsLogger.error(error.getDebugMessage());
+        errorLogger.error(error.getDebugMessage());
         return new ResponseEntity<>(error, error.getStatus());
     }
 
@@ -54,6 +56,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<String> handleServiceValidationException(ServiceValidationException ex) {
         String errorJson = ex.generateMessage();
         fullLogsLogger.error(errorJson);
+        errorLogger.error(errorJson);
         return new ResponseEntity<>(errorJson, HttpStatus.BAD_REQUEST);
     }
 }
