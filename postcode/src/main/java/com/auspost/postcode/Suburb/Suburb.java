@@ -27,7 +27,7 @@ public class Suburb {
     private Long id;
 
     @NotBlank
-    @Column
+    @Column(unique = true)
     private String name;
 
     @NotBlank

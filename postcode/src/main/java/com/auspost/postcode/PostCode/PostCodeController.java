@@ -31,15 +31,15 @@ public class PostCodeController {
     @PostMapping()
     public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody CreatePostCodeDTO data)
             throws ServiceValidationException {
-        PostCode createdPostCode = this.postcodeService.createdPostCode(data);
-        fullLogsLogger.info("Responding with new PostCode: " + createdPostCode);
+        PostCode createdPostCode = this.postcodeService.createPostCode(data);
+        fullLogsLogger.info("createPostCode Controller responded with new PostCode: " + createdPostCode);
         return new ResponseEntity<>(createdPostCode, HttpStatus.CREATED);
     }
 
     @GetMapping()
     public ResponseEntity<List<PostCode>> findAllPostCodes() {
         List<PostCode> allPostCodes = this.postcodeService.findAllPostCodes();
-        fullLogsLogger.info("Responded with all postcodes.");
+        fullLogsLogger.info("findAllPostCodes Controller with all postcodes.");
         return new ResponseEntity<>(allPostCodes, HttpStatus.OK);
     }
 
@@ -47,7 +47,7 @@ public class PostCodeController {
     public ResponseEntity<PostCode> findPostCodesById(@PathVariable Long id) {
         Optional<PostCode> maybePost = this.postcodeService.findById(id);
         PostCode foundPostCode = maybePost.orElseThrow();
-        fullLogsLogger.info("Responded with the found postcode:" + foundPostCode);
+        fullLogsLogger.info("findPostCodesById Controller with the found postcode:" + foundPostCode);
         return new ResponseEntity<>(foundPostCode, HttpStatus.OK);
     }
 

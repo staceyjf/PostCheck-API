@@ -2,15 +2,14 @@ package com.auspost.postcode.PostCode;
 
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 
 import java.util.Set;
-
-import com.auspost.postcode.validation.NumericValidation;
 
 public class CreatePostCodeDTO {
     @NotBlank
     @Size(min = 4, max = 4, message = "Postcodes need to be 4 digits long")
-    @NumericValidation
+    @Pattern(regexp = "[\\d]{4}")
     private String postcode;
 
     private Set<Long> suburbIds;

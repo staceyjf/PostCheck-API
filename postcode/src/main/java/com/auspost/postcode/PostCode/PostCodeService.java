@@ -29,7 +29,7 @@ public class PostCodeService {
 
     // add in subrub service
 
-    public PostCode createdPostCode(@Valid CreatePostCodeDTO data) throws ServiceValidationException {
+    public PostCode createPostCode(@Valid CreatePostCodeDTO data) throws ServiceValidationException {
         PostCode newPostCode = mapper.map(data, PostCode.class);
         // Long colourId = data.getColourId();
         // Optional<Colour> maybeColour = this.colourService.findById(colourId);

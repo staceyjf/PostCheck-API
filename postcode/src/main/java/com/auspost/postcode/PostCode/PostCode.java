@@ -2,6 +2,8 @@ package com.auspost.postcode.PostCode;
 
 import java.util.Set;
 
+import org.hibernate.validator.constraints.UniqueElements;
+
 import com.auspost.postcode.Suburb.Suburb;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -27,9 +29,8 @@ public class PostCode {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // sqlite doesn't support unique constraint
     @NotBlank
-    @Column
+    @Column(unique = true)
     private String postcode;
 
     // postcode is the owner so responsible for updating the join table
