@@ -1,19 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN" monitorInterval="30">
     <Properties>
-        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss } %p %m%n</Property>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} %-5p [%t] %c{1}:%L - %m%n</Property>
+        <Property name="LOG_PATTERN_FILE">%d %p %c{1.} [%t] %m%n</Property>
     </Properties>
 
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT" follow="true">
-            <ThresholdFilter level="INFO"/>
+            <!-- <LevelRangeFilter minLevel="error" maxLevel="error" onMatch="ACCEPT" onMismatch="DENY"/> -->
             <PatternLayout pattern="${LOG_PATTERN}" />
         </Console>
+        <File name="LogFile" fileName="app.log">
+            <PatternLayout pattern="${LOG_PATTERN_FILE}" />
+        </File>
     </Appenders>
 
     <Loggers>
-        <AsyncRoot level="debug">
+        <AsyncRoot level="info">
             <AppenderRef ref="Console"/>
         </AsyncRoot>
+
+        <Logger name="postcode" level="info" additivity="true">
+          <AppenderRef ref="LogFile"/>
+        </Logger>    
     </Loggers>
 </Configuration>
