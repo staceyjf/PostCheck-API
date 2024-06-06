@@ -1,15 +1,21 @@
 package com.auspost.postcode.Suburb;
 
+import java.util.Set;
+
+import com.auspost.postcode.PostCode.PostCode;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "suburbs")
@@ -23,8 +29,48 @@ public class Suburb {
     @Column
     private String name;
 
-    @NotNull
+    @NotBlank
+    @Enumerated(EnumType.STRING)
     @Column
-    private String state;
+    private AustralianState state;
+
+    // a set will ensure we don't have duplicate postcodes associated
+    @ManyToMany(mappedBy = "associatedSuburbs")
+    Set<PostCode> associatedPostcodes;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public AustralianState getState() {
+        return state;
+    }
+
+    public Set<PostCode> getAssociatedPostcodes() {
+        return this.associatedPostcodes;
+    }
+
+    public void setAssociatedPostcodes(Set<PostCode> associatedPostcodes) {
+        this.associatedPostcodes = associatedPostcodes;
+    }
+
+    @Override
+    public String toString() {
+        return String.format(
+                "{id: %d, name: %s, state: %s}",
+                getId(), getName(), getState());
+    }
 
 }
