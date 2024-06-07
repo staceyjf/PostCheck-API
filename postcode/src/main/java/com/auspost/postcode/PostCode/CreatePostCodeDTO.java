@@ -27,7 +27,7 @@ public class CreatePostCodeDTO {
     }
 
     public void setPostcode(String postcode) {
-        this.postcode = postcode;
+        this.postcode = postcode.toUpperCase();
     }
 
 }

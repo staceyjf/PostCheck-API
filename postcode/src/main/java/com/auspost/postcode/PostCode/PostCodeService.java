@@ -58,7 +58,6 @@ public class PostCodeService {
 
         PostCode savedPostCode = this.repo.save(newPostCode);
         fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
-
         return savedPostCode;
     }
 

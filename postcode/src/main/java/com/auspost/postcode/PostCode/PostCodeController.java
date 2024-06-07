@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -49,6 +50,12 @@ public class PostCodeController {
         PostCode foundPostCode = maybePost.orElseThrow();
         fullLogsLogger.info("findPostCodesById Controller with the found postcode:" + foundPostCode);
         return new ResponseEntity<>(foundPostCode, HttpStatus.OK);
+    }
+
+    @PatchMapping("/{id}")
+    public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id, @Valid @RequestBody UpdateTodoDTO data)
+            throws ServiceValidationException {
+        return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
     }
 
     // TODO: find postcode by suburb name
