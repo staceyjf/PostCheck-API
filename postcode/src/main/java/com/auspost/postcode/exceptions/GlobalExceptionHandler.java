@@ -20,9 +20,10 @@ public class GlobalExceptionHandler {
     private static final Logger errorLogger = LogManager.getLogger("error");
 
     // helper method to create a user facing error message and log the error
-    private ResponseEntity<GlobalError> createErrorResponse(HttpStatus status, Exception ex, String message) {
+    private ResponseEntity<GlobalError> createErrorResponse(HttpStatus status, Exception ex, String key,
+            String message) {
         GlobalError error = new GlobalError(status, ex);
-        error.setErrorMessage(message);
+        error.addErrorMessage(key, message);
         fullLogsLogger.error(error.getDebugMessage());
         errorLogger.error(error.getDebugMessage());
         return new ResponseEntity<>(error, error.getStatus());
@@ -32,7 +33,7 @@ public class GlobalExceptionHandler {
     // eg can't find by ID
     @ExceptionHandler({ NoSuchElementException.class })
     public ResponseEntity<GlobalError> handleNotFoundEntity(Exception ex) {
-        return createErrorResponse(HttpStatus.NOT_FOUND, ex,
+        return createErrorResponse(HttpStatus.NOT_FOUND, ex, "Error",
                 "The requested resource could not be found. Please verify ID or parameters.");
     }
 
@@ -40,24 +41,27 @@ public class GlobalExceptionHandler {
     @ExceptionHandler({ HttpMessageNotReadableException.class, MethodArgumentNotValidException.class,
             MissingServletRequestParameterException.class })
     public ResponseEntity<GlobalError> handleBadRequestExceptions(Exception ex) {
-        return createErrorResponse(HttpStatus.BAD_REQUEST, ex,
+        return createErrorResponse(HttpStatus.BAD_REQUEST, ex, "Error",
                 "Invalid request. Please check the request and try again.");
     }
 
     // Handle other errors with a generic message
     @ExceptionHandler(Exception.class)
     public ResponseEntity<GlobalError> handleGenericException(Exception ex) {
-        return createErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex,
+        return createErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR, ex, "Error",
                 "An unexpected error occurred on the server. Please try again later.");
     }
 
     // Handle service level errors caught in the controller
     // already returning a JSON object
     @ExceptionHandler(ServiceValidationException.class)
-    public ResponseEntity<String> handleServiceValidationException(ServiceValidationException ex) {
-        String errorJson = ex.generateMessage();
-        fullLogsLogger.error(errorJson);
-        errorLogger.error(errorJson);
-        return new ResponseEntity<>(errorJson, HttpStatus.BAD_REQUEST);
+    public ResponseEntity<GlobalError> handleServiceValidationException(ServiceValidationException ex) {
+        GlobalError error = new GlobalError(HttpStatus.BAD_REQUEST, ex);
+        error.getErrorMessages().putAll(ex.getErrors());
+        fullLogsLogger.error(error.getDebugMessage());
+        errorLogger.error(error.getDebugMessage());
+        fullLogsLogger.error(error.getErrorMessages());
+        errorLogger.error(error.getErrorMessages());
+        return new ResponseEntity<>(error, error.getStatus());
     }
 }

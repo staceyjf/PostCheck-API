@@ -30,7 +30,7 @@ public class PostCodeController {
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
 
     @PostMapping()
-    public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody CreatePostCodeDTO data)
+    public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody PostCodeDTO data)
             throws ServiceValidationException {
         PostCode createdPostCode = this.postcodeService.createPostCode(data);
         fullLogsLogger.info("createPostCode Controller responded with new PostCode: " + createdPostCode);
@@ -52,11 +52,12 @@ public class PostCodeController {
         return new ResponseEntity<>(foundPostCode, HttpStatus.OK);
     }
 
-    @PatchMapping("/{id}")
-    public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id, @Valid @RequestBody UpdateTodoDTO data)
-            throws ServiceValidationException {
-        return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
-    }
+    // @PatchMapping("/{id}")
+    // public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id,
+    // @Valid @RequestBody UpdateTodoDTO data)
+    // throws ServiceValidationException {
+    // return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
+    // }
 
     // TODO: find postcode by suburb name
 

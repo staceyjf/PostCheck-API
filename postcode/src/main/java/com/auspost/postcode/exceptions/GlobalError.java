@@ -1,6 +1,8 @@
 package com.auspost.postcode.exceptions;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 
@@ -8,14 +10,14 @@ import org.springframework.http.HttpStatus;
 public class GlobalError {
     private HttpStatus status;
     private LocalDateTime timestamp;
-    private String errorMessage;
+    private Map<String, Object> errorMessages;
     private String exceptionClass;
     private String debugMessage;
 
     public GlobalError(HttpStatus status, Throwable ex) {
         this.timestamp = LocalDateTime.now();
         this.status = status;
-        this.errorMessage = "";
+        this.errorMessages = new HashMap<>();
         this.exceptionClass = ex.getClass().getSimpleName();
         this.debugMessage = ex.getLocalizedMessage();
     }
@@ -29,8 +31,8 @@ public class GlobalError {
         return this.timestamp;
     }
 
-    public String getErrorMessage() {
-        return this.errorMessage;
+    public Map<String, Object> getErrorMessages() {
+        return this.errorMessages;
     }
 
     public String getExceptionClass() {
@@ -41,8 +43,8 @@ public class GlobalError {
         return this.debugMessage;
     }
 
-    public void setErrorMessage(String ErrorMessage) {
-        this.errorMessage = ErrorMessage;
+    public void addErrorMessage(String field, Object errorMessage) {
+        this.errorMessages.put(field, errorMessage);
     }
 
 }

@@ -7,7 +7,6 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +22,6 @@ import jakarta.validation.Valid;
 @Transactional
 public class PostCodeService {
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
-    private static final Logger errorLogger = LogManager.getLogger("error");
-
-    @Autowired
-    private ModelMapper mapper;
 
     @Autowired
     private PostCodeRepository repo;
@@ -34,12 +29,27 @@ public class PostCodeService {
     @Autowired
     private SuburbService suburbService;
 
-    public PostCode createPostCode(@Valid CreatePostCodeDTO data) throws ServiceValidationException {
-        PostCode newPostCode = mapper.map(data, PostCode.class);
-        Set<Long> suburbIds = new HashSet<>(data.getSuburbIds()); // not indexed
-
+    public PostCode createPostCode(@Valid PostCodeDTO data) throws ServiceValidationException {
+        PostCode newPostCode = new PostCode();
         ValidationErrors errors = new ValidationErrors();
 
+        String trimmedPostCodeField = data.getPostcode().trim();
+
+        if (trimmedPostCodeField.isEmpty()) {
+            errors.addError("PostCode", "Postcode field needs to have a value.");
+        }
+
+        if (trimmedPostCodeField.length() != 4) {
+            errors.addError("PostCode", "Postcode field must have length of 4 characters.");
+        }
+
+        if (!trimmedPostCodeField.matches("[\\d]{4}")) {
+            errors.addError("PostCode", "Postcode field should only contain numbers.");
+        }
+
+        newPostCode.setPostcode(trimmedPostCodeField);
+
+        Set<Long> suburbIds = new HashSet<>(data.getSuburbIds());
         for (Long id : suburbIds) {
             Optional<Suburb> maybeSuburb = this.suburbService.findById(id);
 
@@ -51,7 +61,7 @@ public class PostCodeService {
             }
         }
 
-        // attempt to add all suburbs before throwing an error
+        // attempt all validation before throwing an error
         if (errors.hasErrors()) {
             throw new ServiceValidationException(errors);
         }
