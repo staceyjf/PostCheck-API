@@ -1,5 +1,6 @@
 package com.auspost.postcode.PostCode;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import org.hibernate.validator.constraints.UniqueElements;
@@ -37,7 +38,7 @@ public class PostCode {
     @JsonManagedReference
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "postcode_suburb", joinColumns = @JoinColumn(name = "postcode_id"), inverseJoinColumns = @JoinColumn(name = "suburb_id"))
-    Set<Suburb> associatedSuburbs;
+    Set<Suburb> associatedSuburbs = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -59,8 +60,8 @@ public class PostCode {
         return associatedSuburbs;
     }
 
-    public void setAssociatedSuburbs(Set<Suburb> associatedSuburbs) {
-        this.associatedSuburbs = associatedSuburbs;
+    public void setAssociatedSuburbs(Suburb associatedSuburb) {
+        this.associatedSuburbs.add(associatedSuburb);
     }
 
     // using the getter to adhere to encapsulation (internal state should only be

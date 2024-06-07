@@ -36,6 +36,7 @@ public class Suburb {
     private AustralianState state;
 
     // a set will ensure we don't have duplicate postcodes associated
+    // set interface so can hold any object that implements Set
     @JsonBackReference
     @ManyToMany(mappedBy = "associatedSuburbs")
     Set<PostCode> associatedPostcodes;
