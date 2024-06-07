@@ -33,14 +33,14 @@ public class PostCodeController {
     public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody PostCodeDTO data)
             throws ServiceValidationException {
         PostCode createdPostCode = this.postcodeService.createPostCode(data);
-        fullLogsLogger.info("createPostCode Controller responded with new PostCode: " + createdPostCode);
+        fullLogsLogger.info("createPostCode responses responded with new PostCode: " + createdPostCode);
         return new ResponseEntity<>(createdPostCode, HttpStatus.CREATED);
     }
 
     @GetMapping()
     public ResponseEntity<List<PostCode>> findAllPostCodes() {
         List<PostCode> allPostCodes = this.postcodeService.findAllPostCodes();
-        fullLogsLogger.info("findAllPostCodes Controller with all postcodes.");
+        fullLogsLogger.info("findAllPostCodes responses with all postcodes.");
         return new ResponseEntity<>(allPostCodes, HttpStatus.OK);
     }
 
@@ -48,16 +48,19 @@ public class PostCodeController {
     public ResponseEntity<PostCode> findPostCodesById(@PathVariable Long id) {
         Optional<PostCode> maybePost = this.postcodeService.findById(id);
         PostCode foundPostCode = maybePost.orElseThrow();
-        fullLogsLogger.info("findPostCodesById Controller with the found postcode:" + foundPostCode);
+        fullLogsLogger.info("findPostCodesById responses with the found postcode:" + foundPostCode);
         return new ResponseEntity<>(foundPostCode, HttpStatus.OK);
     }
 
-    // @PatchMapping("/{id}")
-    // public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id,
-    // @Valid @RequestBody UpdateTodoDTO data)
-    // throws ServiceValidationException {
-    // return new ResponseEntity<>(updatedTodo, HttpStatus.OK);
-    // }
+    @PatchMapping("/{id}")
+    public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id,
+            @Valid @RequestBody PostCodeDTO data)
+            throws ServiceValidationException {
+        Optional<PostCode> maybePostCode = this.postcodeService.updateById(id, data);
+        PostCode updatedPostCode = maybePostCode.orElseThrow();
+        fullLogsLogger.info("updatePostCodeById responses with updated postcode:" + updatedPostCode);
+        return new ResponseEntity<>(updatedPostCode, HttpStatus.OK);
+    }
 
     // TODO: find postcode by suburb name
 

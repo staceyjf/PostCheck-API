@@ -39,32 +39,28 @@ public class PostCodeService {
             errors.addError("PostCode", "Postcode field needs to have a value.");
         }
 
-        if (trimmedPostCodeField.length() != 4) {
-            errors.addError("PostCode", "Postcode field must have length of 4 characters.");
-        }
-
         if (!trimmedPostCodeField.matches("[\\d]{4}")) {
-            errors.addError("PostCode", "Postcode field should only contain numbers.");
+            errors.addError("PostCode", "Postcode field should only contain numbers and be 4 numbers in length.");
         }
 
-        newPostCode.setPostcode(trimmedPostCodeField);
-
-        Set<Long> suburbIds = new HashSet<>(data.getSuburbIds());
-        for (Long id : suburbIds) {
+        Set<Suburb> associatedSuburbs = new HashSet<>();
+        for (Long id : data.getSuburbIds()) {
             Optional<Suburb> maybeSuburb = this.suburbService.findById(id);
 
             if (maybeSuburb.isEmpty()) {
-                errors.addError("Suburb", String.format("Suburb with id %s does not exist",
-                        id));
+                errors.addError("Suburb", String.format("Suburb with id %s does not exist", id));
             } else {
-                newPostCode.setAssociatedSuburbs(maybeSuburb.get());
+                associatedSuburbs.add(maybeSuburb.get());
             }
         }
-
         // attempt all validation before throwing an error
         if (errors.hasErrors()) {
             throw new ServiceValidationException(errors);
         }
+
+        // update with DTO fields after validation
+        newPostCode.setPostcode(trimmedPostCodeField);
+        newPostCode.setAssociatedSuburbs(associatedSuburbs);
 
         PostCode savedPostCode = this.repo.save(newPostCode);
         fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
@@ -82,5 +78,62 @@ public class PostCodeService {
         Optional<PostCode> foundPostCode = this.repo.findById(id);
         fullLogsLogger.info("Located PostCode in db with ID: " + foundPostCode.get().getId());
         return foundPostCode;
+    }
+
+    public Optional<PostCode> updateById(Long id, @Valid PostCodeDTO data) throws ServiceValidationException {
+        Optional<PostCode> maybePostCode = this.findById(id);
+        ValidationErrors errors = new ValidationErrors();
+
+        if (maybePostCode.isEmpty()) {
+            errors.addError("PostCode", String.format("PostCode with id %s does not exist", data.getId()));
+        }
+
+        PostCode foundPostCode = maybePostCode.get();
+
+        String trimmedPostCodeField = data.getPostcode().trim();
+
+        if (trimmedPostCodeField.isEmpty()) {
+            errors.addError("PostCode", "Postcode field needs to have a value.");
+        }
+
+        if (trimmedPostCodeField.length() != 4) {
+            errors.addError("PostCode", "Postcode field must have length of 4 characters.");
+        }
+
+        if (!trimmedPostCodeField.matches("[\\d]{4}")) {
+            errors.addError("PostCode", "Postcode field should only contain numbers.");
+        }
+
+        if (data.getId().equals("")) {
+            errors.addError("Id", "Id needs to have a value");
+        }
+
+        Set<Suburb> associatedSuburbs = new HashSet<>();
+
+        for (Long suburbId : data.getSuburbIds()) {
+            Optional<Suburb> maybeSuburb = this.suburbService.findById(suburbId);
+
+            if (maybeSuburb.isEmpty()) {
+                errors.addError("Suburb", String.format("Suburb with id %s does not exist", suburbId));
+            } else {
+                associatedSuburbs.add(maybeSuburb.get());
+
+            }
+        }
+
+        // attempt all validation before throwing an error
+        if (errors.hasErrors()) {
+            throw new ServiceValidationException(errors);
+        }
+
+        // update with DTO fields after validation
+        foundPostCode.setPostcode(trimmedPostCodeField);
+        foundPostCode.setAssociatedSuburbs(associatedSuburbs);
+
+        PostCode updatedPostCode = this.repo.save(foundPostCode);
+
+        fullLogsLogger.info("Update PostCode in db with ID: " + updatedPostCode.getId());
+        return Optional.of(updatedPostCode);
+
     }
 }

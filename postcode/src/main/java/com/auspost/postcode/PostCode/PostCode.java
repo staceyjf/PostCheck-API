@@ -60,8 +60,8 @@ public class PostCode {
         return associatedSuburbs;
     }
 
-    public void setAssociatedSuburbs(Suburb associatedSuburb) {
-        this.associatedSuburbs.add(associatedSuburb);
+    public void setAssociatedSuburbs(Set<Suburb> suburbs) {
+        this.associatedSuburbs = suburbs;
     }
 
     // using the getter to adhere to encapsulation (internal state should only be
