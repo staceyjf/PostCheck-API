@@ -14,7 +14,7 @@ import jakarta.persistence.GenerationType;
 
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-
+import jakarta.validation.constraints.NotNull;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
@@ -30,7 +30,7 @@ public class Suburb {
     @Column(unique = true)
     private String name;
 
-    @NotBlank
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column
     private AustralianState state;
@@ -58,6 +58,10 @@ public class Suburb {
 
     public AustralianState getState() {
         return state;
+    }
+
+    public void setState(AustralianState state) {
+        this.state = state;
     }
 
     public Set<PostCode> getAssociatedPostcodes() {

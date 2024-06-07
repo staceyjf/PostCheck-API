@@ -10,7 +10,7 @@ public class CreateSuburbDTO {
     private String name;
 
     @NotNull
-    private AustralianState state;
+    private String state;
 
     // TODO do i need to turn my string from the request body into a instance of
     // australian state
@@ -25,7 +25,7 @@ public class CreateSuburbDTO {
         this.name = name;
     }
 
-    public AustralianState getState() {
+    public String getState() {
         return state;
     }
 

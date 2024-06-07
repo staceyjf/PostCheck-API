@@ -29,6 +29,7 @@ public class GlobalExceptionHandler {
     }
 
     // Handle exceptions that return a 400 error (not found error)
+    // eg can't find by ID
     @ExceptionHandler({ NoSuchElementException.class })
     public ResponseEntity<GlobalError> handleNotFoundEntity(Exception ex) {
         return createErrorResponse(HttpStatus.NOT_FOUND, ex,

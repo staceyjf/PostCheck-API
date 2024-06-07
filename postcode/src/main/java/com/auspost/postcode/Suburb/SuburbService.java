@@ -9,6 +9,9 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.auspost.postcode.exceptions.ServiceValidationException;
+import com.auspost.postcode.exceptions.ValidationErrors;
+
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 
@@ -24,19 +27,24 @@ public class SuburbService {
     @Autowired
     private SuburbRepository repo;
 
-    public Suburb createSuburb(@Valid CreateSuburbDTO data) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'createSuburb'");
+    public Suburb createSuburb(@Valid CreateSuburbDTO data) throws ServiceValidationException {
+        Suburb newSuburb = mapper.map(data, Suburb.class);
+        ValidationErrors errors = new ValidationErrors();
+
+        if (errors.hasErrors()) {
+            throw new ServiceValidationException((errors));
+        }
+
+        fullLogsLogger.info("Created new Suburb in db:" + newSuburb);
+
+        return this.repo.save(newSuburb);
     }
 
     public List<Suburb> findAllSuburbs() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAllSuburbs'");
+        return this.repo.findAll();
     }
 
     public Optional<Suburb> findById(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findById'");
+        return this.repo.findById(id);
     }
-
 }

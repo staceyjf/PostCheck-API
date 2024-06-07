@@ -43,7 +43,6 @@ public class PostCodeService {
         // }
 
         if (errors.hasErrors()) {
-            errorLogger.error("Creation of new postcode failed: " + errors);
             throw new ServiceValidationException(errors);
         }
 

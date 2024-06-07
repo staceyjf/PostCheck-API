@@ -6,6 +6,10 @@ import org.modelmapper.spi.MappingContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.auspost.postcode.Suburb.AustralianState;
+import com.auspost.postcode.Suburb.CreateSuburbDTO;
+import com.auspost.postcode.Suburb.Suburb;
+
 @Configuration
 public class ModelMapperConfig {
 
@@ -14,9 +18,10 @@ public class ModelMapperConfig {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setSkipNullEnabled(true);
         mapper.typeMap(String.class, String.class).setConverter(new StringTrimConverter());
-        // mapper.typeMap(CreateColourDTO.class, Colour.class)
-        // .addMappings(m -> m.using(new
-        // LowerCaseConverter()).map(CreateColourDTO::getName, Colour::setName));
+        mapper.typeMap(CreateSuburbDTO.class, Suburb.class)
+                .addMappings(m -> m.using(new UpperCaseConvertor()).map(CreateSuburbDTO::getName, Suburb::setName))
+                .addMappings(
+                        m -> m.using(new UpperCaseEnumConvertor()).map(CreateSuburbDTO::getState, Suburb::setState));
         return mapper;
     }
 
@@ -29,18 +34,29 @@ public class ModelMapperConfig {
             }
             return context.getSource().trim();
         }
-
     }
 
-    // private class LowerCaseConverter implements Converter<String, String> {
+    // ensure that suburb names are recorded consistently
+    private class UpperCaseConvertor implements Converter<String, String> {
+        @Override
+        public String convert(MappingContext<String, String> context) {
+            if (context.getSource() == null) {
+                return null;
+            }
+            return context.getSource().toUpperCase().trim();
+        }
+    }
 
-    // @Override
-    // public String convert(MappingContext<String, String> context) {
-    // if (context.getSource() == null) {
-    // return null;
-    // }
-    // return context.getSource().toLowerCase().trim();
-    // }
-    // }
+    // converts lowercase state inputs to uppercase to avoid JSON parse error
+    private class UpperCaseEnumConvertor implements Converter<String, AustralianState> {
+        @Override
+        public AustralianState convert(MappingContext<String, AustralianState> context) {
+            if (context.getSource() == null) {
+                return null;
+            }
+            // return the ENUM value of the response body state value
+            return AustralianState.valueOf(context.getSource().toUpperCase());
+        }
+    }
 
 }
