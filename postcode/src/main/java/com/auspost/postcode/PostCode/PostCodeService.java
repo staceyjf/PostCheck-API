@@ -34,9 +34,8 @@ public class PostCodeService {
         ValidationErrors errors = new ValidationErrors();
 
         String trimmedPostCodeField = data.getPostcode().trim();
-
-        if (trimmedPostCodeField.isEmpty()) {
-            errors.addError("PostCode", "Postcode field needs to have a value.");
+        if (trimmedPostCodeField.isBlank()) {
+            errors.addError("PostCode", "Postcode field must contain a value.");
         }
 
         if (!trimmedPostCodeField.matches("[\\d]{4}")) {
@@ -58,7 +57,7 @@ public class PostCodeService {
             throw new ServiceValidationException(errors);
         }
 
-        // update with DTO fields after validation
+        // update with DTO data post validation & data cleaning
         newPostCode.setPostcode(trimmedPostCodeField);
         newPostCode.setAssociatedSuburbs(associatedSuburbs);
 

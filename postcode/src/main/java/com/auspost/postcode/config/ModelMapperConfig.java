@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.auspost.postcode.Suburb.AustralianState;
-import com.auspost.postcode.Suburb.CreateSuburbDTO;
+import com.auspost.postcode.Suburb.SuburbDTO;
 import com.auspost.postcode.Suburb.Suburb;
 
 @Configuration
@@ -18,10 +18,10 @@ public class ModelMapperConfig {
         ModelMapper mapper = new ModelMapper();
         mapper.getConfiguration().setSkipNullEnabled(true);
         mapper.typeMap(String.class, String.class).setConverter(new StringTrimConverter());
-        mapper.typeMap(CreateSuburbDTO.class, Suburb.class)
-                .addMappings(m -> m.using(new UpperCaseConvertor()).map(CreateSuburbDTO::getName, Suburb::setName))
+        mapper.typeMap(SuburbDTO.class, Suburb.class)
+                .addMappings(m -> m.using(new UpperCaseConvertor()).map(SuburbDTO::getName, Suburb::setName))
                 .addMappings(
-                        m -> m.using(new UpperCaseEnumConvertor()).map(CreateSuburbDTO::getState, Suburb::setState));
+                        m -> m.using(new UpperCaseEnumConvertor()).map(SuburbDTO::getState, Suburb::setState));
         return mapper;
     }
 
