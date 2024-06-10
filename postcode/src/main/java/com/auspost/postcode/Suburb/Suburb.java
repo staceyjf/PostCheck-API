@@ -33,7 +33,7 @@ public class Suburb {
     @NotNull
     @Enumerated(EnumType.STRING)
     @Column
-    private AustralianState state;
+    private AUSTRALIANSTATE state;
 
     // a set will ensure we don't have duplicate postcodes associated
     // set interface so can hold any object that implements Set
@@ -56,11 +56,11 @@ public class Suburb {
         this.name = name;
     }
 
-    public AustralianState getState() {
+    public AUSTRALIANSTATE getState() {
         return state;
     }
 
-    public void setState(AustralianState state) {
+    public void setState(AUSTRALIANSTATE state) {
         this.state = state;
     }
 

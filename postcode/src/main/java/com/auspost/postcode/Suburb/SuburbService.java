@@ -36,7 +36,7 @@ public class SuburbService {
             errors.addError("Suburb", "Suburb field must contain a value.");
         }
 
-        AustralianState state = AustralianState.from(data.getState());
+        AUSTRALIANSTATE state = AUSTRALIANSTATE.from(data.getState());
 
         // from method returns null if there is no match
         if (state == null) {
@@ -98,10 +98,10 @@ public class SuburbService {
             }
         }
 
-        AustralianState state = null;
+        AUSTRALIANSTATE state = null;
 
         if (data.getState() != null) {
-            state = AustralianState.from(data.getState());
+            state = AUSTRALIANSTATE.from(data.getState());
 
             if (state == null) {
                 errors.addError("State",

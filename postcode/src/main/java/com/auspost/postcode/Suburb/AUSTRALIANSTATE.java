@@ -1,6 +1,6 @@
 package com.auspost.postcode.Suburb;
 
-public enum AustralianState {
+public enum AUSTRALIANSTATE {
     NSW("NEW SOUTH WALES"),
     QLD("QUEENSLAND"),
     SA("SOUTH AUSTRALIA"),
@@ -12,7 +12,7 @@ public enum AustralianState {
 
     private final String fullName;
 
-    AustralianState(String fullName) {
+    AUSTRALIANSTATE(String fullName) {
         this.fullName = fullName;
     }
 
@@ -20,10 +20,10 @@ public enum AustralianState {
         return this.fullName;
     }
 
-    public static AustralianState from(String state) {
+    public static AUSTRALIANSTATE from(String state) {
         // loop through to check if request state matches either the abbreviation or
         // full state name
-        for (AustralianState australianState : AustralianState.values()) {
+        for (AUSTRALIANSTATE australianState : AUSTRALIANSTATE.values()) {
             String upperCaseState = state.toUpperCase(); // to ensure case insensitivity
             if (australianState.name().equals(upperCaseState) || australianState.getFullName().equals(upperCaseState)) {
                 return australianState;
