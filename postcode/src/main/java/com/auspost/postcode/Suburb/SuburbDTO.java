@@ -5,6 +5,8 @@ import java.util.Set;
 import jakarta.validation.constraints.NotNull;
 
 public class SuburbDTO {
+    private Long id; // for update - not needed for create
+
     @NotNull
     private String name;
 
@@ -12,6 +14,14 @@ public class SuburbDTO {
     private String state;
 
     private Set<Long> postcodeIds;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

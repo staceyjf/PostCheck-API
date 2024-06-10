@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.auspost.postcode.PostCode.PostCode;
-import com.auspost.postcode.PostCode.PostCodeDTO;
+import com.auspost.postcode.PostCode.CreatePostCodeDTO;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 
 import jakarta.validation.Valid;

@@ -30,7 +30,7 @@ public class PostCodeController {
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
 
     @PostMapping()
-    public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody PostCodeDTO data)
+    public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody CreatePostCodeDTO data)
             throws ServiceValidationException {
         PostCode createdPostCode = this.postcodeService.createPostCode(data);
         fullLogsLogger.info("createPostCode responses responded with new PostCode: " + createdPostCode);
@@ -54,7 +54,7 @@ public class PostCodeController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<PostCode> updatePostCodeById(@PathVariable Long id,
-            @Valid @RequestBody PostCodeDTO data)
+            @Valid @RequestBody UpdatePostCodeDTO data)
             throws ServiceValidationException {
         Optional<PostCode> maybePostCode = this.postcodeService.updateById(id, data);
         PostCode updatedPostCode = maybePostCode.orElseThrow();

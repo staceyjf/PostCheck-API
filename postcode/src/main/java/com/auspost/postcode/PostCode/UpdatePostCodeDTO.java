@@ -1,17 +1,22 @@
 package com.auspost.postcode.PostCode;
 
-import jakarta.validation.constraints.NotNull;
-
 import java.util.HashSet;
 import java.util.Set;
 
-public class PostCodeDTO {
-    private Long id; // for update - not needed for create
+public class UpdatePostCodeDTO {
+    private Long id;
 
-    @NotNull
     private String postcode;
 
     private Set<Long> suburbIds = new HashSet<>();
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Set<Long> getSuburbIds() {
         return suburbIds;
@@ -29,11 +34,4 @@ public class PostCodeDTO {
         this.postcode = postcode.toUpperCase();
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

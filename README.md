@@ -65,7 +65,11 @@
 
 ## What did you struggle with?
 
--   What? Why? How?
+1. Ownership: Originally was considering dual ownership but subsequently decided on single ownership to reduce complexity
+2. Validation: Reviewing which builtin validation I should use for DTO vs implementing customized validation in the service level. I ultimately decided on streamlining the DTO to check for null values and integrated validation into the service level for better custom validation messages 
+3. Decided on the relationship between postcode and suburb
+    - accounting for edge cases where a suburb has more than one postcode eg Sydney, NSW has 2000 and 2001
+    - 
 
 ---
 

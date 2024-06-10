@@ -29,7 +29,7 @@ public class PostCodeService {
     @Autowired
     private SuburbService suburbService;
 
-    public PostCode createPostCode(@Valid PostCodeDTO data) throws ServiceValidationException {
+    public PostCode createPostCode(@Valid CreatePostCodeDTO data) throws ServiceValidationException {
         PostCode newPostCode = new PostCode();
         ValidationErrors errors = new ValidationErrors();
 
@@ -44,6 +44,8 @@ public class PostCodeService {
 
         Set<Suburb> associatedSuburbs = new HashSet<>();
         for (Long id : data.getSuburbIds()) {
+            fullLogsLogger.info("Processing suburbId: " + id);
+
             Optional<Suburb> maybeSuburb = this.suburbService.findById(id);
 
             if (maybeSuburb.isEmpty()) {
@@ -79,7 +81,7 @@ public class PostCodeService {
         return foundPostCode;
     }
 
-    public Optional<PostCode> updateById(Long id, @Valid PostCodeDTO data) throws ServiceValidationException {
+    public Optional<PostCode> updateById(Long id, @Valid UpdatePostCodeDTO data) throws ServiceValidationException {
         Optional<PostCode> maybePostCode = this.findById(id);
         ValidationErrors errors = new ValidationErrors();
 
@@ -89,34 +91,36 @@ public class PostCodeService {
 
         PostCode foundPostCode = maybePostCode.get();
 
-        String trimmedPostCodeField = data.getPostcode().trim();
+        // check to see if postcode field has been provided
+        String trimmedPostCodeField = data.getPostcode() != null ? data.getPostcode().trim() : null;
 
-        if (trimmedPostCodeField.isEmpty()) {
-            errors.addError("PostCode", "Postcode field needs to have a value.");
-        }
+        if (trimmedPostCodeField != null) {
+            if (trimmedPostCodeField.isEmpty()) {
+                errors.addError("PostCode", "Postcode field needs to have a value.");
+            }
 
-        if (trimmedPostCodeField.length() != 4) {
-            errors.addError("PostCode", "Postcode field must have length of 4 characters.");
-        }
+            if (trimmedPostCodeField.length() != 4) {
+                errors.addError("PostCode", "Postcode field must have length of 4 characters.");
+            }
 
-        if (!trimmedPostCodeField.matches("[\\d]{4}")) {
-            errors.addError("PostCode", "Postcode field should only contain numbers.");
-        }
-
-        if (data.getId().equals("")) {
-            errors.addError("Id", "Id needs to have a value");
+            if (!trimmedPostCodeField.matches("[\\d]{4}")) {
+                errors.addError("PostCode", "Postcode field should only contain numbers.");
+            }
         }
 
         Set<Suburb> associatedSuburbs = new HashSet<>();
 
-        for (Long suburbId : data.getSuburbIds()) {
-            Optional<Suburb> maybeSuburb = this.suburbService.findById(suburbId);
+        if (data.getSuburbIds() != null) {
+            fullLogsLogger.info(data.getSuburbIds());
+            for (Long suburbId : data.getSuburbIds()) {
+                fullLogsLogger.info("Processing suburbId: " + suburbId);
+                Optional<Suburb> maybeSuburb = this.suburbService.findById(suburbId);
 
-            if (maybeSuburb.isEmpty()) {
-                errors.addError("Suburb", String.format("Suburb with id %s does not exist", suburbId));
-            } else {
-                associatedSuburbs.add(maybeSuburb.get());
-
+                if (maybeSuburb.isEmpty()) {
+                    errors.addError("Suburb", String.format("Suburb with id %s does not exist", suburbId));
+                } else {
+                    associatedSuburbs.add(maybeSuburb.get());
+                }
             }
         }
 
@@ -126,13 +130,16 @@ public class PostCodeService {
         }
 
         // update with DTO fields after validation
-        foundPostCode.setPostcode(trimmedPostCodeField);
-        foundPostCode.setAssociatedSuburbs(associatedSuburbs);
+        if (trimmedPostCodeField != null) {
+            foundPostCode.setPostcode(trimmedPostCodeField);
+        }
+        if (!associatedSuburbs.isEmpty()) {
+            foundPostCode.setAssociatedSuburbs(associatedSuburbs);
+        }
 
         PostCode updatedPostCode = this.repo.save(foundPostCode);
 
         fullLogsLogger.info("Update PostCode in db with ID: " + updatedPostCode.getId());
         return Optional.of(updatedPostCode);
-
     }
 }
