@@ -11,7 +11,7 @@ public class CreateSuburbDTO {
     @NotNull
     private String state;
 
-    private Set<Long> postcodeIds;
+    // private Set<Long> postcodeIds;
 
     public String getName() {
         return name;
@@ -25,12 +25,12 @@ public class CreateSuburbDTO {
         return state;
     }
 
-    public Set<Long> getPostcodeIds() {
-        return postcodeIds;
-    }
+    // public Set<Long> getPostcodeIds() {
+    // return postcodeIds;
+    // }
 
-    public void setPostcodeIds(Set<Long> postcodeIds) {
-        this.postcodeIds = postcodeIds;
-    }
+    // public void setPostcodeIds(Set<Long> postcodeIds) {
+    // this.postcodeIds = postcodeIds;
+    // }
 
 }

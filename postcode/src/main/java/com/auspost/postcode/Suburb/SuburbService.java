@@ -44,9 +44,6 @@ public class SuburbService {
                     "A state match could not be found. Please consult the documentation for accepted values for Australian states.");
         }
 
-        // // TODO: investigate if there is a more efficient way then separate calls to
-        // the
-        // // db
         // Set<PostCode> associatedPostCodes = new HashSet<>();
         // for (Long id : data.getPostcodeIds()) {
         // Optional<PostCode> maybePostCode = this.postCodeService.findById(id);

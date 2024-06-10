@@ -9,7 +9,7 @@ public class UpdateSuburbDTO {
 
     private String state;
 
-    private Set<Long> postcodeIds;
+    // private Set<Long> postcodeIds;
 
     public Long getId() {
         return id;
@@ -31,12 +31,12 @@ public class UpdateSuburbDTO {
         return state;
     }
 
-    public Set<Long> getPostcodeIds() {
-        return postcodeIds;
-    }
+    // public Set<Long> getPostcodeIds() {
+    // return postcodeIds;
+    // }
 
-    public void setPostcodeIds(Set<Long> postcodeIds) {
-        this.postcodeIds = postcodeIds;
-    }
+    // public void setPostcodeIds(Set<Long> postcodeIds) {
+    // this.postcodeIds = postcodeIds;
+    // }
 
 }

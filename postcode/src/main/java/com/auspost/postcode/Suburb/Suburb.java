@@ -39,7 +39,7 @@ public class Suburb {
     // set interface so can hold any object that implements Set
     @JsonBackReference
     @ManyToMany(mappedBy = "associatedSuburbs")
-    Set<PostCode> associatedPostcodes;
+    // Set<PostCode> associatedPostcodes;
 
     public Long getId() {
         return id;
@@ -65,13 +65,13 @@ public class Suburb {
         this.state = state;
     }
 
-    public Set<PostCode> getAssociatedPostcodes() {
-        return this.associatedPostcodes;
-    }
+    // public Set<PostCode> getAssociatedPostcodes() {
+    // return this.associatedPostcodes;
+    // }
 
-    public void setAssociatedPostcodes(Set<PostCode> associatedPostcodes) {
-        this.associatedPostcodes = associatedPostcodes;
-    }
+    // public void setAssociatedPostcodes(Set<PostCode> associatedPostcodes) {
+    // this.associatedPostcodes = associatedPostcodes;
+    // }
 
     @Override
     public String toString() {
