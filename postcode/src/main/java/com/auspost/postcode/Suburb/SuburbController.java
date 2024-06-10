@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.auspost.postcode.PostCode.PostCode;
-import com.auspost.postcode.PostCode.CreatePostCodeDTO;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 
 import jakarta.validation.Valid;
@@ -33,7 +31,7 @@ public class SuburbController {
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
 
     @PostMapping()
-    public ResponseEntity<Suburb> createSuburb(@Valid @RequestBody SuburbDTO data)
+    public ResponseEntity<Suburb> createSuburb(@Valid @RequestBody CreateSuburbDTO data)
             throws ServiceValidationException {
         Suburb createdSuburb = this.suburbService.createSuburb(data);
         fullLogsLogger.info("createSuburb Controller responded with new Suburb: " + createdSuburb);
@@ -57,7 +55,7 @@ public class SuburbController {
 
     @PatchMapping("/{id}")
     public ResponseEntity<Suburb> updateSuburbById(@PathVariable Long id,
-            @Valid @RequestBody SuburbDTO data)
+            @Valid @RequestBody UpdateSuburbDTO data)
             throws ServiceValidationException {
         Optional<Suburb> maybeSuburb = this.suburbService.updateById(id, data);
         Suburb updatedSuburb = maybeSuburb.orElseThrow();

@@ -43,6 +43,7 @@ public class PostCodeService {
         }
 
         Set<Suburb> associatedSuburbs = new HashSet<>();
+        fullLogsLogger.info("Suburb ids are" + data.getSuburbIds());
         for (Long id : data.getSuburbIds()) {
             fullLogsLogger.info("Processing suburbId: " + id);
 
@@ -111,7 +112,7 @@ public class PostCodeService {
         Set<Suburb> associatedSuburbs = new HashSet<>();
 
         if (data.getSuburbIds() != null) {
-            fullLogsLogger.info(data.getSuburbIds());
+            fullLogsLogger.info("Suburb ids are" + data.getSuburbIds());
             for (Long suburbId : data.getSuburbIds()) {
                 fullLogsLogger.info("Processing suburbId: " + suburbId);
                 Optional<Suburb> maybeSuburb = this.suburbService.findById(suburbId);

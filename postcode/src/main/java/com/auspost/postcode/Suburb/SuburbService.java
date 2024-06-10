@@ -1,17 +1,13 @@
 package com.auspost.postcode.Suburb;
 
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.auspost.postcode.PostCode.PostCode;
-import com.auspost.postcode.PostCode.PostCodeService;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 import com.auspost.postcode.exceptions.ValidationErrors;
 
@@ -31,7 +27,7 @@ public class SuburbService {
     // postcode is the owner so all associations need to be made via the postCode
     // entity
 
-    public Suburb createSuburb(@Valid SuburbDTO data) throws ServiceValidationException {
+    public Suburb createSuburb(@Valid CreateSuburbDTO data) throws ServiceValidationException {
         Suburb newSuburb = new Suburb();
         ValidationErrors errors = new ValidationErrors();
 
@@ -87,7 +83,7 @@ public class SuburbService {
         return foundSuburb;
     }
 
-    public Optional<Suburb> updateById(Long id, @Valid SuburbDTO data) throws ServiceValidationException {
+    public Optional<Suburb> updateById(Long id, @Valid UpdateSuburbDTO data) throws ServiceValidationException {
         Optional<Suburb> maybeSuburb = this.findById(id);
         ValidationErrors errors = new ValidationErrors();
 
@@ -97,16 +93,23 @@ public class SuburbService {
 
         Suburb foundSuburb = maybeSuburb.get();
 
-        String trimmedNameField = data.getName().toLowerCase().trim();
-        if (trimmedNameField.isBlank()) {
-            errors.addError("Suburb", "Suburb field must contain a value.");
+        String trimmedNameField = data.getName() != null ? data.getName().toLowerCase().trim() : null;
+
+        if (trimmedNameField != null) {
+            if (trimmedNameField.isBlank()) {
+                errors.addError("Suburb", "Suburb field must contain a value.");
+            }
         }
 
-        AustralianState state = AustralianState.from(data.getState());
+        AustralianState state = null;
 
-        if (state == null) {
-            errors.addError("State",
-                    "A state match could not be found. Please consult the documentation for accepted values for Australian states.");
+        if (data.getState() != null) {
+            state = AustralianState.from(data.getState());
+
+            if (state == null) {
+                errors.addError("State",
+                        "A state match could not be found. Please consult the documentation for accepted values for Australian states.");
+            }
         }
 
         // Set<PostCode> associatedPostCodes = new HashSet<>();
@@ -126,8 +129,13 @@ public class SuburbService {
         }
 
         // update with DTO data post validation & data cleaning
-        foundSuburb.setName(trimmedNameField);
-        foundSuburb.setState(state);
+        if (trimmedNameField != null) {
+            foundSuburb.setName(trimmedNameField);
+        }
+
+        if (state != null) {
+            foundSuburb.setState(state);
+        }
         // foundSuburb.setAssociatedPostcodes(associatedPostCodes);
 
         Suburb updatedSuburb = this.repo.save(foundSuburb);
