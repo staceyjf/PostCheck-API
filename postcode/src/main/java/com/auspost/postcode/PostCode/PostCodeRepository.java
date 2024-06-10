@@ -12,5 +12,5 @@ public interface PostCodeRepository extends JpaRepository<PostCode, Long> {
     @Query("SELECT p.associatedSuburbs FROM PostCode p WHERE p.postcode = :postcode")
     List<Suburb> findAssociatedSuburbsByPostcode(@Param("postcode") String postcode);
 
-    List<PostCode> findPostCodesByAssociatedSuburbsName(String suburbName);
+    List<PostCode> findPostCodesByAssociatedSuburbsName(String suburb);
 }

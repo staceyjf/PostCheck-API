@@ -67,11 +67,17 @@ public class PostCodeController {
     @GetMapping("/suburbs")
     public ResponseEntity<List<Suburb>> findSuburbByPostCode(@RequestParam String postcode)
             throws ServiceValidationException {
-        List<Suburb> allAssociatedSuburbs = this.postcodeService.findSuburbByPostCode(postcode);
-        fullLogsLogger.info("allAssociatedSuburbs responses with all suburbs.");
-        return new ResponseEntity<>(allAssociatedSuburbs, HttpStatus.OK);
+        List<Suburb> suburbsByPostCode = this.postcodeService.findSuburbByPostCode(postcode);
+        fullLogsLogger.info("suburbsByPostCode responses with all associated suburbs.");
+        return new ResponseEntity<>(suburbsByPostCode, HttpStatus.OK);
     }
 
-    // TODO: find postcode by suburb name
+    @GetMapping("/postcodes")
+    public ResponseEntity<List<PostCode>> findPostCodesBySuburb(@RequestParam String suburb)
+            throws ServiceValidationException {
+        List<PostCode> postCodesBySuburb = this.postcodeService.findPostCodesBySuburb(suburb);
+        fullLogsLogger.info("postCodesBySuburb responses with all associated postCodes.");
+        return new ResponseEntity<>(postCodesBySuburb, HttpStatus.OK);
+    }
 
 }

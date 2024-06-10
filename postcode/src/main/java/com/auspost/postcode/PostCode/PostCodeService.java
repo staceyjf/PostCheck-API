@@ -149,4 +149,10 @@ public class PostCodeService {
         fullLogsLogger.info("Sourced all associatedSuburbs from the db");
         return associatedSuburbs;
     }
+
+    public List<PostCode> findPostCodesBySuburb(String suburb) {
+        List<PostCode> associatedPostCodes = this.repo.findPostCodesByAssociatedSuburbsName(suburb);
+        fullLogsLogger.info("Sourced all associatedPostCodes from the db");
+        return associatedPostCodes;
+    }
 }
