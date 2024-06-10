@@ -1,7 +1,5 @@
 package com.auspost.postcode.Suburb;
 
-import java.util.Set;
-
 public class UpdateSuburbDTO {
     private Long id;
 

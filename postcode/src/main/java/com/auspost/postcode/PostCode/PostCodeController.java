@@ -12,8 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auspost.postcode.Suburb.Suburb;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 
 import jakarta.validation.Valid;
@@ -60,6 +62,14 @@ public class PostCodeController {
         PostCode updatedPostCode = maybePostCode.orElseThrow();
         fullLogsLogger.info("updatePostCodeById responses with updated postcode:" + updatedPostCode);
         return new ResponseEntity<>(updatedPostCode, HttpStatus.OK);
+    }
+
+    @GetMapping("/suburbs")
+    public ResponseEntity<List<Suburb>> findSuburbByPostCode(@RequestParam String postcode)
+            throws ServiceValidationException {
+        List<Suburb> allAssociatedSuburbs = this.postcodeService.findSuburbByPostCode(postcode);
+        fullLogsLogger.info("allAssociatedSuburbs responses with all suburbs.");
+        return new ResponseEntity<>(allAssociatedSuburbs, HttpStatus.OK);
     }
 
     // TODO: find postcode by suburb name

@@ -1,7 +1,5 @@
 package com.auspost.postcode.Suburb;
 
-import java.util.Set;
-
 import jakarta.validation.constraints.NotNull;
 
 public class CreateSuburbDTO {

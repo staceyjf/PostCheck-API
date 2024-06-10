@@ -33,7 +33,6 @@ public class PostCode {
     private String postcode;
 
     // postcode is the owner so responsible for updating the join table
-    @JsonManagedReference
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "postcode_suburb", joinColumns = @JoinColumn(name = "postcode_id"), inverseJoinColumns = @JoinColumn(name = "suburb_id"))
     Set<Suburb> associatedSuburbs = new HashSet<>();

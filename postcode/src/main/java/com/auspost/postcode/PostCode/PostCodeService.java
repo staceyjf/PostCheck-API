@@ -143,4 +143,10 @@ public class PostCodeService {
         fullLogsLogger.info("Update PostCode in db with ID: " + updatedPostCode.getId());
         return Optional.of(updatedPostCode);
     }
+
+    public List<Suburb> findSuburbByPostCode(String postCode) {
+        List<Suburb> associatedSuburbs = this.repo.findAssociatedSuburbsByPostcode(postCode);
+        fullLogsLogger.info("Sourced all associatedSuburbs from the db");
+        return associatedSuburbs;
+    }
 }
