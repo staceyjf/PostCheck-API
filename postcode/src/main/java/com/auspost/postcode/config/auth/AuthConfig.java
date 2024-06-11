@@ -1,4 +1,4 @@
-package com.auspost.postcode.config;
+package com.auspost.postcode.config.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -14,8 +14,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import com.auspost.postcode.config.auth.SecurityFilter;
-
 @Configuration
 @EnableWebSecurity
 // configures authentication and authorization
@@ -27,13 +25,8 @@ public class AuthConfig {
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
                 .csrf(csrf -> csrf.disable()) // Cross-Site Request Forgery
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // won't
-                                                                                                              // store
-                                                                                                              // any
-                                                                                                              // state
-                                                                                                              // about
-                                                                                                              // client
-                                                                                                              // requests
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                // won't store any state about client requests
                 .authorizeHttpRequests(authorize -> authorize
                         .requestMatchers(HttpMethod.GET, "/api/v1/postcodes/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/postcodes").hasRole("ADMIN")
@@ -41,7 +34,9 @@ public class AuthConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/suburbs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/suburbs").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/suburbs/{id}").hasRole("ADMIN")
-                        .anyRequest().authenticated()) // catch all to ensure unnamed endpoints need auth
+                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/**").hasAnyRole("ADMIN", "USER").anyRequest()
+                        .authenticated()) // catch all to ensure unnamed endpoints need auth
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

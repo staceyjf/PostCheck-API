@@ -35,6 +35,9 @@ public class User implements UserDetails {
     @Column
     private USERROLE role;
 
+    public User() {
+    }
+
     public User(String login, String password, USERROLE role) {
         this.login = login;
         this.password = password;
@@ -53,6 +56,10 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    public USERROLE getRole() {
+        return this.role;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == USERROLE.ADMIN) {
@@ -66,6 +73,8 @@ public class User implements UserDetails {
         return login;
     }
 
+    // methods need to be provided for UserDetail
+    // TODO: look at refining these methods with custom business logic
     @Override
     public boolean isAccountNonExpired() {
         return true;

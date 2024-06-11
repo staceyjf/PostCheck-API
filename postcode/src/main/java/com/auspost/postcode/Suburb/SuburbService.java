@@ -17,15 +17,10 @@ import jakarta.validation.Valid;
 @Service
 @Transactional
 public class SuburbService {
-    private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
-
     @Autowired
     private SuburbRepository repo;
 
-    // @Autowired
-    // private PostCodeService postCodeService;
-    // postcode is the owner so all associations need to be made via the postCode
-    // entity
+    private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
 
     public Suburb createSuburb(@Valid CreateSuburbDTO data) throws ServiceValidationException {
         Suburb newSuburb = new Suburb();
@@ -43,18 +38,6 @@ public class SuburbService {
             errors.addError("State",
                     "A state match could not be found. Please consult the documentation for accepted values for Australian states.");
         }
-
-        // Set<PostCode> associatedPostCodes = new HashSet<>();
-        // for (Long id : data.getPostcodeIds()) {
-        // Optional<PostCode> maybePostCode = this.postCodeService.findById(id);
-
-        // if (maybePostCode.isEmpty()) {
-        // errors.addError("PostCode", String.format("PostCode with id %s does not
-        // exist", id));
-        // } else {
-        // associatedPostCodes.add(maybePostCode.get());
-        // }
-        // }
 
         if (errors.hasErrors()) {
             throw new ServiceValidationException((errors));
@@ -109,18 +92,6 @@ public class SuburbService {
             }
         }
 
-        // Set<PostCode> associatedPostCodes = new HashSet<>();
-        // for (Long postCodeId : data.getPostcodeIds()) {
-        // Optional<PostCode> maybePostCode = this.postCodeService.findById(postCodeId);
-
-        // if (maybePostCode.isEmpty()) {
-        // errors.addError("PostCode", String.format("PostCode with id %s does not
-        // exist", postCodeId));
-        // } else {
-        // associatedPostCodes.add(maybePostCode.get());
-        // }
-        // }
-
         if (errors.hasErrors()) {
             throw new ServiceValidationException((errors));
         }
@@ -133,7 +104,6 @@ public class SuburbService {
         if (state != null) {
             foundSuburb.setState(state);
         }
-        // foundSuburb.setAssociatedPostcodes(associatedPostCodes);
 
         Suburb updatedSuburb = this.repo.save(foundSuburb);
         fullLogsLogger.info("Created new Suburb in db:" + foundSuburb);
