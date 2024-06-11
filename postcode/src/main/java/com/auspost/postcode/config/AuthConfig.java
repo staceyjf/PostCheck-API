@@ -18,29 +18,42 @@ import com.auspost.postcode.config.auth.SecurityFilter;
 
 @Configuration
 @EnableWebSecurity
+// configures authentication and authorization
 public class AuthConfig {
     @Autowired
-    SecurityFilter securityFilter;
+    SecurityFilter securityFilter; // custom filer to extra and validate token
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity
-                .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .csrf(csrf -> csrf.disable()) // Cross-Site Request Forgery
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) // won't
+                                                                                                              // store
+                                                                                                              // any
+                                                                                                              // state
+                                                                                                              // about
+                                                                                                              // client
+                                                                                                              // requests
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.POST, "/api/v1/auth/*").permitAll()
-                        .requestMatchers(HttpMethod.POST, "/api/v1/books").hasRole("ADMIN")
-                        .anyRequest().authenticated())
+                        .requestMatchers(HttpMethod.GET, "/api/v1/postcodes/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/postcodes").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/api/v1/postcodes/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/api/v1/suburbs/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api/v1/suburbs").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.PATCH, "/api/v1/suburbs/{id}").hasRole("ADMIN")
+                        .anyRequest().authenticated()) // catch all to ensure unnamed endpoints need auth
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }
 
+    // interface that is used to auth user's credentials
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration)
             throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
+    // interface for encoding passwords using BCrypt strong hashing function
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();

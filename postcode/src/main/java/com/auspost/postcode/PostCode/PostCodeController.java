@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/postcodes")
+@RequestMapping("/api/v1/postcodes")
 public class PostCodeController {
     @Autowired
     private PostCodeService postcodeService;

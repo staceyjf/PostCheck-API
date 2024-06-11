@@ -20,10 +20,8 @@ import com.auspost.postcode.exceptions.ServiceValidationException;
 
 import jakarta.validation.Valid;
 
-//TODO look at what errors i need to handle for not unique and also for not ENUM state values
-
 @RestController
-@RequestMapping("/suburbs")
+@RequestMapping("/api/v1/suburbs")
 public class SuburbController {
     @Autowired
     private SuburbService suburbService;
@@ -62,7 +60,4 @@ public class SuburbController {
         fullLogsLogger.info("updateSuburbById responses with updated suburb:" + updatedSuburb);
         return new ResponseEntity<>(updatedSuburb, HttpStatus.OK);
     }
-
-    // TODO: find suburb by Suburb
-
 }
