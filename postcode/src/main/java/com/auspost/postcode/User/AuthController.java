@@ -52,8 +52,11 @@ public class AuthController {
             throws ServiceValidationException {
         Authentication usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.password());
         Authentication authUser = authManager.authenticate(usernamePassword);
+        fullLogsLogger.info("this is authUser " + authUser);
         String accessToken = tokenService.generateAccessToken((User) authUser.getPrincipal());
+        fullLogsLogger.info("this is accessToken " + accessToken);
         JwtDTO JwtToken = new JwtDTO(accessToken); // wrap the token in a JWTDTO
+        fullLogsLogger.info("this is JWToekn " + JwtToken);
         fullLogsLogger.info("JWT token provided in sign ui controller");
         return new ResponseEntity<>(JwtToken, HttpStatus.OK);
     }

@@ -56,6 +56,10 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    public String getLogin() {
+        return this.login;
+    }
+
     public USERROLE getRole() {
         return this.role;
     }

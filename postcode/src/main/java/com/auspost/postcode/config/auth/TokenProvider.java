@@ -20,6 +20,15 @@ public class TokenProvider {
     private String JWT_SECRET; // inject in env secret
 
     public String generateAccessToken(User user) {
+        if (JWT_SECRET == null) {
+            throw new IllegalArgumentException("JWT_SECRET is null");
+        }
+        if (user == null) {
+            throw new IllegalArgumentException("User is null");
+        }
+        if (user.getUsername() == null) {
+            throw new IllegalArgumentException("Username is null");
+        }
         try {
             Algorithm algorithm = Algorithm.HMAC256(JWT_SECRET); // uses Hash-based Message Auth Code
             return JWT.create()
