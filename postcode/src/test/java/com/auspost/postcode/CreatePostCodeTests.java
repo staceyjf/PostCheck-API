@@ -117,21 +117,23 @@ public class CreatePostCodeTests {
                 authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
                 Authentication authUser = new UsernamePasswordAuthenticationToken(user, null, authorities);
-                // when(authManager.authenticate(any())).thenReturn(authUser); // return mocked
+                when(authManager.authenticate(any())).thenReturn(authUser); // return mocked
                 // up ADMIN user
-                // String fakeToken = "fakeToken";
-                // when(tokenService.generateAccessToken(any(User.class))).thenReturn(fakeToken);
-                // // return fake token
+                String fakeToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3MTgyMTg1MzR9.qjeNim4qQkwzPAUG_3yJm0cLbOQFNA2MEOEQUWaMJHk";
+                when(tokenService.generateAccessToken(any(User.class))).thenReturn(fakeToken);
+                // return fake token
 
                 System.out.println("this is authUser: " + authUser);
-                System.out.println("this is authUser principal: " + authUser.getPrincipal());
-                System.out.println("this is authUser princpla casted to user: " + (User) authUser.getPrincipal());
-                String mockJwtToken = tokenService.generateAccessToken((User) authUser.getPrincipal());
+                // System.out.println("this is authUser principal: " + authUser.getPrincipal());
+                // System.out.println("this is authUser princpla casted to user: " + (User)
+                // authUser.getPrincipal());
+                // String mockJwtToken = tokenService.generateAccessToken((User)
+                // authUser.getPrincipal());
 
-                System.out.println("this is the token printout: " + mockJwtToken);
+                System.out.println("this is the token printout: " + fakeToken);
 
                 ResultActions response = mockMVC.perform(post("/api/v1/postcodes")
-                                .header("Authorization", "Bearer " + mockJwtToken)
+                                .header("Authorization", "Bearer " + fakeToken)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(createPostCodeDTO)));
 
