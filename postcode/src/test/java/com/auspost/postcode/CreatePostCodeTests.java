@@ -14,6 +14,7 @@ import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -48,7 +49,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.mockito.BDDMockito.given;
 
 // intergration tests for the create post code functionality in the PostCodeController (requires the service layer as a bean)
-@WebMvcTest(PostCodeController.class)
+@SpringBootTest
 @TestPropertySource(locations = "classpath:application-test.properties")
 @ActiveProfiles("test") // ensures the JWT token variable is loaded from the test-properties
 @AutoConfigureMockMvc
@@ -97,6 +98,7 @@ public class CreatePostCodeTests {
         // .andExpect(MockMvcResultMatchers.jsonPath("$.postcode").value("2222"))
         // .andExpect(MockMvcResultMatchers.jsonPath("$.associatedSuburbs").isEmpty());
         // }
+
         @Test
         void shouldCreateAndReturnPostCode() throws Exception {
                 given(postCodeService.createPostCode(ArgumentMatchers.any()))
@@ -115,20 +117,21 @@ public class CreatePostCodeTests {
                 authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
 
                 Authentication authUser = new UsernamePasswordAuthenticationToken(user, null, authorities);
-                when(authManager.authenticate(any())).thenReturn(authUser); // return mocked up ADMIN user
-                when(tokenService.generateAccessToken(any(User.class))).thenReturn("fakeToken"); // return fake token
+                // when(authManager.authenticate(any())).thenReturn(authUser); // return mocked
+                // up ADMIN user
+                // String fakeToken = "fakeToken";
+                // when(tokenService.generateAccessToken(any(User.class))).thenReturn(fakeToken);
+                // // return fake token
 
-                // System.out.println("this is authUser: " + authUser);
-                // System.out.println("this is authUser principal: " + authUser.getPrincipal());
-                // System.out.println("this is authUser princpla casted to user: " + (User)
-                // authUser.getPrincipal());
-                // String mockJwtToken = tokenService.generateAccessToken((User)
-                // authUser.getPrincipal());
+                System.out.println("this is authUser: " + authUser);
+                System.out.println("this is authUser principal: " + authUser.getPrincipal());
+                System.out.println("this is authUser princpla casted to user: " + (User) authUser.getPrincipal());
+                String mockJwtToken = tokenService.generateAccessToken((User) authUser.getPrincipal());
 
-                // System.out.println("this is the token printout: " + mockJwtToken);
+                System.out.println("this is the token printout: " + mockJwtToken);
 
                 ResultActions response = mockMVC.perform(post("/api/v1/postcodes")
-                                .header("Authorization", "Bearer fakeToken")
+                                .header("Authorization", "Bearer " + mockJwtToken)
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content(objectMapper.writeValueAsString(createPostCodeDTO)));
 

@@ -31,7 +31,7 @@ public class PostCodeController {
 
     private static final Logger fullLogsLogger = LogManager.getLogger("fullLogs");
 
-    @PostMapping()
+    @PostMapping
     public ResponseEntity<PostCode> createPostCode(@Valid @RequestBody CreatePostCodeDTO data)
             throws ServiceValidationException {
         PostCode createdPostCode = this.postcodeService.createPostCode(data);
@@ -39,7 +39,7 @@ public class PostCodeController {
         return new ResponseEntity<>(createdPostCode, HttpStatus.CREATED);
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<List<PostCode>> findAllPostCodes() {
         List<PostCode> allPostCodes = this.postcodeService.findAllPostCodes();
         fullLogsLogger.info("findAllPostCodes responses with all postcodes.");

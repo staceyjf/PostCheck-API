@@ -15,6 +15,7 @@ import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
@@ -30,10 +31,10 @@ import com.auspost.postcode.PostCode.PostCodeService;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebMvcTest(PostCodeController.class)
+@SpringBootTest
+@AutoConfigureMockMvc()
 @TestPropertySource(locations = "classpath:application-test.properties")
 @ActiveProfiles("test")
-@AutoConfigureMockMvc
 public class ReadPostCodeTests {
     @Autowired
     private MockMvc mockMVC;
@@ -60,6 +61,8 @@ public class ReadPostCodeTests {
         postCodes.add(postcode); // add the mocked postcode to a list
         given(postCodeService.findAllPostCodes()).willReturn(postCodes); // mock the function to return our mocked
                                                                          // result
+
+        System.out.println(postCodes);
 
         ResultActions response = mockMVC.perform(get("/api/v1/postcodes")
                 .contentType(MediaType.APPLICATION_JSON));

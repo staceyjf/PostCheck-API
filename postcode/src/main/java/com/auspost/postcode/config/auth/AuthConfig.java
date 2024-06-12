@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 // configures authentication and authorization
 public class AuthConfig {
     @Autowired
-    SecurityFilter securityFilter; // custom filer to extra and validate token
+    SecurityFilter securityFilter; // custom filter to extra and validate token
 
     @Bean
     SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
