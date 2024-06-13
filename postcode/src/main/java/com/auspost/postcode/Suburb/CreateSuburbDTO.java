@@ -9,8 +9,6 @@ public class CreateSuburbDTO {
     @NotNull
     private String state;
 
-    // private Set<Long> postcodeIds;
-
     public String getName() {
         return name;
     }
@@ -19,16 +17,12 @@ public class CreateSuburbDTO {
         this.name = name;
     }
 
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getState() {
         return state;
     }
-
-    // public Set<Long> getPostcodeIds() {
-    // return postcodeIds;
-    // }
-
-    // public void setPostcodeIds(Set<Long> postcodeIds) {
-    // this.postcodeIds = postcodeIds;
-    // }
 
 }

@@ -1,10 +1,5 @@
 package com.auspost.postcode.Suburb;
 
-import java.util.Set;
-
-import com.auspost.postcode.PostCode.PostCode;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.auspost.postcode.Suburb.Suburb;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

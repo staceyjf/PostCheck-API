@@ -29,12 +29,8 @@ public class UpdateSuburbDTO {
         return state;
     }
 
-    // public Set<Long> getPostcodeIds() {
-    // return postcodeIds;
-    // }
-
-    // public void setPostcodeIds(Set<Long> postcodeIds) {
-    // this.postcodeIds = postcodeIds;
-    // }
+    public void setState(String state) {
+        this.state = state;
+    }
 
 }
