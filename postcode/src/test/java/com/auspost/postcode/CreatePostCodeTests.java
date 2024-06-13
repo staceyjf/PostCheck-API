@@ -1,29 +1,22 @@
 package com.auspost.postcode;
 
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.ArgumentMatcher;
 import org.mockito.ArgumentMatchers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.test.context.support.WithMockUser;
-import org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.servlet.MockMvc;
@@ -32,16 +25,15 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import com.auspost.postcode.PostCode.CreatePostCodeDTO;
 import com.auspost.postcode.PostCode.PostCode;
-import com.auspost.postcode.PostCode.PostCodeController;
+import com.auspost.postcode.PostCode.PostCodeRepository;
 import com.auspost.postcode.PostCode.PostCodeService;
-import com.auspost.postcode.User.SignInDTO;
 import com.auspost.postcode.User.USERROLE;
 import com.auspost.postcode.User.User;
+import com.auspost.postcode.User.UserRepository;
 import com.auspost.postcode.config.auth.TokenProvider;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.*;
@@ -61,14 +53,21 @@ public class CreatePostCodeTests {
         private PostCodeService postCodeService;
 
         @MockBean
+        private UserRepository repo;
+
+        @MockBean
         private TokenProvider tokenService;
 
         @MockBean
         private AuthenticationManager authManager;
 
+        private ObjectMapper objectMapper = new ObjectMapper();
+
         private PostCode postcode;
 
-        private ObjectMapper objectMapper = new ObjectMapper();
+        private User user;
+
+        private String token;
 
         // errors will bubble up in the test runner
         @BeforeEach
@@ -80,62 +79,47 @@ public class CreatePostCodeTests {
                 when(this.postCodeService.createPostCode(any(CreatePostCodeDTO.class))).thenReturn(postcode);
         }
 
-        // @Test
-        // @WithMockUser(roles = { "ADMIN", "USER" })
-        // void shouldCreateAndReturnPostCode() throws Exception {
-        // String mockJsonRes = "{\"postcode\":\"2222\"}";
-
-        // // Mock a JWT token for testing
-        // String jwtToken = "Bearer tester-token";
-
-        // mockMVC.perform(post("/api/v1/postcodes")
-        // .header("Authorization", jwtToken) // include the mocked token in the request
-        // .contentType(MediaType.APPLICATION_JSON)
-        // .content(mockJsonRes))
-        // .andDo(print())
-        // .andExpect(status().isCreated())
-        // .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists())
-        // .andExpect(MockMvcResultMatchers.jsonPath("$.postcode").value("2222"))
-        // .andExpect(MockMvcResultMatchers.jsonPath("$.associatedSuburbs").isEmpty());
-        // }
-
-        @Test
-        void shouldCreateAndReturnPostCode() throws Exception {
-                given(postCodeService.createPostCode(ArgumentMatchers.any()))
-                                .willAnswer(invocation -> invocation.getArgument(0));
-
-                CreatePostCodeDTO createPostCodeDTO = new CreatePostCodeDTO();
-                createPostCodeDTO.setPostcode("2222");
-
+        @BeforeEach
+        public void setupUser() throws ServiceValidationException {
                 // predefined authentication object eg mocked ADMIN user
-                User user = new User();
+                user = new User();
                 user.setLogin("admin");
                 user.setPassword("admin");
                 user.setRole(USERROLE.ADMIN);
 
-                List<GrantedAuthority> authorities = new ArrayList<>();
-                authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+                when(this.repo.save(any(User.class))).thenReturn(user); // by pass saving to the db when save is called
+                                                                        // with a user object
 
-                Authentication authUser = new UsernamePasswordAuthenticationToken(user, null, authorities);
-                when(authManager.authenticate(any())).thenReturn(authUser); // return mocked
-                // up ADMIN user
-                String fakeToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3MTgyMTg1MzR9.qjeNim4qQkwzPAUG_3yJm0cLbOQFNA2MEOEQUWaMJHk";
-                when(tokenService.generateAccessToken(any(User.class))).thenReturn(fakeToken);
-                // return fake token
+                // authentication our mocked user
+                Authentication usernamePassword = new UsernamePasswordAuthenticationToken(user.getLogin(),
+                                user.getPassword());
+                Authentication authUser = mock(Authentication.class);
+                when(authUser.getPrincipal()).thenReturn(user);
+                when(authManager.authenticate(usernamePassword)).thenReturn(authUser);
 
-                System.out.println("this is authUser: " + authUser);
-                // System.out.println("this is authUser principal: " + authUser.getPrincipal());
-                // System.out.println("this is authUser princpla casted to user: " + (User)
-                // authUser.getPrincipal());
-                // String mockJwtToken = tokenService.generateAccessToken((User)
-                // authUser.getPrincipal());
+                SecurityContextHolder.getContext().setAuthentication(authUser);
 
-                System.out.println("this is the token printout: " + fakeToken);
+                // mock up a token
+                token = mockTokenValidation.createToken(user);
+                System.out.println(token);
+
+                when(tokenService.generateAccessToken(any(User.class))).thenReturn("token");
+
+                when(tokenService.validateToken(anyString())).thenReturn("admin"); // return the subject which is our
+                                                                                   // return name
+        }
+
+        @Test
+        void shouldCreateAndReturnPostCode() throws Exception {
+
+                // mock my service's createPostCode
+                given(postCodeService.createPostCode(ArgumentMatchers.any()))
+                                .willAnswer(invocation -> invocation.getArgument(0));
 
                 ResultActions response = mockMVC.perform(post("/api/v1/postcodes")
-                                .header("Authorization", "Bearer " + fakeToken)
+                                .header("Authorization", "Bearer " + token)
                                 .contentType(MediaType.APPLICATION_JSON)
-                                .content(objectMapper.writeValueAsString(createPostCodeDTO)));
+                                .content(objectMapper.writeValueAsString(postcode)));
 
                 response.andDo(print())
                                 .andExpect(status().isCreated())
