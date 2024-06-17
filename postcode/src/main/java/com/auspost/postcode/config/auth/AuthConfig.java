@@ -14,6 +14,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import jakarta.servlet.DispatcherType;
+
 @Configuration
 @EnableWebSecurity
 // configures authentication and authorization
@@ -28,6 +30,7 @@ public class AuthConfig {
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 // won't store any state about client requests
                 .authorizeHttpRequests(authorize -> authorize
+                        .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/postcodes/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/postcodes").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/postcodes/{id}").hasRole("ADMIN")
@@ -35,8 +38,9 @@ public class AuthConfig {
                         .requestMatchers(HttpMethod.POST, "/api/v1/suburbs").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/suburbs/{id}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/api/v1/auth/**").permitAll()
-                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/**").hasAnyRole("ADMIN", "USER").anyRequest()
-                        .authenticated()) // catch all to ensure unnamed endpoints need auth
+                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/{id}").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api/v1/auth/**").hasAnyRole("ADMIN", "USER")
+                        .anyRequest().authenticated()) // catch all to ensure unnamed endpoints need auth
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                 .build();
     }

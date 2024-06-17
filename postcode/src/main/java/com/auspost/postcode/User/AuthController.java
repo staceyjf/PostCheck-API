@@ -1,6 +1,7 @@
 package com.auspost.postcode.User;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,11 +13,13 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.auspost.postcode.PostCode.PostCode;
 import com.auspost.postcode.config.auth.TokenProvider;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 
@@ -66,6 +69,15 @@ public class AuthController {
         List<User> allUsers = this.authService.findAllUsers();
         fullLogsLogger.info("findAllUsers Controller responded with all Users");
         return new ResponseEntity<>(allUsers, HttpStatus.OK);
+    }
+
+
+    @GetMapping("/{id}")
+    public ResponseEntity<User> findUserById(@PathVariable Long id) {
+        Optional<User> maybeUser = this.authService.findById(id);
+        User foundUser = maybeUser.orElseThrow();
+        fullLogsLogger.info("findUserById responses with the found postcode:" + foundUser);
+        return new ResponseEntity<>(foundUser, HttpStatus.OK);
     }
 
 }

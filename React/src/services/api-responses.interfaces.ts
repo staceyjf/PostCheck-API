@@ -10,7 +10,7 @@ export interface SuburbResponse {
   state: string;
 }
 
-export interface User {
+export interface UserResponse {
   username: string;
   password: string;
   role?: string;

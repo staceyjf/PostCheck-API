@@ -1,11 +1,11 @@
 import { useState } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { User } from "../../services/api-responses.interfaces";
+import { UserResponse } from "../../services/api-responses.interfaces";
 import { Box, Skeleton, Backdrop, Snackbar } from "@mui/material";
 import Alert from "@mui/material/Alert";
 
 const LoginContainer = () => {
-  const [user, setUser] = useState<User | null>(null);
+  const [user, setUser] = useState<UserResponse | null>(null);
   const [error, setError] = useState<Error | null>(null);
 
   return (

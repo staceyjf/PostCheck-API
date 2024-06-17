@@ -1,6 +1,7 @@
 package com.auspost.postcode.User;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.auspost.postcode.PostCode.PostCode;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 import com.auspost.postcode.exceptions.ValidationErrors;
 
@@ -53,5 +55,11 @@ public class AuthService implements UserDetailsService {
 
     public List<User> findAllUsers() {
         return this.repo.findAll();
+    }
+
+      public Optional<User> findById(Long id) {
+        Optional<User> foundUser = this.repo.findById(id);
+        fullLogsLogger.info("Located User in db with ID: " + foundUser.get().getId());
+        return foundUser;
     }
 }

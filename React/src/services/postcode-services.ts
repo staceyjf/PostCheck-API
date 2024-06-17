@@ -1,8 +1,8 @@
 import { baseUrl } from "./api-config";
-import { PostCodeResponse, SuburbResponse } from "./api-responses.interfaces";
+import { PostCodeResponse } from "./api-responses.interfaces";
 
 export const getAllPostCodes = async (): Promise<PostCodeResponse[]> => {
-  const response: Response = await fetch(baseUrl);
+  const response: Response = await fetch(baseUrl + "/postcodes");
   if (!response.ok) {
     console.warn(response.status);
     throw new Error("Failed to fetch all PostCodes. Please try again later");
@@ -15,7 +15,7 @@ export const findPostCodesBySuburb = async (
   queryTerm: string
 ): Promise<PostCodeResponse[]> => {
   const response: Response = await fetch(
-    `${baseUrl}/postcodes?suburb=${queryTerm}`
+    `${baseUrl}/postcodes/postcodes?suburb=${queryTerm}`
   );
 
   if (!response.ok) {
@@ -32,7 +32,7 @@ export const findSuburbsByPostCode = async (
   queryTerm: string
 ): Promise<PostCodeResponse[]> => {
   const response: Response = await fetch(
-    `${baseUrl}/suburbs?postcode=${queryTerm}`
+    `${baseUrl}/postcodes/suburbs?postcode=${queryTerm}`
   );
 
   if (!response.ok) {

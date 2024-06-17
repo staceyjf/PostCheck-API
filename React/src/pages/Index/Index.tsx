@@ -19,7 +19,7 @@ import {
   getAllPostCodes,
   findPostCodesBySuburb,
   findSuburbsByPostCode,
-} from "../../services/services";
+} from "../../services/postcode-services";
 import ListItm from "../../components/ListItm/ListItm";
 import Searchbar from "../../components/Searchbar/Searchbar";
 

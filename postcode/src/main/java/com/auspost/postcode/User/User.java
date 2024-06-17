@@ -64,6 +64,10 @@ public class User implements UserDetails {
         return this.role;
     }
 
+     public Long getId() {
+        return this.id;
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         if (this.role == USERROLE.ADMIN) {
