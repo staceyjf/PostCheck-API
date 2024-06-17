@@ -1,0 +1,49 @@
+.searchbar {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+
+  form {
+    width: 100%;
+    display: flex;
+  }
+
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  input {
+    flex-grow: 1;
+    border: 2px solid #edeae6;
+    border-right: none;
+    padding: 0.5em;
+    height: 52px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #382f2d;
+    background-color: #faf8f5;
+
+    &:focus {
+      border: 2px solid #dc1928;
+      color: black;
+    }
+  }
+
+  button {
+    width: 130px;
+    height: 52px;
+    border: 1px solid #dc1928;
+    background: #dc1928;
+    text-align: center;
+    color: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 20px;
+  }
+}

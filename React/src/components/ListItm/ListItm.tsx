@@ -1,16 +1,9 @@
 import {
-  Card,
   Box,
-  CardActions,
-  CardContent,
-  Typography,
   IconButton,
   useTheme,
-  Divider,
-  Switch,
   ListItem,
   ListItemText,
-  capitalize,
 } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 
@@ -77,7 +70,6 @@ ListItmProps) => {
         </>
       </Box>
     </ListItem>
-    // <Divider variant="inset" component="li" />
   );
 };
 

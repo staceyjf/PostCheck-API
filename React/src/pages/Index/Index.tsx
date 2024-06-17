@@ -15,10 +15,12 @@ import {
 } from "../../services/api-responses.interfaces";
 import { getAllPostCodes } from "../../services/services";
 import ListItm from "../../components/ListItm/ListItm";
+import Searchbar from "../../components/Searchbar/Searchbar";
 import React from "react";
 
 const Index = () => {
   const [postcodes, setPostcodes] = useState<PostCodeResponse[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string | null>(null);
   const [error, setError] = useState<Error | null>(null);
   const [fetchStatus, setFetchStatus] = useState<string>("LOADING");
   const [openModal, setOpenModal] = useState(false);
@@ -29,6 +31,12 @@ const Index = () => {
   useEffect(() => {
     fetchAllpostcodes();
   }, []);
+
+  // search term
+  useEffect(() => {
+    //api call
+    console.log("hello");
+  }, [searchTerm]);
 
   const fetchAllpostcodes = async () => {
     try {
@@ -45,7 +53,7 @@ const Index = () => {
   console.log(postcodes);
 
   return (
-    <section style={{ width: "85%" }}>
+    <section style={{ width: "100%" }}>
       {fetchStatus === "LOADING" && (
         <>
           <Box
@@ -82,10 +90,15 @@ const Index = () => {
         </Backdrop>
       )}
       {fetchStatus === "SUCCESS" && (
-        <>
+        <Box display="flex" flexDirection="column">
           <h1 style={{ margin: "0", fontSize: "2em" }}>Find a postcode</h1>
           <h4>Your search for "" returned "" result(s).</h4>
           <h4>Please select an item from the list below to view details.</h4>
+
+          <Searchbar
+            setSearchTerm={setSearchTerm}
+            placeholder="Enter suburb, town, city or postcode"
+          />
 
           <List>
             {postcodes.map((postcode: PostCodeResponse) =>
@@ -107,7 +120,7 @@ const Index = () => {
               )
             )}
           </List>
-        </>
+        </Box>
       )}
       {/* {openModal && (
         <DeleteConfirmationModel

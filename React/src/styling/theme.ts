@@ -25,18 +25,7 @@ let theme = createTheme({
   },
   typography: {
     fontSize: 12,
-    fontFamily: [
-      "Inter",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      '"Segoe UI"',
-      '"Helvetica Neue"',
-      "Arial",
-      "sans-serif",
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
-    ].join(","),
+    fontFamily: ["Helvetica", "Arial", "sans-serif"].join(","),
   },
   components: {
     MuiFormLabel: {
