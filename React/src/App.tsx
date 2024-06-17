@@ -20,12 +20,13 @@ function App() {
           sx={{
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
+            alignItems: "flex-start",
+            paddingTop: "5em",
             background: theme.palette.secondary.main,
           }}
         >
           <Container
-            maxWidth="sm"
+            maxWidth="md"
             sx={{
               display: "flex",
               flexDirection: "column",

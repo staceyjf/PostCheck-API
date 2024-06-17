@@ -18,8 +18,6 @@ export const findPostCodesBySuburb = async (
     `${baseUrl}/postcodes?suburb=${queryTerm}`
   );
 
-  console.log(`${baseUrl}/postcodes?suburb=${queryTerm}`);
-
   if (!response.ok) {
     console.warn(response.status);
     throw new Error(
@@ -36,8 +34,6 @@ export const findSuburbsByPostCode = async (
   const response: Response = await fetch(
     `${baseUrl}/suburbs?postcode=${queryTerm}`
   );
-
-  console.log(`${baseUrl}/suburbs?postcode=${queryTerm}`);
 
   if (!response.ok) {
     console.warn(response.status);

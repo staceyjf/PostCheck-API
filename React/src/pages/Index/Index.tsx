@@ -116,8 +116,18 @@ const Index = () => {
       {fetchStatus === "SUCCESS" && (
         <Box display="flex" flexDirection="column">
           <h1 style={{ margin: "0", fontSize: "2em" }}>Find a postcode</h1>
-          <h4>Your search for "" returned "" result(s).</h4>
-          <h4>Please select an item from the list below to view details.</h4>
+          <h4 style={{ margin: "1em 0" }}>
+            Your search
+            {searchTerm ? " for " + searchTerm + " returned " : " returned "}
+            {postcodes.reduce(
+              (acc, curr) => acc + curr.associatedSuburbs.length,
+              0
+            )}{" "}
+            result(s).
+          </h4>
+          <h4 style={{ margin: "0 0 1em 0" }}>
+            Please select an item from the list below to view details.
+          </h4>
           <Searchbar
             setSearchTerm={setSearchTerm}
             placeholder="Enter suburb, town, city or postcode"
