@@ -27,11 +27,7 @@ export const findPostCodesBySuburb = async (
     );
   }
 
-  const data = await response.json();
-
-  console.log(data);
-
-  return data;
+  return await response.json();
 };
 
 export const findSuburbsByPostCode = async (
@@ -48,11 +44,7 @@ export const findSuburbsByPostCode = async (
     throw new Error("Failed to fetch the associated suburb. Please try again");
   }
 
-  const data = await response.json();
-
-  console.log(data);
-
-  return data;
+  return await response.json();
 };
 
 // export const createPostCode = async (data: PostCodeFormData): Promise<PostCodeResponse> => {
