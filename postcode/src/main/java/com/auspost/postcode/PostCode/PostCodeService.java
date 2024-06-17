@@ -144,8 +144,8 @@ public class PostCodeService {
         return Optional.of(updatedPostCode);
     }
 
-    public List<Suburb> findSuburbByPostCode(String postCode) {
-        List<Suburb> associatedSuburbs = this.repo.findAssociatedSuburbsByPostcode(postCode);
+    public List<PostCode> findSuburbsByPostCode(String postCode) {
+        List<PostCode> associatedSuburbs = this.repo.findByPostcode(postCode);
         fullLogsLogger.info("Sourced all associatedSuburbs from the db");
         return associatedSuburbs;
     }

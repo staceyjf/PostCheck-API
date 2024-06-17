@@ -65,9 +65,9 @@ public class PostCodeController {
     }
 
     @GetMapping("/suburbs")
-    public ResponseEntity<List<Suburb>> findSuburbByPostCode(@RequestParam String postcode)
+    public ResponseEntity<List<PostCode>> findSuburbsByPostCode(@RequestParam String postcode)
             throws ServiceValidationException {
-        List<Suburb> suburbsByPostCode = this.postcodeService.findSuburbByPostCode(postcode);
+        List<PostCode> suburbsByPostCode = this.postcodeService.findSuburbsByPostCode(postcode);
         fullLogsLogger.info("suburbsByPostCode responses with all associated suburbs.");
         return new ResponseEntity<>(suburbsByPostCode, HttpStatus.OK);
     }

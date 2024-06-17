@@ -13,7 +13,6 @@ const Searchbar = ({ placeholder, setSearchTerm }: SearchbarProps) => {
     const form = e.currentTarget;
     const userSearchTerm = (new FormData(form).get("search") as string) || null;
     setSearchTerm(userSearchTerm);
-    form.reset();
   };
 
   return (

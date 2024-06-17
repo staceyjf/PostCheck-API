@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -13,18 +14,23 @@ import {
   PostCodeResponse,
   SuburbResponse,
 } from "../../services/api-responses.interfaces";
-import { getAllPostCodes } from "../../services/services";
+import {
+  getAllPostCodes,
+  findPostCodesBySuburb,
+  findSuburbsByPostCode,
+} from "../../services/services";
 import ListItm from "../../components/ListItm/ListItm";
 import Searchbar from "../../components/Searchbar/Searchbar";
-import React from "react";
 
 const Index = () => {
   const [postcodes, setPostcodes] = useState<PostCodeResponse[]>([]);
-  const [searchTerm, setSearchTerm] = useState<string | null>(null);
+
   const [error, setError] = useState<Error | null>(null);
   const [fetchStatus, setFetchStatus] = useState<string>("LOADING");
   const [openModal, setOpenModal] = useState(false);
   const [postcodeId, setPostcodeId] = useState<number | undefined>(undefined);
+
+  const [searchTerm, setSearchTerm] = useState<string | null>(null);
   const navigate = useNavigate();
 
   // get all postcodes
@@ -34,8 +40,17 @@ const Index = () => {
 
   // search term
   useEffect(() => {
-    //api call
-    console.log("hello");
+    // numbers for postcodes
+    if (searchTerm && searchTerm.match(/\d{4}/g)) {
+      findSuburbsByPostCode(searchTerm)
+        .then((data) => setPostcodes(data))
+        .catch((error) => setError(error));
+      // all else will be considered a sururb
+    } else if (searchTerm) {
+      findPostCodesBySuburb(searchTerm)
+        .then((data) => setPostcodes(data))
+        .catch((error) => setError(error));
+    }
   }, [searchTerm]);
 
   const fetchAllpostcodes = async () => {

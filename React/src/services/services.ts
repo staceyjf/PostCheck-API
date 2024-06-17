@@ -2,13 +2,57 @@ import { baseUrl } from "./api-config";
 import { PostCodeResponse, SuburbResponse } from "./api-responses.interfaces";
 
 export const getAllPostCodes = async (): Promise<PostCodeResponse[]> => {
-  const response: Response = await fetch(baseUrl + "/postcodes");
+  const response: Response = await fetch(baseUrl);
   if (!response.ok) {
     console.warn(response.status);
     throw new Error("Failed to fetch all PostCodes. Please try again later");
   }
 
   return await response.json();
+};
+
+export const findPostCodesBySuburb = async (
+  queryTerm: string
+): Promise<PostCodeResponse[]> => {
+  const response: Response = await fetch(
+    `${baseUrl}/postcodes?suburb=${queryTerm}`
+  );
+
+  console.log(`${baseUrl}/postcodes?suburb=${queryTerm}`);
+
+  if (!response.ok) {
+    console.warn(response.status);
+    throw new Error(
+      "Failed to fetch the associated postcode. Please try again"
+    );
+  }
+
+  const data = await response.json();
+
+  console.log(data);
+
+  return data;
+};
+
+export const findSuburbsByPostCode = async (
+  queryTerm: string
+): Promise<PostCodeResponse[]> => {
+  const response: Response = await fetch(
+    `${baseUrl}/suburbs?postcode=${queryTerm}`
+  );
+
+  console.log(`${baseUrl}/suburbs?postcode=${queryTerm}`);
+
+  if (!response.ok) {
+    console.warn(response.status);
+    throw new Error("Failed to fetch the associated suburb. Please try again");
+  }
+
+  const data = await response.json();
+
+  console.log(data);
+
+  return data;
 };
 
 // export const createPostCode = async (data: PostCodeFormData): Promise<PostCodeResponse> => {
