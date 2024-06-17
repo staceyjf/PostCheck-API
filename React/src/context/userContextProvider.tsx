@@ -1,9 +1,12 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { UserResponse } from "../services/api-responses.interfaces";
+import { signIn } from "../services/user-services";
 
 interface UserContext {
   user: UserResponse | null;
   setUser: React.Dispatch<React.SetStateAction<UserResponse | null>>;
+  userSignIn: (username: string, password: string) => Promise<void>;
+  signOut: () => void;
 }
 
 // default is provided when the context is consumed without a provider
@@ -11,6 +14,12 @@ const defaults: UserContext = {
   user: null,
   setUser: () => {
     throw new Error("setUser must be used within a UserContextProvider");
+  },
+  userSignIn: async () => {
+    throw new Error("signIn must be used within a UserContextProvider");
+  },
+  signOut: () => {
+    throw new Error("signOut must be used within a UserContextProvider");
   },
 };
 
@@ -24,14 +33,69 @@ interface UserContextProviderProps {
 const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const [user, setUser] = useState<UserResponse | null>(null);
 
-  useEffect(() => {
-    getUser()
-      .then((data) => setUser(data))
-      .catch((error) => console.warn(error));
-  }, []);
+  const userSignIn = async (login: string, password: string) => {
+    try {
+      const token: string | null = await signIn(login, password);
+      if (!token) {
+        console.error("ERROR: Received null token.");
+        throw new Error(
+          "There was an issue with signing in. Please try again."
+        );
+      }
+      localStorage.setItem("token", token);
+      getUser();
+    } catch (error) {
+      console.error("ERROR: " + error);
+      throw new Error("There was an issue with signing in. Please try again.");
+    }
+  };
+
+  const signOut = () => {
+    localStorage.removeItem("token");
+    setUser(null);
+  };
+
+  const getToken = (): string | null => {
+    const token = localStorage.getItem("token");
+    if (!token) return null;
+    // Obtain the payload of the token
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    // A JWT's exp is expressed in seconds, not milliseconds, so convert
+    // checks if the token has expired
+    if (payload.ex * 1000 < Date.now()) {
+      // Token has expired - remove it from localStorage
+      localStorage.removeItem("token");
+      console.error("ERROR: Token is not valid");
+      throw new Error("There was an issue with signing in. Please try again.");
+    }
+
+    return token;
+  };
+
+  const getUser = () => {
+    const token: string | null = getToken();
+    // extract the user info from the token payload
+    if (token) {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      const user: UserResponse = {
+        username: payload.username,
+        role: payload.role,
+      };
+      setUser(user);
+      return;
+    }
+    return null;
+  };
 
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider
+      value={{
+        user,
+        setUser,
+        userSignIn,
+        signOut,
+      }}
+    >
       {children}
     </UserContext.Provider>
   );

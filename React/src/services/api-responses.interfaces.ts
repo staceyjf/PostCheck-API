@@ -12,6 +12,6 @@ export interface SuburbResponse {
 
 export interface UserResponse {
   username: string;
-  password: string;
+  password?: string;
   role?: string;
 }

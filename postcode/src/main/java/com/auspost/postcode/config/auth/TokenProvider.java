@@ -2,6 +2,7 @@ package com.auspost.postcode.config.auth;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -23,17 +24,21 @@ public class TokenProvider {
         if (JWT_SECRET == null) {
             throw new IllegalArgumentException("JWT_SECRET is null");
         }
+
         if (user == null) {
             throw new IllegalArgumentException("User is null");
         }
+
         if (user.getUsername() == null) {
             throw new IllegalArgumentException("Username is null");
         }
+
         try {
             Algorithm algorithm = Algorithm.HMAC256(JWT_SECRET); // uses Hash-based Message Auth Code
             return JWT.create()
                     .withSubject(user.getUsername()) // represents who the token is associated with
                     .withClaim("username", user.getUsername())
+                    .withClaim("role", user.getRole().name())
                     .withExpiresAt(genAccessExpirationDate()) // set expiry
                     .sign(algorithm); // verify that the token is genuine
         } catch (JWTCreationException ex) {
@@ -55,6 +60,6 @@ public class TokenProvider {
 
     // set an expiry time for token
     private Instant genAccessExpirationDate() {
-        return LocalDateTime.now().plusHours(2).toInstant(ZoneOffset.of("-03:00"));
+        return LocalDateTime.now(ZoneId.of("Australia/Sydney")).plusHours(2).toInstant(ZoneOffset.UTC);
     }
 }
