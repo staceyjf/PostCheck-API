@@ -6,7 +6,7 @@ import theme from "./styling/theme";
 import Index from "./pages/Index/Index";
 import "./App.scss";
 import { Container, Box } from "@mui/material";
-import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
 
 function App() {
   return (
@@ -39,7 +39,7 @@ function App() {
             }}
           >
             <BrowserRouter>
-              <Header />
+              <Navbar />
               <Box
                 flexGrow={1}
                 display="flex"

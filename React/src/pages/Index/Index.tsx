@@ -30,6 +30,7 @@ const Index = () => {
 
   const [error, setError] = useState<Error | null>(null);
   const [fetchStatus, setFetchStatus] = useState<string>("LOADING");
+
   const [openModal, setOpenModal] = useState(false);
   const [postcodeId, setPostcodeId] = useState<number | undefined>(undefined);
 
@@ -79,20 +80,18 @@ const Index = () => {
   return (
     <section style={{ width: "100%" }}>
       {fetchStatus === "LOADING" && (
-        <>
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            rowGap="0.5rem"
-          >
-            <Skeleton data-testid="loading" />
-            <Skeleton width="90%" />
-            <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
-            <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
-            <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
-          </Box>
-        </>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          rowGap="0.5rem"
+        >
+          <Skeleton data-testid="loading" />
+          <Skeleton width="90%" />
+          <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
+          <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
+          <Skeleton variant="rounded" width="100%" height={60}></Skeleton>
+        </Box>
       )}
       {fetchStatus === "FAILED" && (
         <Backdrop open={true} sx={{ color: "#fff", zIndex: 1 }}>
@@ -128,10 +127,12 @@ const Index = () => {
           <h4 style={{ margin: "0 0 1em 0" }}>
             Please select an item from the list below to view details.
           </h4>
+
           <Searchbar
             setSearchTerm={setSearchTerm}
             placeholder="Enter suburb, town, city or postcode"
           />
+
           {showResults && (
             <List>
               {postcodes.map((postcode: PostCodeResponse) =>

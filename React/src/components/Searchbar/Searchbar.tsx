@@ -11,7 +11,7 @@ const Searchbar = ({ placeholder, setSearchTerm }: SearchbarProps) => {
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
-    const userSearchTerm = (new FormData(form).get("search") as string) || null;
+    const userSearchTerm = new FormData(form).get("search") as string;
     setSearchTerm(userSearchTerm);
   };
 
