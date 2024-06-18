@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 import { UserResponse } from "../services/api-responses.interfaces";
-import { signIn } from "../services/user-services";
+import { signIn, getToken } from "../services/user-services";
 
 interface UserContext {
   user: UserResponse | null;
@@ -55,23 +55,6 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
   const signOut = () => {
     localStorage.removeItem("token");
     setUser(null);
-  };
-
-  const getToken = (): string | null => {
-    const token = localStorage.getItem("token");
-    if (!token) return null;
-    // Obtain the payload of the token
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    // A JWT's exp is expressed in seconds, not milliseconds, so convert
-    // checks if the token has expired
-    if (payload.ex * 1000 < Date.now()) {
-      // Token has expired - remove it from localStorage
-      localStorage.removeItem("token");
-      console.error("ERROR: Token is not valid");
-      throw new Error("There was an issue with signing in. Please try again.");
-    }
-
-    return token;
   };
 
   const getUser = () => {

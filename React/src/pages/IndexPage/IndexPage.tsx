@@ -79,6 +79,42 @@ const IndexPage = () => {
       });
   };
 
+  // const handleTodoDelete = async (id: number | undefined) => {
+  //   if (id === undefined) {
+  //     console.error("Id is undefined for deleting a todo by id");
+  //     throw new Error(`Unable to delete todo  with id: ${id}`);
+  //   }
+
+  //   try {
+  //     await deleteTodoById(id);
+  //     setTodos(todos.filter((item) => item.id !== id));
+  //     setOpenModal(false);
+  //   } catch (e: any) {
+  //     setError(new Error("Failed to delete todo. Please try again."));
+  //     setFetchStatus("FAILED");
+  //     console.error(e);
+  //   }
+  // };
+
+  // const deleteTodoOnClick = (id: number | undefined) => {
+  //   if (id !== undefined) {
+  //     setTodoId(id);
+  //     setOpenModal(true);
+  //   } else {
+  //     console.error("Id is undefined for deleting a todo by id");
+  //     throw new Error(`Unable to find todo with: ${id}`);
+  //   }
+  // };
+
+  const handleEdit = (id: number | undefined) => {
+    if (id !== undefined) {
+      navigate(`/postcodes/${id}/edit`);
+    } else {
+      console.error(`Unable to find postcode with id: ${id}`);
+      throw new Error(`Unable to update this postcode. Please try again`);
+    }
+  };
+
   return (
     <section style={{ width: "100%" }}>
       {fetchStatus === "LOADING" && (
@@ -117,46 +153,55 @@ const IndexPage = () => {
       {fetchStatus === "SUCCESS" && (
         <Box display="flex" flexDirection="column" rowGap="0.75em">
           <h1 style={{ margin: "0", fontSize: "2em" }}>Find a postcode</h1>
-          <h4 style={{ margin: "1em 0" }}>
-            Your search
-            {searchTerm ? " for " + searchTerm + " returned " : " returned "}
-            {postcodes.reduce(
-              (acc, curr) => acc + curr.associatedSuburbs.length,
-              0
-            )}{" "}
-            result(s).
-          </h4>
 
+          <h3 style={{ margin: "0" }}>Search</h3>
           <Searchbar
             setSearchTerm={setSearchTerm}
             placeholder="Enter suburb, town, city or postcode"
           />
           {showResults && (
-            <Table sx={{ width: "100%", marginTop: "2em" }}>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Postcode</TableCell>
-                  <TableCell>Suburb</TableCell>
-                  <TableCell></TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {postcodes.map((postcode: PostCodeResponse) =>
-                  postcode.associatedSuburbs.map(
-                    (suburb: SuburbResponse, index: number) => (
-                      <TableRow key={`${postcode.id}-${index}`}>
-                        <ListItm
-                          id={postcode.id}
-                          postcode={postcode.postcode}
-                          suburbName={suburb.name}
-                          suburbState={suburb.state}
-                        />
-                      </TableRow>
+            <>
+              <h3 style={{ margin: "2rem 0 0 0" }}>Results</h3>
+              <h4 style={{ margin: "0" }}>
+                Your search
+                {searchTerm
+                  ? " for " + searchTerm + " returned "
+                  : " returned "}
+                {postcodes.reduce(
+                  (acc, curr) => acc + curr.associatedSuburbs.length,
+                  0
+                )}{" "}
+                result(s).
+              </h4>
+              <Table sx={{ width: "100%" }}>
+                <TableHead>
+                  <TableRow>
+                    <TableCell style={{ fontWeight: "bold" }}>
+                      Postcode
+                    </TableCell>
+                    <TableCell style={{ fontWeight: "bold" }}>Suburb</TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {postcodes.map((postcode: PostCodeResponse) =>
+                    postcode.associatedSuburbs.map(
+                      (suburb: SuburbResponse, index: number) => (
+                        <TableRow key={`${postcode.id}-${index}`}>
+                          <ListItm
+                            id={postcode.id}
+                            postcode={postcode.postcode}
+                            suburbName={suburb.name}
+                            suburbState={suburb.state}
+                            handleEdit={handleEdit}
+                          />
+                        </TableRow>
+                      )
                     )
-                  )
-                )}
-              </TableBody>
-            </Table>
+                  )}
+                </TableBody>
+              </Table>
+            </>
           )}
           {!showResults && (
             <Box marginTop="1em" textAlign="center">

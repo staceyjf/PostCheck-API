@@ -61,14 +61,17 @@ const Navbar = () => {
           <MenuItem disableRipple>
             <LoginContainer />
           </MenuItem>
-          {user && (
-            <>
-              <MenuItem onClick={handleClose}>Add a postcode</MenuItem>
-              <MenuItem onClick={handleClose}>Add a suburb</MenuItem>
-              <MenuItem onClick={handleClose}>Register a new user</MenuItem>
-              <MenuItem onClick={signOut}>Logout</MenuItem>
-            </>
-          )}
+          {user &&
+            [
+              { text: "Add a postcode", onClick: handleClose },
+              { text: "Add a suburb", onClick: handleClose },
+              { text: "Register a new user", onClick: handleClose },
+              { text: "Logout", onClick: signOut },
+            ].map((item, index) => (
+              <MenuItem key={index} onClick={item.onClick}>
+                {item.text}
+              </MenuItem>
+            ))}
         </Menu>
         {/* 
         {user && (

@@ -8,11 +8,17 @@ interface ListItmProps {
   suburbName: string;
   suburbState: string;
   // deleteOnClick: (id: number | undefined) => void;
-  // handleEdit: (id: number | undefined) => void;
+  handleEdit: (id: number | undefined) => void;
   // handleIsComplete: (id: number | undefined, isComplete: boolean) => void;
 }
 
-const ListItm = ({ id, postcode, suburbName, suburbState }: ListItmProps) => {
+const ListItm = ({
+  id,
+  postcode,
+  suburbName,
+  suburbState,
+  handleEdit,
+}: ListItmProps) => {
   const theme = useTheme();
 
   return (
@@ -41,7 +47,7 @@ const ListItm = ({ id, postcode, suburbName, suburbState }: ListItmProps) => {
           <IconButton
             edge="end"
             aria-label="edit"
-            onClick={(e) => console.log("hello")}
+            onClick={() => handleEdit(id)}
           >
             <EditIcon />
           </IconButton>

@@ -1,8 +1,7 @@
 import { useState, useContext } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import { UserContext } from "../../context/userContextProvider";
-import { Backdrop, Snackbar } from "@mui/material";
-import Alert from "@mui/material/Alert";
+import { Backdrop, Snackbar, Alert } from "@mui/material";
 
 const LoginContainer = () => {
   const [error, setError] = useState<Error | null>(null);
@@ -14,8 +13,6 @@ const LoginContainer = () => {
       console.error("ERROR: " + e);
     });
   };
-
-  console.log(user);
 
   return (
     <>

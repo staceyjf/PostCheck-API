@@ -8,6 +8,7 @@ import "./App.scss";
 import { Container, Box } from "@mui/material";
 import Navbar from "./components/Navbar/Navbar";
 import UserContextProvider from "./context/userContextProvider";
+import UpdatePage from "./pages/UpdatePage/UpdatePage";
 
 function App() {
   return (
@@ -54,11 +55,11 @@ function App() {
                 >
                   <Routes>
                     <Route path="" element={<IndexPage />} />
-                    {/* <Route path="/new" element={<AddTodoPage />} />
-                      <Route
-                        path="/:id/edit"
-                        element={<UpdateTodoPage />}
-                      /> */}
+                    {/* <Route path="/new" element={<AddTodoPage />} /> */}
+                    <Route
+                      path="/postcodes/:id/edit"
+                      element={<UpdatePage />}
+                    />
                   </Routes>
                 </Box>
               </BrowserRouter>
