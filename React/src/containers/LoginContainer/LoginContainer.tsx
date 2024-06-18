@@ -3,11 +3,10 @@ import LoginForm from "../../components/LoginForm/LoginForm";
 import { UserContext } from "../../context/userContextProvider";
 import { Backdrop, Snackbar } from "@mui/material";
 import Alert from "@mui/material/Alert";
-import styles from "./LoginContainer.module.scss";
 
 const LoginContainer = () => {
   const [error, setError] = useState<Error | null>(null);
-  const { user, userSignIn, signOut } = useContext(UserContext);
+  const { user, userSignIn } = useContext(UserContext);
 
   const onSubmit = (username: string, password: string) => {
     userSignIn(username, password).catch((e: any) => {
@@ -45,11 +44,6 @@ const LoginContainer = () => {
           placeholderPassword="Password"
           onSubmit={onSubmit}
         />
-      )}
-      {!error && user && (
-        <button onClick={signOut} className={styles.auth_LogoutBtn}>
-          Logout
-        </button>
       )}
     </>
   );

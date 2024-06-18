@@ -1,11 +1,30 @@
-import { Box, useTheme } from "@mui/material";
+import { useContext, useState } from "react";
+import {
+  Box,
+  useTheme,
+  Dialog,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
+import { UserContext } from "../../context/userContextProvider";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/post.png";
 import LoginContainer from "../../containers/LoginContainer/LoginContainer";
 
 const Navbar = () => {
   const theme = useTheme();
+  const { user, signOut } = useContext(UserContext);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
+  const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <nav style={{ width: "100%" }}>
@@ -23,13 +42,49 @@ const Navbar = () => {
             <img src={logo} alt="PostCheck Logo" style={{ width: "150px" }} />
           </Box>
         </NavLink>
-        <LoginContainer />
-        <NavLink to="/new">
-          <AddCircleIcon
-            aria-label="Add a postcode"
-            style={{ fontSize: 40, color: theme.palette.primary.main }}
-          />{" "}
-        </NavLink>
+        <IconButton onClick={handleMenu}>
+          <AccountCircleIcon
+            aria-label="Login"
+            aria-haspopup="true"
+            style={{ fontSize: 40, color: theme.palette.primary.dark }}
+          />
+        </IconButton>
+        <Menu
+          id="signin"
+          anchorEl={anchorEl}
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          keepMounted
+          transformOrigin={{
+            vertical: "top",
+            horizontal: "right",
+          }}
+          open={Boolean(anchorEl)}
+          onClose={handleClose}
+        >
+          <MenuItem>
+            <LoginContainer />
+          </MenuItem>
+          {user && (
+            <>
+              <MenuItem onClick={handleClose}>Add a postcode</MenuItem>
+              <MenuItem onClick={handleClose}>Add a suburb</MenuItem>
+              <MenuItem onClick={handleClose}>Register a new user</MenuItem>
+              <MenuItem onClick={signOut}>Logout</MenuItem>
+            </>
+          )}
+        </Menu>
+        {/* 
+        {user && (
+          <NavLink to="/new">
+            <AddCircleIcon
+              aria-label="Add a postcode"
+              style={{ fontSize: 40, color: theme.palette.primary.main }}
+            />{" "}
+          </NavLink>
+        )} */}
       </Box>
     </nav>
   );
