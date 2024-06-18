@@ -3,10 +3,11 @@ import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import "dayjs/locale/en-gb";
 import theme from "./styling/theme";
-import Index from "./pages/Index/Index";
+import IndexPage from "./pages/IndexPage/IndexPage";
 import "./App.scss";
 import { Container, Box } from "@mui/material";
 import Navbar from "./components/Navbar/Navbar";
+import UserContextProvider from "./context/userContextProvider";
 
 function App() {
   return (
@@ -38,28 +39,30 @@ function App() {
               padding: 2,
             }}
           >
-            <BrowserRouter>
-              <Navbar />
-              <Box
-                flexGrow={1}
-                display="flex"
-                justifyContent="center"
-                alignItems="center"
-                mt={1}
-                mb={1}
-                px={3}
-                width="100%"
-              >
-                <Routes>
-                  <Route path="" element={<Index />} />
-                  {/* <Route path="/new" element={<AddTodoPage />} />
+            <UserContextProvider>
+              <BrowserRouter>
+                <Navbar />
+                <Box
+                  flexGrow={1}
+                  display="flex"
+                  justifyContent="center"
+                  alignItems="center"
+                  mt={1}
+                  mb={1}
+                  px={3}
+                  width="100%"
+                >
+                  <Routes>
+                    <Route path="" element={<IndexPage />} />
+                    {/* <Route path="/new" element={<AddTodoPage />} />
                       <Route
                         path="/:id/edit"
                         element={<UpdateTodoPage />}
                       /> */}
-                </Routes>
-              </Box>
-            </BrowserRouter>
+                  </Routes>
+                </Box>
+              </BrowserRouter>
+            </UserContextProvider>
           </Container>
         </Box>
       </ThemeProvider>

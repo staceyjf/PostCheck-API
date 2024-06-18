@@ -1,12 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import LoginForm from "../../components/LoginForm/LoginForm";
-import { UserResponse } from "../../services/api-responses.interfaces";
-import { Box, Skeleton, Backdrop, Snackbar } from "@mui/material";
+import { UserContext } from "../../context/userContextProvider";
+import { Backdrop, Snackbar } from "@mui/material";
 import Alert from "@mui/material/Alert";
 
 const LoginContainer = () => {
-  const [user, setUser] = useState<UserResponse | null>(null);
   const [error, setError] = useState<Error | null>(null);
+  const { user, userSignIn } = useContext(UserContext);
+
+  const onSubmit = (username: string, password: string) => {
+    userSignIn(username, password).catch((e: any) => {
+      setError(new Error("Failed to sign in. Please try again."));
+      console.error("ERROR: " + e);
+    });
+  };
+
+  console.log(user);
 
   return (
     <>
@@ -33,7 +42,7 @@ const LoginContainer = () => {
         <LoginForm
           placeholderUsername="Username"
           placeholderPassword="Password"
-          setUser={setUser}
+          onSubmit={onSubmit}
         />
       )}
     </>

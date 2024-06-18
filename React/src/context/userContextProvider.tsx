@@ -4,7 +4,7 @@ import { signIn } from "../services/user-services";
 
 interface UserContext {
   user: UserResponse | null;
-  setUser: React.Dispatch<React.SetStateAction<UserResponse | null>>;
+  setUser: (user: UserResponse | null) => void;
   userSignIn: (username: string, password: string) => Promise<void>;
   signOut: () => void;
 }
@@ -35,13 +35,15 @@ const UserContextProvider = ({ children }: UserContextProviderProps) => {
 
   const userSignIn = async (login: string, password: string) => {
     try {
-      const token: string | null = await signIn(login, password);
+      const response = await signIn(login, password);
+      const token = response ? response.accessToken : null;
       if (!token) {
         console.error("ERROR: Received null token.");
         throw new Error(
           "There was an issue with signing in. Please try again."
         );
       }
+      console.log(token);
       localStorage.setItem("token", token);
       getUser();
     } catch (error) {

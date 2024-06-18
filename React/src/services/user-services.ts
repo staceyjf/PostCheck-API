@@ -1,5 +1,4 @@
 import { baseUrl } from "./api-config";
-import { UserResponse } from "./api-responses.interfaces";
 
 // export const getUser = async (id: number): Promise<UserResponse> => {
 //   const response: Response = await fetch(`${baseUrl}/auth/${id}`);
@@ -14,7 +13,7 @@ import { UserResponse } from "./api-responses.interfaces";
 export const signIn = async (
   login: string,
   password: string
-): Promise<string> => {
+): Promise<{ accessToken: string }> => {
   const response: Response = await fetch(`${baseUrl}/auth/signin`, {
     method: "POST",
     headers: {

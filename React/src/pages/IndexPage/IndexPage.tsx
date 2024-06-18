@@ -23,7 +23,7 @@ import {
 import ListItm from "../../components/ListItm/ListItm";
 import Searchbar from "../../components/Searchbar/Searchbar";
 
-const Index = () => {
+const IndexPage = () => {
   const [postcodes, setPostcodes] = useState<PostCodeResponse[]>([]);
   const [searchTerm, setSearchTerm] = useState<string | null>(null);
   const [showResults, setShowResults] = useState<boolean>(true);
@@ -36,46 +36,46 @@ const Index = () => {
 
   const navigate = useNavigate();
 
-  // search term
+  const handleSearch = (searchFunction: Function, searchTerm: string) => {
+    setShowResults(true);
+    searchFunction(searchTerm)
+      .then((data: any) => {
+        setPostcodes(data);
+        setFetchStatus("SUCCESS");
+        if (data.length === 0) {
+          setShowResults(false);
+        }
+      })
+      .catch((e: any) => {
+        setError(new Error("Failed to fetch postcodes. Please try again."));
+        setFetchStatus("FAILED");
+        console.error("ERROR: " + e);
+      });
+  };
+
   useEffect(() => {
-    // numbers for postcodes
     if (searchTerm && searchTerm.match(/\d{4}/g)) {
-      setShowResults(true);
-      findSuburbsByPostCode(searchTerm)
-        .then((data) => {
-          setPostcodes(data);
-          if (data.length === 0) setShowResults(false);
-        })
-        .catch((error) => setError(error));
-      // all else will be considered a suburb
+      handleSearch(findSuburbsByPostCode, searchTerm);
     } else if (searchTerm) {
-      setShowResults(true);
-      findPostCodesBySuburb(searchTerm.toLowerCase())
-        .then((data) => {
-          setPostcodes(data);
-          if (data.length === 0) setShowResults(false);
-        })
-        .catch((error) => setError(error));
-      // search all for initial or when searchbar is empty
+      handleSearch(findPostCodesBySuburb, searchTerm.toLowerCase());
     } else if (!searchTerm) {
       setShowResults(true);
       fetchAllpostcodes();
     }
   }, [searchTerm]);
 
-  const fetchAllpostcodes = async () => {
-    try {
-      const allpostcodes = await getAllPostCodes();
-      setFetchStatus("SUCCESS");
-      setPostcodes(allpostcodes);
-    } catch (e: any) {
-      setError(new Error("Failed to fetch postcodes. Please try again."));
-      setFetchStatus("FAILED");
-      console.error(e);
-    }
+  const fetchAllpostcodes = () => {
+    getAllPostCodes()
+      .then((data) => {
+        setPostcodes(data);
+        setFetchStatus("SUCCESS");
+      })
+      .catch((e: any) => {
+        setError(new Error("Failed to fetch postcodes. Please try again."));
+        setFetchStatus("FAILED");
+        console.error("ERROR: " + e);
+      });
   };
-
-  console.log(postcodes);
 
   return (
     <section style={{ width: "100%" }}>
@@ -176,4 +176,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default IndexPage;

@@ -1,22 +1,21 @@
 import { useState } from "react";
-import { User } from "../../services/api-responses.interfaces";
-import { Alert, Backdrop, Snackbar } from "@mui/material";
+import { Alert, Snackbar } from "@mui/material";
 
 // define the props
 interface LoginFormProps {
   placeholderUsername: string;
   placeholderPassword: string;
-  setUser: (user: User | null) => void;
+  onSubmit: (username: string, password: string) => void;
 }
 
 const LoginForm = ({
   placeholderUsername,
   placeholderPassword,
-  setUser,
+  onSubmit,
 }: LoginFormProps) => {
   const [error, setError] = useState<Error | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const username = new FormData(form).get("username") as string;
@@ -28,11 +27,11 @@ const LoginForm = ({
     }
 
     if (!password) {
-      setError(new Error("password is missing"));
+      setError(new Error("Password is missing"));
       return;
     }
 
-    setUser({ username, password });
+    onSubmit(username, password);
   };
 
   return (
@@ -55,7 +54,7 @@ const LoginForm = ({
         </Snackbar>
       )}
       {!error && (
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder={placeholderUsername}
