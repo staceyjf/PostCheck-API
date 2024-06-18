@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Alert, Snackbar } from "@mui/material";
+import styles from "./LoginForm.module.scss";
 
 // define the props
 interface LoginFormProps {
@@ -32,7 +33,6 @@ const LoginForm = ({
     }
 
     onSubmit(username, password);
-    form.reset();
   };
 
   return (
@@ -55,7 +55,7 @@ const LoginForm = ({
         </Snackbar>
       )}
       {!error && (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <input
             type="text"
             placeholder={placeholderUsername}

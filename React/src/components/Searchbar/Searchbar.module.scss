@@ -23,7 +23,7 @@
     border: 2px solid #edeae6;
     border-right: none;
     padding: 0.5em;
-    height: 52px;
+    height: 45px;
     border-radius: 5px 0 0 5px;
     outline: none;
     color: #382f2d;
@@ -37,13 +37,18 @@
 
   button {
     width: 130px;
-    height: 52px;
+    height: 45px;
     border: 1px solid #dc1928;
     background: #dc1928;
     text-align: center;
     color: #fff;
     border-radius: 3px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
   }
 }

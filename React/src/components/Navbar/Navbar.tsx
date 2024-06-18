@@ -1,17 +1,11 @@
 import { useContext, useState } from "react";
-import {
-  Box,
-  useTheme,
-  Dialog,
-  IconButton,
-  Menu,
-  MenuItem,
-} from "@mui/material";
+import { Box, useTheme, IconButton, Menu, MenuItem } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/userContextProvider";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/post.png";
 import LoginContainer from "../../containers/LoginContainer/LoginContainer";
+import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -64,7 +58,7 @@ const Navbar = () => {
           open={Boolean(anchorEl)}
           onClose={handleClose}
         >
-          <MenuItem>
+          <MenuItem disableRipple>
             <LoginContainer />
           </MenuItem>
           {user && (
