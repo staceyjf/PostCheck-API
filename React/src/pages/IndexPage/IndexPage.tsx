@@ -1,14 +1,16 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
   Alert,
   Backdrop,
   Box,
-  Divider,
-  List,
   Skeleton,
   Snackbar,
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow,
   Typography,
 } from "@mui/material";
 import {
@@ -84,7 +86,7 @@ const IndexPage = () => {
           display="flex"
           flexDirection="column"
           justifyContent="center"
-          rowGap="0.5rem"
+          rowGap="2rem"
         >
           <Skeleton data-testid="loading" />
           <Skeleton width="90%" />
@@ -113,7 +115,7 @@ const IndexPage = () => {
         </Backdrop>
       )}
       {fetchStatus === "SUCCESS" && (
-        <Box display="flex" flexDirection="column">
+        <Box display="flex" flexDirection="column" rowGap="0.75em">
           <h1 style={{ margin: "0", fontSize: "2em" }}>Find a postcode</h1>
           <h4 style={{ margin: "1em 0" }}>
             Your search
@@ -124,36 +126,37 @@ const IndexPage = () => {
             )}{" "}
             result(s).
           </h4>
-          <h4 style={{ margin: "0 0 1em 0" }}>
-            Please select an item from the list below to view details.
-          </h4>
 
           <Searchbar
             setSearchTerm={setSearchTerm}
             placeholder="Enter suburb, town, city or postcode"
           />
-
           {showResults && (
-            <List>
-              {postcodes.map((postcode: PostCodeResponse) =>
-                postcode.associatedSuburbs.map(
-                  (suburb: SuburbResponse, index: number) => (
-                    <React.Fragment key={`${postcode.id}-${index}`}>
-                      <ListItm
-                        id={Number(postcode.id)}
-                        postcode={postcode.postcode}
-                        suburbName={suburb.name}
-                        suburbState={suburb.state}
-                        // deleteOnClick={deleteTodoOnClick}
-                        // handleEdit={handleTodoEdit}
-                        // handleIsComplete={handleIsComplete}
-                      />
-                      <Divider component="li" />
-                    </React.Fragment>
+            <Table sx={{ width: "100%", marginTop: "2em" }}>
+              <TableHead>
+                <TableRow>
+                  <TableCell>Postcode</TableCell>
+                  <TableCell>Suburb</TableCell>
+                  <TableCell></TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {postcodes.map((postcode: PostCodeResponse) =>
+                  postcode.associatedSuburbs.map(
+                    (suburb: SuburbResponse, index: number) => (
+                      <TableRow key={`${postcode.id}-${index}`}>
+                        <ListItm
+                          id={postcode.id}
+                          postcode={postcode.postcode}
+                          suburbName={suburb.name}
+                          suburbState={suburb.state}
+                        />
+                      </TableRow>
+                    )
                   )
-                )
-              )}
-            </List>
+                )}
+              </TableBody>
+            </Table>
           )}
           {!showResults && (
             <Box marginTop="1em" textAlign="center">

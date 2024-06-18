@@ -1,10 +1,4 @@
-import {
-  Box,
-  IconButton,
-  useTheme,
-  ListItem,
-  ListItemText,
-} from "@mui/material";
+import { Box, IconButton, useTheme, TableRow, TableCell } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 
 // define the props
@@ -18,23 +12,25 @@ interface ListItmProps {
   // handleIsComplete: (id: number | undefined, isComplete: boolean) => void;
 }
 
-const ListItm = ({
-  id,
-  postcode,
-  suburbName,
-  suburbState,
-}: // deleteOnClick,
-// handleEdit,
-// handleIsComplete,
-ListItmProps) => {
+const ListItm = ({ id, postcode, suburbName, suburbState }: ListItmProps) => {
   const theme = useTheme();
 
   return (
-    <ListItem
-      key={id}
-      id={id?.toString()}
-      secondaryAction={
-        <>
+    <>
+      <TableCell sx={{ color: theme.palette.primary.main }}>
+        {postcode}
+      </TableCell>
+      <TableCell sx={{ textTransform: "capitalize" }}>
+        {`${suburbName}, ${suburbState}`}
+      </TableCell>
+      <TableCell>
+        <Box
+          display="flex"
+          flexDirection="row"
+          alignContent="center"
+          justifyContent="flex-end"
+          columnGap="0.5em"
+        >
           <IconButton
             edge="end"
             aria-label="delete"
@@ -49,27 +45,9 @@ ListItmProps) => {
           >
             <EditIcon />
           </IconButton>
-        </>
-      }
-    >
-      <Box
-        display="flex"
-        flexDirection="row"
-        alignContent="center"
-        justifyContent="space-between"
-      >
-        <>
-          <ListItemText
-            primary={postcode}
-            sx={{ color: theme.palette.primary.main }}
-          />
-          <ListItemText
-            sx={{ paddingLeft: 3, textTransform: "capitalize" }}
-            primary={`${suburbName}, ${suburbState}`}
-          />
-        </>
-      </Box>
-    </ListItem>
+        </Box>
+      </TableCell>
+    </>
   );
 };
 

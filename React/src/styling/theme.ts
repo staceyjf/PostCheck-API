@@ -31,7 +31,7 @@ let theme = createTheme({
     MuiFormLabel: {
       styleOverrides: {
         root: {
-          fontSize: "0.75rem",
+          fontSize: "1rem",
           fontWeight: 400,
         },
       },
@@ -65,6 +65,13 @@ let theme = createTheme({
         root: {
           fontSize: "1rem",
           fontWeight: 500,
+        },
+      },
+    },
+    MuiTableCell: {
+      styleOverrides: {
+        root: {
+          fontSize: "0.85rem",
         },
       },
     },

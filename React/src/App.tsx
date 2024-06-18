@@ -32,7 +32,7 @@ function App() {
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
-              rowGap: "0.25rem",
+              rowGap: "2rem",
               backgroundColor: "white",
               mx: "auto",
               borderRadius: "1rem",
