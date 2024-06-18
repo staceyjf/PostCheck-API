@@ -32,6 +32,7 @@ const LoginForm = ({
     }
 
     onSubmit(username, password);
+    form.reset();
   };
 
   return (
