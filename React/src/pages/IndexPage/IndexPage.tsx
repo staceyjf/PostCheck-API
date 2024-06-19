@@ -38,6 +38,19 @@ const IndexPage = () => {
 
   const navigate = useNavigate();
 
+  const fetchAllpostcodes = () => {
+    getAllPostCodes()
+      .then((data) => {
+        setPostcodes(data);
+        setFetchStatus("SUCCESS");
+      })
+      .catch((e: any) => {
+        setError(new Error("Failed to fetch postcodes. Please try again."));
+        setFetchStatus("FAILED");
+        console.error("ERROR: " + e);
+      });
+  };
+
   const handleSearch = (searchFunction: Function, searchTerm: string) => {
     setShowResults(true);
     searchFunction(searchTerm)
@@ -56,6 +69,11 @@ const IndexPage = () => {
   };
 
   useEffect(() => {
+    setShowResults(true);
+    fetchAllpostcodes();
+  }, []);
+
+  useEffect(() => {
     if (searchTerm && searchTerm.match(/\d{4}/g)) {
       handleSearch(findSuburbsByPostCode, searchTerm);
     } else if (searchTerm) {
@@ -65,19 +83,6 @@ const IndexPage = () => {
       fetchAllpostcodes();
     }
   }, [searchTerm]);
-
-  const fetchAllpostcodes = () => {
-    getAllPostCodes()
-      .then((data) => {
-        setPostcodes(data);
-        setFetchStatus("SUCCESS");
-      })
-      .catch((e: any) => {
-        setError(new Error("Failed to fetch postcodes. Please try again."));
-        setFetchStatus("FAILED");
-        console.error("ERROR: " + e);
-      });
-  };
 
   // const handleTodoDelete = async (id: number | undefined) => {
   //   if (id === undefined) {
@@ -185,18 +190,30 @@ const IndexPage = () => {
                 </TableHead>
                 <TableBody>
                   {postcodes.map((postcode: PostCodeResponse) =>
-                    postcode.associatedSuburbs.map(
-                      (suburb: SuburbResponse, index: number) => (
-                        <TableRow key={`${postcode.id}-${index}`}>
-                          <ListItm
-                            id={postcode.id}
-                            postcode={postcode.postcode}
-                            suburbName={suburb.name}
-                            suburbState={suburb.state}
-                            handleEdit={handleEdit}
-                          />
-                        </TableRow>
+                    postcode.associatedSuburbs.length > 0 ? (
+                      postcode.associatedSuburbs.map(
+                        (suburb: SuburbResponse, index: number) => (
+                          <TableRow key={`${postcode.id}-${index}`}>
+                            <ListItm
+                              id={postcode.id}
+                              postcode={postcode.postcode}
+                              suburbName={suburb.name}
+                              suburbState={suburb.state}
+                              handleEdit={handleEdit}
+                            />
+                          </TableRow>
+                        )
                       )
+                    ) : (
+                      <TableRow key={postcode.id}>
+                        <ListItm
+                          id={postcode.id}
+                          postcode={postcode.postcode}
+                          suburbName="No associated suburbs"
+                          suburbState=""
+                          handleEdit={handleEdit}
+                        />
+                      </TableRow>
                     )
                   )}
                 </TableBody>
