@@ -21,17 +21,31 @@ function App() {
           height="100vh"
           width="100%"
           sx={{
+            position: "relative",
             display: "flex",
             justifyContent: "center",
             alignItems: "flex-start",
             paddingTop: "5em",
             background: theme.palette.primary.light,
             overflow: "hidden",
+            zIndex: 0,
           }}
         >
+          <Box
+            height="25vh"
+            width="100%"
+            sx={{
+              position: "absolute",
+              top: 0,
+              backgroundColor: theme.palette.secondary.main,
+              zIndex: 1,
+            }}
+          />
           <Container
             maxWidth="md"
             sx={{
+              position: "relative",
+              zIndex: 2,
               display: "flex",
               flexDirection: "column",
               alignItems: "flex-start",
