@@ -9,6 +9,7 @@ import { Container, Box } from "@mui/material";
 import Navbar from "./components/Navbar/Navbar";
 import UserContextProvider from "./context/userContextProvider";
 import CreateUpdatePage from "./pages/CreateUpdatePage/CreateUpdatePage";
+import CreateUpdateSuburbsPage from "./pages/CreateUpdateSuburbsPage/CreateUpdateSuburbsPage";
 
 function App() {
   return (
@@ -59,6 +60,10 @@ function App() {
                     <Route
                       path="/postcodes/create"
                       element={<CreateUpdatePage mode="Create" />}
+                    />
+                    <Route
+                      path="/suburbs/create"
+                      element={<CreateUpdateSuburbsPage mode="Create" />}
                     />
                     <Route
                       path="/postcodes/:id/edit"

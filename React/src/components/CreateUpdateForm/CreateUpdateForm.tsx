@@ -49,7 +49,7 @@ const CreateUpdateForm = ({
     e.preventDefault();
     const form = e.currentTarget;
     const postcode = new FormData(form).get("postcode") as string;
-
+    // captured in state and updated via the onchange given the autocomplete feature
     const associatedSuburbsIds = selectedSuburbs.map((suburb) => suburb.id);
 
     // submit when there are no errors

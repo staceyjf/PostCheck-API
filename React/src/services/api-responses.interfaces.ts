@@ -16,6 +16,12 @@ export interface SuburbResponse {
   state: string;
 }
 
+export interface SuburbForm {
+  id?: number;
+  name?: string;
+  state?: string;
+}
+
 export interface UserResponse {
   username: string;
   password?: string;

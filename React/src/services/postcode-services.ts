@@ -1,11 +1,12 @@
 import { baseUrl } from "./api-config";
 import { PostCodeResponse, PostCodeForm } from "./api-responses.interfaces";
-import { getToken } from "./user-services";
+import { fetchWithToken } from "./utils";
 
 export const getAllPostCodes = async (): Promise<PostCodeResponse[]> => {
   const response: Response = await fetch(baseUrl + "/postcodes");
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error("Failed to fetch all PostCodes. Please try again later");
   }
 
@@ -20,7 +21,8 @@ export const findPostCodesBySuburb = async (
   );
 
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error(
       "Failed to fetch the associated postcode. Please try again"
     );
@@ -37,26 +39,12 @@ export const findSuburbsByPostCode = async (
   );
 
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error("Failed to fetch the associated suburb. Please try again");
   }
 
   return await response.json();
-};
-
-// helper function to add the token
-// RequestInit - interface from fetch which represent the options you can
-// set for a request
-const fetchWithToken = async (url: string, options: RequestInit = {}) => {
-  const token = getToken();
-  if (!token) throw new Error("Access restricted - please log in.");
-
-  options.headers = {
-    ...options.headers,
-    Authorization: `Bearer ${token}`,
-  };
-
-  return fetch(url, options);
 };
 
 export const createPostCode = async (
@@ -71,7 +59,8 @@ export const createPostCode = async (
   });
   console.log(response);
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error(
       "Oops, something went wrong while trying to create a new PostCode. Please try again."
     );
@@ -91,7 +80,8 @@ export const getPostCodebyId = async (
   });
 
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error(
       `Failed to fetch PostCode with id: ${id}. Please try again later`
     );
@@ -112,7 +102,8 @@ export const updatePostCodeById = async (
     },
   });
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error(
       `Oops, something went wrong while trying to update Postcode with id: ${id}. Please try again.`
     );
@@ -129,7 +120,8 @@ export const deleteById = async (id: number) => {
   });
   if (response.status !== 204) {
     // Spring is sending back a 204 No Content HTTP request
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error(
       `Oops, something went wrong while trying to delete Postcode with id: ${id}. Please try again.`
     );

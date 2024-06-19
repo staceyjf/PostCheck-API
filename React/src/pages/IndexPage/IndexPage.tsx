@@ -122,8 +122,6 @@ const IndexPage = () => {
     }
   };
 
-  console.log(postcodes);
-
   return (
     <section style={{ width: "100%" }}>
       {fetchStatus === "LOADING" && (

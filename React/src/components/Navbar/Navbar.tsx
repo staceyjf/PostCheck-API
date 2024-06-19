@@ -24,7 +24,7 @@ const Navbar = () => {
 
   const handleMenuItm = (clickDestination: string) => {
     if (clickDestination) {
-      navigate(`/postcodes/${clickDestination}`);
+      navigate(`${clickDestination}`);
     }
     handleClose();
   };
@@ -59,7 +59,7 @@ const Navbar = () => {
             vertical: "top",
             horizontal: "right",
           }}
-          keepMounted
+          // keepMounted
           transformOrigin={{
             vertical: "top",
             horizontal: "right",
@@ -74,9 +74,12 @@ const Navbar = () => {
             [
               {
                 text: "Add a postcode",
-                onClick: () => handleMenuItm("create"),
+                onClick: () => handleMenuItm("/postcodes/create"),
               },
-              { text: "Add a suburb", onClick: handleClose },
+              {
+                text: "Add a suburb",
+                onClick: () => handleMenuItm("/suburbs/create"),
+              },
               { text: "Register a new user", onClick: handleClose },
               { text: "Logout", onClick: signOut },
             ].map((item, index) => (

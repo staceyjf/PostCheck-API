@@ -30,7 +30,8 @@ export const signIn = async (
   });
 
   if (!response.ok) {
-    console.warn(response.status);
+    const errorData = await response.json();
+    console.error("Error:", errorData.errorMessages);
     throw new Error("Failed to sign in. Please try again later");
   }
 
