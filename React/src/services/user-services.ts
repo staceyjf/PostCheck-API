@@ -17,16 +17,6 @@ export const getToken = (): string | null => {
   return token;
 };
 
-// export const getUser = async (id: number): Promise<UserResponse> => {
-//   const response: Response = await fetch(`${baseUrl}/auth/${id}`);
-//   if (!response.ok) {
-//     console.warn(response.status);
-//     throw new Error("Failed to fetch user. Please try again later");
-//   }
-
-//   return await response.json();
-// };
-
 export const signIn = async (
   login: string,
   password: string

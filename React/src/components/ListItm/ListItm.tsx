@@ -1,4 +1,4 @@
-import { Box, IconButton, useTheme, TableRow, TableCell } from "@mui/material";
+import { Box, IconButton, useTheme, TableCell } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
 
 // define the props
@@ -7,9 +7,8 @@ interface ListItmProps {
   postcode: string;
   suburbName: string;
   suburbState: string;
-  // deleteOnClick: (id: number | undefined) => void;
+  deleteOnClick: (id: number | undefined) => void;
   handleEdit: (id: number | undefined) => void;
-  // handleIsComplete: (id: number | undefined, isComplete: boolean) => void;
 }
 
 const ListItm = ({
@@ -17,6 +16,7 @@ const ListItm = ({
   postcode,
   suburbName,
   suburbState,
+  deleteOnClick,
   handleEdit,
 }: ListItmProps) => {
   const theme = useTheme();
@@ -40,7 +40,7 @@ const ListItm = ({
           <IconButton
             edge="end"
             aria-label="delete"
-            onClick={(e) => console.log("hello")}
+            onClick={() => deleteOnClick(id)}
           >
             <DeleteIcon />
           </IconButton>

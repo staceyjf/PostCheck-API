@@ -17,7 +17,7 @@ function App() {
         {/* Normalization add  */}
         <CssBaseline />
         <Box
-          height="100vh"
+          height="100%"
           width="100%"
           sx={{
             display: "flex",
@@ -38,6 +38,8 @@ function App() {
               mx: "auto",
               borderRadius: "1rem",
               padding: 2,
+              overflow: "auto",
+              height: "100vh",
             }}
           >
             <UserContextProvider>

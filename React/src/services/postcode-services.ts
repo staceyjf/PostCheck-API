@@ -119,3 +119,19 @@ export const updatePostCodeById = async (
   }
   return await response.json();
 };
+
+export const deleteById = async (id: number) => {
+  const response = await fetchWithToken(`${baseUrl}/postcodes/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (response.status !== 204) {
+    // Spring is sending back a 204 No Content HTTP request
+    console.warn(response.status);
+    throw new Error(
+      `Oops, something went wrong while trying to delete Postcode with id: ${id}. Please try again.`
+    );
+  }
+};

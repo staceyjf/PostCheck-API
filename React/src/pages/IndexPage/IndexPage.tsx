@@ -21,9 +21,11 @@ import {
   getAllPostCodes,
   findPostCodesBySuburb,
   findSuburbsByPostCode,
+  deleteById,
 } from "../../services/postcode-services";
 import ListItm from "../../components/ListItm/ListItm";
 import Searchbar from "../../components/Searchbar/Searchbar";
+import DeleteConfirmationModel from "../../components/DeleteConfirmationModal/DeleteConfirmationModel";
 
 const IndexPage = () => {
   const [postcodes, setPostcodes] = useState<PostCodeResponse[]>([]);
@@ -84,32 +86,32 @@ const IndexPage = () => {
     }
   }, [searchTerm]);
 
-  // const handleTodoDelete = async (id: number | undefined) => {
-  //   if (id === undefined) {
-  //     console.error("Id is undefined for deleting a todo by id");
-  //     throw new Error(`Unable to delete todo  with id: ${id}`);
-  //   }
+  const handleDelete = async (id: number | undefined) => {
+    if (id === undefined) {
+      console.error("Id is undefined for deleting a todo by id");
+      throw new Error(`Unable to delete todo  with id: ${id}`);
+    }
 
-  //   try {
-  //     await deleteTodoById(id);
-  //     setTodos(todos.filter((item) => item.id !== id));
-  //     setOpenModal(false);
-  //   } catch (e: any) {
-  //     setError(new Error("Failed to delete todo. Please try again."));
-  //     setFetchStatus("FAILED");
-  //     console.error(e);
-  //   }
-  // };
+    try {
+      await deleteById(id);
+      setPostcodes(postcodes.filter((item) => item.id !== id));
+      setOpenModal(false);
+    } catch (e: any) {
+      setError(new Error("Failed to delete postcode. Please try again."));
+      setFetchStatus("FAILED");
+      console.error(e);
+    }
+  };
 
-  // const deleteTodoOnClick = (id: number | undefined) => {
-  //   if (id !== undefined) {
-  //     setTodoId(id);
-  //     setOpenModal(true);
-  //   } else {
-  //     console.error("Id is undefined for deleting a todo by id");
-  //     throw new Error(`Unable to find todo with: ${id}`);
-  //   }
-  // };
+  const deleteOnClick = (id: number | undefined) => {
+    if (id !== undefined) {
+      setPostcodeId(id);
+      setOpenModal(true);
+    } else {
+      console.error("Id is undefined for deleting a postcode by id");
+      throw new Error(`Unable to find Postcode with: ${id}`);
+    }
+  };
 
   const handleEdit = (id: number | undefined) => {
     if (id !== undefined) {
@@ -199,18 +201,21 @@ const IndexPage = () => {
                               postcode={postcode.postcode}
                               suburbName={suburb.name}
                               suburbState={suburb.state}
+                              deleteOnClick={deleteOnClick}
                               handleEdit={handleEdit}
                             />
                           </TableRow>
                         )
                       )
                     ) : (
+                      // handle where postcodes don't have suburbs
                       <TableRow key={postcode.id}>
                         <ListItm
                           id={postcode.id}
                           postcode={postcode.postcode}
                           suburbName="No associated suburbs"
                           suburbState=""
+                          deleteOnClick={deleteOnClick}
                           handleEdit={handleEdit}
                         />
                       </TableRow>
@@ -229,14 +234,14 @@ const IndexPage = () => {
           )}
         </Box>
       )}
-      {/* {openModal && (
+      {openModal && (
         <DeleteConfirmationModel
-          postcodeId={postcodeId}
+          Id={postcodeId}
           openModal={openModal}
           setOpenModal={setOpenModal}
-          handleDelete={handleTodoDelete}
+          handleDelete={handleDelete}
         />
-      )} */}
+      )}
     </section>
   );
 };
