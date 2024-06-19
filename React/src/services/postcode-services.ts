@@ -59,24 +59,26 @@ const fetchWithToken = async (url: string, options: RequestInit = {}) => {
   return fetch(url, options);
 };
 
-// export const createPostCode = async (data: PostCodeFormData): Promise<PostCodeResponse> => {
-//   const response = await fetch(baseUrl + "/postcodes", {
-//     method: "POST",
-//     body: JSON.stringify(data),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   if (!response.ok
-//     console.warn(response.status);
-//     throw new Error(
-//       "Oops, something went wrong while trying to create a new Todo. Please try again."
-//     );
-//   }
+export const createPostCode = async (
+  data: PostCodeForm
+): Promise<PostCodeResponse> => {
+  const response = await fetchWithToken(baseUrl + "/postcodes", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  console.log(response);
+  if (!response.ok) {
+    console.warn(response.status);
+    throw new Error(
+      "Oops, something went wrong while trying to create a new PostCode. Please try again."
+    );
+  }
 
-//   return await response.json();
-
-// };
+  return await response.json();
+};
 
 export const getPostCodebyId = async (
   id: number
@@ -98,7 +100,7 @@ export const getPostCodebyId = async (
   return await response.json();
 };
 
-export const updatePostById = async (
+export const updatePostCodeById = async (
   id: number,
   data: PostCodeForm
 ): Promise<PostCodeResponse> => {

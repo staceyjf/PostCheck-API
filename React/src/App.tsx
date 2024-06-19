@@ -55,7 +55,10 @@ function App() {
                 >
                   <Routes>
                     <Route path="" element={<IndexPage />} />
-                    {/* <Route path="/new" element={<AddTodoPage />} /> */}
+                    <Route
+                      path="/postcodes/create"
+                      element={<CreateUpdatePage mode="Create" />}
+                    />
                     <Route
                       path="/postcodes/:id/edit"
                       element={<CreateUpdatePage mode="Edit" />}

@@ -24,9 +24,9 @@ const CreateUpdateForm = ({
   mode,
   onSubmit,
 }: CreateUpdateFormProps) => {
-  console.log("This is suburbs for create:" + suburbs);
-  console.log("This is defaultvalues for edit:" + defaultValues);
-
+  const [selectedSuburbs, setSelectedSuburbs] = useState<SuburbResponse[]>(
+    defaultValues?.associatedSuburbs || []
+  );
   const [postcodeError, setPostcodeError] = useState<string | null>(null);
   const [suburbError, setSuburbError] = useState<string | null>(null);
 
@@ -50,9 +50,7 @@ const CreateUpdateForm = ({
     const form = e.currentTarget;
     const postcode = new FormData(form).get("postcode") as string;
 
-    // const associatedSuburbs = new FormData(form).get("associatedSuburbs");
-    // const associatedSuburbsIds = associatedSuburbs.map((suburb) => suburb.id);
-    const associatedSuburbsIds = [1];
+    const associatedSuburbsIds = selectedSuburbs.map((suburb) => suburb.id);
 
     // submit when there are no errors
     if (postcode && !postcodeError && !suburbError) {
@@ -78,7 +76,7 @@ const CreateUpdateForm = ({
               id="postcode"
               name="postcode"
               label="Postcode"
-              defaultValue={defaultValues?.postcode || "Add a postcode"}
+              defaultValue={defaultValues?.postcode}
               helperText={postcodeError || ""}
               variant="filled"
               onChange={handlePostcodeChange}
@@ -87,8 +85,11 @@ const CreateUpdateForm = ({
               multiple
               id="associatedSuburbs"
               isOptionEqualToValue={(option, value) => option.id === value.id}
-              options={defaultValues?.associatedSuburbs || suburbs || []}
-              defaultValue={defaultValues?.associatedSuburbs || []}
+              options={suburbs || []}
+              value={selectedSuburbs}
+              onChange={(_event, newValue) => {
+                setSelectedSuburbs(newValue);
+              }}
               getOptionLabel={(option) => `${option.name}, ${option.state}`}
               renderInput={(params) => (
                 <TextField
@@ -103,6 +104,7 @@ const CreateUpdateForm = ({
             />
 
             <Button
+              type="submit"
               variant="contained"
               color="secondary"
               sx={{ margin: "3.5em" }}

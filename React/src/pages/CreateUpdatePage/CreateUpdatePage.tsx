@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import {
+  createPostCode,
   getPostCodebyId,
-  updatePostById,
+  updatePostCodeById,
 } from "../../services/postcode-services";
 import { Alert, Backdrop, Box, Skeleton, Snackbar } from "@mui/material";
 import CreateUpdateForm from "../../components/CreateUpdateForm/CreateUpdateForm";
@@ -27,8 +28,6 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
   const [error, setError] = useState<Error | null>(null);
   const [fetchStatus, setFetchStatus] = useState<String>("LOADING");
   const [open, setOpen] = useState(false);
-
-  console.log(defaultValues);
 
   // helper error to reduce code in the useEffect
   const handleError = (e: Error, errorMessage: string, errorLog: string) => {
@@ -57,20 +56,20 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
             "ERROR: failed to updated id: " + Id + ", " + e
           )
         );
-    } else {
-      getAllSuburbs()
-        .then((data) => {
-          setFetchStatus("SUCCESS");
-          setSuburbs(data);
-        })
-        .catch((e: Error) =>
-          handleError(
-            e,
-            "Failed to fetch Postpost. Please try again.",
-            "ERROR: failed to fetch all postcodes"
-          )
-        );
     }
+
+    getAllSuburbs()
+      .then((data) => {
+        setFetchStatus("SUCCESS");
+        setSuburbs(data);
+      })
+      .catch((e: Error) =>
+        handleError(
+          e,
+          "Failed to fetch Postpost. Please try again.",
+          "ERROR: failed to fetch all postcodes"
+        )
+      );
   }, []);
 
   const handleClose = (
@@ -86,14 +85,16 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
 
   const onSubmit = (postcode: string, suburbIds: number[]) => {
     const data = { postcode, suburbIds };
-    if (isNaN(Id)) {
-      console.error("Invalid Id");
-      // TODO: add 404 page
-      throw new Error("Oops, something when wrong. Please try again");
-    }
 
-    if (mode === "edit") {
-      updatePostById(Id, data)
+    if (mode === "Edit") {
+      if (isNaN(Id)) {
+        console.error("Invalid Id");
+        // TODO: add 404 page
+        setError(new Error(`Oops, something when wrong. Please try again`));
+        setOpen(true);
+        setFetchStatus("FAILED");
+      }
+      updatePostCodeById(Id, data)
         .then((_data) => {
           navigate("/");
           setError(null);
@@ -105,6 +106,19 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
           console.error(
             "ERROR: failed to update item with id: " + Id + ", " + e
           );
+        });
+    } else {
+      createPostCode(data)
+        .then((_data) => {
+          console.log(data);
+          navigate("/");
+          setError(null);
+        })
+        .catch((e: Error) => {
+          setError(new Error(`Failed to create a postcode. Please try again.`));
+          setOpen(true);
+          setFetchStatus("FAILED");
+          console.error("ERROR: " + e);
         });
     }
   };
@@ -144,11 +158,18 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
       )}
       {fetchStatus === "SUCCESS" && (
         <>
-          <h1>Edit {defaultValues?.postcode} Postcode</h1>
+          <h1>
+            {mode}{" "}
+            <span style={{ fontStyle: "italic" }}>
+              {defaultValues?.postcode}
+            </span>{" "}
+            Postcode
+          </h1>
           {defaultValues && (
             <CreateUpdateForm
               defaultValues={defaultValues}
               onSubmit={onSubmit}
+              suburbs={suburbs}
               mode="Edit"
             />
           )}

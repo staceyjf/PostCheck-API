@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Box, useTheme, IconButton, Menu, MenuItem } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/userContextProvider";
@@ -9,6 +10,7 @@ import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const theme = useTheme();
+  const navigate = useNavigate();
   const { user, signOut } = useContext(UserContext);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -18,6 +20,13 @@ const Navbar = () => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const handleMenuItm = (clickDestination: string) => {
+    if (clickDestination) {
+      navigate(`/postcodes/${clickDestination}`);
+    }
+    handleClose();
   };
 
   return (
@@ -63,7 +72,10 @@ const Navbar = () => {
           </MenuItem>
           {user &&
             [
-              { text: "Add a postcode", onClick: handleClose },
+              {
+                text: "Add a postcode",
+                onClick: () => handleMenuItm("create"),
+              },
               { text: "Add a suburb", onClick: handleClose },
               { text: "Register a new user", onClick: handleClose },
               { text: "Logout", onClick: signOut },
