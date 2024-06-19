@@ -4,6 +4,12 @@ export interface PostCodeResponse {
   associatedSuburbs: SuburbResponse[];
 }
 
+export interface PostCodeForm {
+  id?: number;
+  postcode?: string;
+  associatedSuburbs?: SuburbResponse[];
+}
+
 export interface SuburbResponse {
   id: number;
   name: string;

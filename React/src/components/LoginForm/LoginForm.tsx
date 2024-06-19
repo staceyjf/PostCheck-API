@@ -22,13 +22,8 @@ const LoginForm = ({
     const username = new FormData(form).get("username") as string;
     const password = new FormData(form).get("psw") as string;
 
-    if (!username) {
-      setError(new Error("Username is missing"));
-      return;
-    }
-
-    if (!password) {
-      setError(new Error("Password is missing"));
+    if (!username || !password) {
+      setError(new Error(`${!username ? "username" : "password"} is missing`));
       return;
     }
 

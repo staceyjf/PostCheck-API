@@ -8,7 +8,7 @@ import "./App.scss";
 import { Container, Box } from "@mui/material";
 import Navbar from "./components/Navbar/Navbar";
 import UserContextProvider from "./context/userContextProvider";
-import UpdatePage from "./pages/UpdatePage/UpdatePage";
+import CreateUpdatePage from "./pages/CreateUpdatePage/CreateUpdatePage";
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingTop: "5em",
-            background: theme.palette.secondary.main,
+            background: theme.palette.primary.light,
           }}
         >
           <Container
@@ -58,7 +58,7 @@ function App() {
                     {/* <Route path="/new" element={<AddTodoPage />} /> */}
                     <Route
                       path="/postcodes/:id/edit"
-                      element={<UpdatePage />}
+                      element={<CreateUpdatePage mode="Edit" />}
                     />
                   </Routes>
                 </Box>

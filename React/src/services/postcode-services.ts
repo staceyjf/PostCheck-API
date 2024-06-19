@@ -1,5 +1,5 @@
 import { baseUrl } from "./api-config";
-import { PostCodeResponse } from "./api-responses.interfaces";
+import { PostCodeResponse, PostCodeForm } from "./api-responses.interfaces";
 import { getToken } from "./user-services";
 
 export const getAllPostCodes = async (): Promise<PostCodeResponse[]> => {
@@ -98,22 +98,22 @@ export const getPostCodebyId = async (
   return await response.json();
 };
 
-// export const updateTodoById = async (
-//   id: number,
-//   data: TodoFormData
-// ): Promise<PostCodeResponse> => {
-//   const response = await fetchWithToken(`${baseUrl}/postcodes/${id}`, {
-//     method: "PATCH",
-//     body: JSON.stringify(data),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   if (!response.ok) {
-//     console.warn(response.status);
-//     throw new Error(
-//       `Oops, something went wrong while trying to update Postcode with id: ${id}. Please try again.`
-//     );
-//   }
-//  return await response.json();
-// };
+export const updatePostById = async (
+  id: number,
+  data: PostCodeForm
+): Promise<PostCodeResponse> => {
+  const response = await fetchWithToken(`${baseUrl}/postcodes/${id}`, {
+    method: "PATCH",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!response.ok) {
+    console.warn(response.status);
+    throw new Error(
+      `Oops, something went wrong while trying to update Postcode with id: ${id}. Please try again.`
+    );
+  }
+  return await response.json();
+};

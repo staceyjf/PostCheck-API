@@ -15,13 +15,11 @@ let theme = createTheme({
     primary: {
       main: "#dc1928",
       dark: "#382f2d",
+      light: "#f3f1ee",
     },
     secondary: {
-      main: "#f3f1ee",
+      main: "#1064a3",
     },
-  },
-  highlightOne: {
-    main: "#1064a3",
   },
   typography: {
     fontSize: 12,
