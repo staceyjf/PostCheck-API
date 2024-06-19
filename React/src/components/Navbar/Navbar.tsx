@@ -6,7 +6,6 @@ import { UserContext } from "../../context/userContextProvider";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import logo from "../../assets/post.png";
 import LoginContainer from "../../containers/LoginContainer/LoginContainer";
-import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
   const theme = useTheme();
@@ -40,7 +39,7 @@ const Navbar = () => {
         mb={1}
         px={3}
       >
-        <NavLink to="/">
+        <NavLink to="/" data-testid="navbar-logo">
           <Box display="flex" justifyContent="center" alignItems="center">
             <img src={logo} alt="PostCheck Logo" style={{ width: "150px" }} />
           </Box>
@@ -50,10 +49,11 @@ const Navbar = () => {
             aria-label="Login"
             aria-haspopup="true"
             style={{ fontSize: 40, color: theme.palette.primary.dark }}
+            data-testid="account-profile"
           />
         </IconButton>
         <Menu
-          id="signin"
+          id="menu"
           anchorEl={anchorEl}
           anchorOrigin={{
             vertical: "top",
@@ -66,8 +66,9 @@ const Navbar = () => {
           }}
           open={Boolean(anchorEl)}
           onClose={handleClose}
+          data-testid="menu"
         >
-          <MenuItem disableRipple>
+          <MenuItem disableRipple data-testid="login-form">
             <LoginContainer />
           </MenuItem>
           {user &&
@@ -75,10 +76,12 @@ const Navbar = () => {
               {
                 text: "Add a postcode",
                 onClick: () => handleMenuItm("/postcodes/create"),
+                testId: "add-postcode-item",
               },
               {
                 text: "Add a suburb",
                 onClick: () => handleMenuItm("/suburbs/create"),
+                testId: "add-suburb-item",
               },
               { text: "Register a new user", onClick: handleClose },
               { text: "Logout", onClick: signOut },
@@ -88,15 +91,6 @@ const Navbar = () => {
               </MenuItem>
             ))}
         </Menu>
-        {/* 
-        {user && (
-          <NavLink to="/new">
-            <AddCircleIcon
-              aria-label="Add a postcode"
-              style={{ fontSize: 40, color: theme.palette.primary.main }}
-            />{" "}
-          </NavLink>
-        )} */}
       </Box>
     </nav>
   );
