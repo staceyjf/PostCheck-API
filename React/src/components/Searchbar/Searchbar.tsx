@@ -17,7 +17,7 @@ const Searchbar = ({ placeholder, setSearchTerm }: SearchbarProps) => {
 
   return (
     <div className={styles.searchbar}>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} data-testid="search-form">
         <div className={styles.container}>
           <input type="text" placeholder={placeholder} name="search" />
           <button>Search</button>
