@@ -50,7 +50,11 @@ const LoginForm = ({
         </Snackbar>
       )}
       {!error && (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form
+          onSubmit={handleSubmit}
+          className={styles.form}
+          data-testid="login-form"
+        >
           <input
             type="text"
             placeholder={placeholderUsername}
