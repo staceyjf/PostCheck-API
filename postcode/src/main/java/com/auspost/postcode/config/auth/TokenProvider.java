@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import com.auspost.postcode.User.User;
+import com.auspost.postcode.exceptions.ServiceValidationException;
+import com.auspost.postcode.exceptions.ValidationErrors;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
@@ -20,17 +22,22 @@ public class TokenProvider {
     @Value("${security.jwt.token.secret-key}")
     private String JWT_SECRET; // inject in env secret
 
-    public String generateAccessToken(User user) {
+    public String generateAccessToken(User user) throws ServiceValidationException {
+        ValidationErrors errors = new ValidationErrors();
+
         if (JWT_SECRET == null) {
-            throw new IllegalArgumentException("JWT_SECRET is null");
+            errors.addError("User", "JWT_SECRET is null.");
+            throw new ServiceValidationException(errors);
         }
 
         if (user == null) {
-            throw new IllegalArgumentException("User is null");
+            errors.addError("User", "User is null.");
+            throw new ServiceValidationException(errors);
         }
 
         if (user.getUsername() == null) {
-            throw new IllegalArgumentException("Username is null");
+            errors.addError("User", "Username is null.");
+            throw new ServiceValidationException(errors);
         }
 
         try {
@@ -42,7 +49,8 @@ public class TokenProvider {
                     .withExpiresAt(genAccessExpirationDate()) // set expiry
                     .sign(algorithm); // verify that the token is genuine
         } catch (JWTCreationException ex) {
-            throw new JWTCreationException("Error while generating token", ex);
+            errors.addError("User", "Invalid token.");
+            throw new ServiceValidationException(errors);
         }
     }
 
@@ -55,6 +63,7 @@ public class TokenProvider {
                     .getSubject(); // return the subject which is our username
         } catch (JWTVerificationException exception) {
             throw new JWTVerificationException("Error while validating token", exception);
+            // OncePerRequestFilter interface does not permit custom errors
         }
     }
 

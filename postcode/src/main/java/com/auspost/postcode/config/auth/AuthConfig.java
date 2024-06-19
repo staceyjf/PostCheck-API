@@ -31,6 +31,10 @@ public class AuthConfig {
                 // won't store any state about client requests
                 .authorizeHttpRequests(authorize -> authorize
                         .dispatcherTypeMatchers(DispatcherType.FORWARD, DispatcherType.ERROR).permitAll()
+                        .requestMatchers(HttpMethod.GET, "/swagger-ui/**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/swagger-ui/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/api-docs**").permitAll()
+                        .requestMatchers(HttpMethod.POST, "/api-docs**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/v1/postcodes/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/postcodes").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/postcodes/{id}").hasRole("ADMIN")
