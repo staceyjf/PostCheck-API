@@ -32,7 +32,7 @@ describe("Navbar", () => {
     );
 
     const logoLink = screen.getByTestId("navbar-logo");
-    userEvent.click(logoLink);
+    await userEvent.click(logoLink);
 
     const locationDisplay = await screen.findByTestId("location-display");
 
