@@ -8,6 +8,7 @@ import java.util.Set;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import com.auspost.postcode.Suburb.Suburb;
@@ -16,6 +17,7 @@ import com.auspost.postcode.exceptions.ServiceValidationException;
 import com.auspost.postcode.exceptions.ValidationErrors;
 
 import jakarta.transaction.Transactional;
+import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Valid;
 
 @Service
@@ -64,15 +66,26 @@ public class PostCodeService {
         newPostCode.setPostcode(trimmedPostCodeField);
         newPostCode.setAssociatedSuburbs(associatedSuburbs);
 
-        PostCode savedPostCode = this.repo.save(newPostCode);
-        fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
-        return savedPostCode;
+        // as the unique constraint is at the bd level
+        try {
+            PostCode savedPostCode = this.repo.save(newPostCode);
+              fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
+            return savedPostCode;
+        } catch (DataIntegrityViolationException e) {
+            if (e.getCause() instanceof ConstraintViolationException) {
+                errors.addError("PostCode", "Postcode already exists.");
+            } else {
+                errors.addError("PostCode", "There was an issue saving a new postcode to the database");
+            }
+            throw new ServiceValidationException(errors);
+        }
+
     }
 
     // will return an empty array which negate error handling needs
     public List<PostCode> findAllPostCodes() {
         List<PostCode> postCodes = this.repo.findAll();
-        fullLogsLogger.info("Sourced all postcodes from the db");
+    fullLogsLogger.info("Sourced all postcodes from the db. Total count: " + postCodes.size());
         return postCodes;
     }
 
@@ -146,13 +159,29 @@ public class PostCodeService {
 
     public List<PostCode> findSuburbsByPostCode(String postCode) {
         List<PostCode> associatedSuburbs = this.repo.findByPostcode(postCode);
-        fullLogsLogger.info("Sourced all associatedSuburbs from the db");
+        fullLogsLogger.info("Sourced all associated Suburbs from the db");
         return associatedSuburbs;
     }
 
     public List<PostCode> findPostCodesBySuburb(String suburb) {
         List<PostCode> associatedPostCodes = this.repo.findPostCodesByAssociatedSuburbsName(suburb);
-        fullLogsLogger.info("Sourced all associatedPostCodes from the db");
+        fullLogsLogger.info("Sourced all associated PostCodes from the db");
         return associatedPostCodes;
+    }
+
+    public boolean deleteById(Long id) throws ServiceValidationException {
+        Optional<PostCode> maybePostCode = this.findById(id);
+        if (maybePostCode.isEmpty()) {
+            return false;
+        }
+
+        PostCode foundPostCode = maybePostCode.get();
+
+        foundPostCode.associatedSuburbs.clear();
+
+        //TODO: add a function to remove Orphaned sububs
+
+        this.repo.delete(foundPostCode);
+        return true;
     }
 }

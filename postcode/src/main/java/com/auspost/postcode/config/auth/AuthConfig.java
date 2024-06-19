@@ -34,6 +34,7 @@ public class AuthConfig {
                         .requestMatchers(HttpMethod.GET, "/api/v1/postcodes/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/postcodes").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/postcodes/{id}").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/v1/postcodes/{id}").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.GET, "/api/v1/suburbs/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/api/v1/suburbs").hasRole("ADMIN")
                         .requestMatchers(HttpMethod.PATCH, "/api/v1/suburbs/{id}").hasRole("ADMIN")

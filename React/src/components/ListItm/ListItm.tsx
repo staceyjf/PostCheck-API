@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { Box, IconButton, useTheme, TableCell } from "@mui/material";
 import { Delete as DeleteIcon, Edit as EditIcon } from "@mui/icons-material";
+import { UserContext } from "../../context/userContextProvider";
 
 // define the props
 interface ListItmProps {
@@ -20,6 +22,7 @@ const ListItm = ({
   handleEdit,
 }: ListItmProps) => {
   const theme = useTheme();
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -30,28 +33,30 @@ const ListItm = ({
         {`${suburbName}, ${suburbState}`}
       </TableCell>
       <TableCell>
-        <Box
-          display="flex"
-          flexDirection="row"
-          alignContent="center"
-          justifyContent="flex-end"
-          columnGap="0.5em"
-        >
-          <IconButton
-            edge="end"
-            aria-label="delete"
-            onClick={() => deleteOnClick(id)}
+        {user && (
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignContent="center"
+            justifyContent="flex-end"
+            columnGap="0.5em"
           >
-            <DeleteIcon />
-          </IconButton>
-          <IconButton
-            edge="end"
-            aria-label="edit"
-            onClick={() => handleEdit(id)}
-          >
-            <EditIcon />
-          </IconButton>
-        </Box>
+            <IconButton
+              edge="end"
+              aria-label="delete"
+              onClick={() => deleteOnClick(id)}
+            >
+              <DeleteIcon />
+            </IconButton>
+            <IconButton
+              edge="end"
+              aria-label="edit"
+              onClick={() => handleEdit(id)}
+            >
+              <EditIcon />
+            </IconButton>
+          </Box>
+        )}
       </TableCell>
     </>
   );

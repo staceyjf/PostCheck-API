@@ -122,6 +122,8 @@ const IndexPage = () => {
     }
   };
 
+  console.log(postcodes);
+
   return (
     <section style={{ width: "100%" }}>
       {fetchStatus === "LOADING" && (
@@ -174,10 +176,13 @@ const IndexPage = () => {
                 {searchTerm
                   ? " for " + searchTerm + " returned "
                   : " returned "}
-                {postcodes.reduce(
-                  (acc, curr) => acc + curr.associatedSuburbs.length,
-                  0
-                )}{" "}
+                {postcodes.reduce((acc, curr) => {
+                  return (
+                    acc +
+                    curr.associatedSuburbs.length -
+                    (curr.associatedSuburbs.length > 0 ? 1 : 0)
+                  );
+                }, postcodes.length)}{" "}
                 result(s).
               </h4>
               <Table sx={{ width: "100%" }}>

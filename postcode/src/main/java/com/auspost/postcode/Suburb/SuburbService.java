@@ -54,7 +54,9 @@ public class SuburbService {
     }
 
     public List<Suburb> findAllSuburbs() {
-        return this.repo.findAll();
+        List<Suburb> suburbs = this.repo.findAll();
+        fullLogsLogger.info("Sourced all postcodes from the db. Total count: " + suburbs.size());
+        return suburbs;
     }
 
     public Optional<Suburb> findById(Long id) {

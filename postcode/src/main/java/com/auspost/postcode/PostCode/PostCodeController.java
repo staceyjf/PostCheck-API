@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.auspost.postcode.Suburb.Suburb;
 import com.auspost.postcode.exceptions.ServiceValidationException;
 
+import jakarta.persistence.EntityNotFoundException;
 import jakarta.validation.Valid;
 
 import java.util.List;
@@ -63,6 +65,17 @@ public class PostCodeController {
         fullLogsLogger.info("updatePostCodeById responses with updated postcode:" + updatedPostCode);
         return new ResponseEntity<>(updatedPostCode, HttpStatus.OK);
     }
+    
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deletePostCodeById(@PathVariable Long id)
+            throws ServiceValidationException {
+        boolean isDeleted = this.postcodeService.deleteById(id);
+        if (!isDeleted) {
+            throw new EntityNotFoundException("PostCode with id: " + id + " not found"); 
+        }
+        fullLogsLogger.info(String.format("PostCode with id: %d has been deleted ", id));
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
 
     @GetMapping("/suburbs")
     public ResponseEntity<List<PostCode>> findSuburbsByPostCode(@RequestParam String postcode)
@@ -79,5 +92,7 @@ public class PostCodeController {
         fullLogsLogger.info("postCodesBySuburb responses with all associated postCodes.");
         return new ResponseEntity<>(postCodesBySuburb, HttpStatus.OK);
     }
+
+    
 
 }

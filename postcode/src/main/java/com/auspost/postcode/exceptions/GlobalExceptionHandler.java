@@ -13,6 +13,8 @@ import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import jakarta.persistence.EntityNotFoundException;
+
 // makes it the central point for handling exceptions within the controller
 @ControllerAdvice
 public class GlobalExceptionHandler {
@@ -31,10 +33,10 @@ public class GlobalExceptionHandler {
 
     // Handle exceptions that return a 400 error (not found error)
     // eg can't find by ID
-    @ExceptionHandler({ NoSuchElementException.class })
+    @ExceptionHandler({ NoSuchElementException.class, EntityNotFoundException.class })
     public ResponseEntity<GlobalError> handleNotFoundEntity(Exception ex) {
-        return createErrorResponse(HttpStatus.NOT_FOUND, ex, "Error",
-                "The requested resource could not be found. Please verify ID or parameters.");
+        String errorMessage = ex.getMessage() != null ? ex.getMessage() : "The requested resource could not be found. Please verify ID or parameters.";
+        return createErrorResponse(HttpStatus.NOT_FOUND, ex, "Error", errorMessage);
     }
 
     // Handle exceptions that return a 400 error (bad request)
