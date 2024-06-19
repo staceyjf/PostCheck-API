@@ -66,7 +66,11 @@ const CreateUpdateForm = ({
         justifyContent="center"
         alignItems="center"
       >
-        <form onSubmit={handleSubmit} style={{ width: "65%" }}>
+        <form
+          onSubmit={handleSubmit}
+          style={{ width: "65%" }}
+          data-testid="postcode-form"
+        >
           <FormControl fullWidth>
             <TextField
               color="secondary"
@@ -104,6 +108,7 @@ const CreateUpdateForm = ({
             />
 
             <Button
+              data-testid="submitbtn"
               type="submit"
               variant="contained"
               color="secondary"
