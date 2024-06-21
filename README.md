@@ -36,7 +36,7 @@ Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index
 ### Backend
 
 1. **Implementing JWT Auth:** While a service token may have been more appropriate given the nature of the API, I wanted to explore JWT and how to implement it using Spring Security.
-2. **CRUD API Endpoints:** Full CRUD endpoints are provided for the `Todo` entity. Get all and update by ID endpoints are provided for the `Color` entity.
+2. **CRUD API Endpoints:** Full CRUD endpoints are provided for the `Postcode` entity. Create, Read and Update endpoints are provided for the `Suburbs` and `Users` entities.
 3. **API Documentation:** Enhanced use of Swagger to produce more informative documentation on how to use the API.
 4. **Many-to-Many Relationship:** As postcodes and suburbs can contain many of the other entity, I implemented a join table to ensure that they were correctly managed within the DB. Given the proposed use of the API, I decided to implement a uni-directional relationship with the `Postcode` entity owning the relationship (associated suburbs were only contained on the postcode side). If there are additional future user requirements, I can look at changing this to a bi-directional relationship to ensure that each can hold associations of the other.
 
