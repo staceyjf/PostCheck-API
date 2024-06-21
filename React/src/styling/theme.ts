@@ -26,6 +26,30 @@ let theme = createTheme({
     fontFamily: ["Helvetica", "Arial", "sans-serif"].join(","),
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          // Custom scrollbar styles for WebKit browsers
+          "&::-webkit-scrollbar": {
+            width: "8px",
+            borderRadius: "4px", // Rounded corners
+          },
+          "&::-webkit-scrollbar-track": {
+            boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
+          },
+          "&::-webkit-scrollbar-thumb": {
+            backgroundColor: "rgba(16, 100, 163, 0.5)", // Use secondary.main color with reduced opacity
+            outline: "1px solid slategrey",
+            "&:hover": {
+              backgroundColor: "#1064a3", // Use secondary.main color
+            },
+          },
+          // Custom scrollbar styles for Firefox
+          scrollbarWidth: "thin",
+          scrollbarColor: "rgba(16, 100, 163, 0.5) lightgrey", // Use secondary.main color with reduced opacity for the thumb
+        },
+      },
+    },
     MuiFormLabel: {
       styleOverrides: {
         root: {

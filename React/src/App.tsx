@@ -26,8 +26,9 @@ function App() {
             justifyContent: "center",
             alignItems: "flex-start",
             paddingTop: "5em",
+            paddingBottom: "5em",
             background: theme.palette.primary.light,
-            overflow: "hidden",
+            overflow: "auto",
             zIndex: 0,
           }}
         >
