@@ -78,10 +78,8 @@ const IndexPage = () => {
   useEffect(() => {
     if (searchTerm && searchTerm.match(/\d+/)) {
       handleSearch(findSuburbsByPostCode, searchTerm);
-      console.log("this should be a number")
     } else if (searchTerm) {
       handleSearch(findPostCodesBySuburb, searchTerm.toLowerCase());
-      console.log(typeof searchTerm)
     } else if (!searchTerm) {
       setShowResults(true);
       fetchAllpostcodes();
