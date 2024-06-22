@@ -19,6 +19,7 @@ A Spring Boot backend powered by SQLite with a TypeScript React frontend demo.
 In this fictional brief, Aus-Post would like to add authentication to their service (in particular for their creating, updating, and deleting functionalities) that provides postcode and suburb information via an API.
 
 The MVP to deliver on this client brief was:
+
 - Create an API in Java that allows clients to retrieve and add suburb and postcode combinations.
 - Implement:
   - An API that allows clients to retrieve suburb information by postcode.
@@ -31,6 +32,24 @@ PostChecker-API delivers on this and more - check out below.
 
 Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index.html` with the search term `/api-docs`.
 
+## Planning
+
+## Design inspriation
+
+Given the fictional brief, I used the existing Aus-post Postcode checker as my design insprration.
+
+<div align="center">
+  <img src="../PostCheck-API/planning /aus-post-inspiration.png"  alt="Aus-post home page">
+</div>
+
+## ERD
+
+Before starting the project, I lendt into my planning background to understand the nature of the relationship that exist between my entites (PostCcodes, Surburbs and Users). As postcodes and suburbs can contain many of the other entity, I implemented a join table to ensure that they were correctly managed within the DB. Given the proposed use of the API, I decided to implement a uni-directional relationship with the `Postcode` entity owning the relationship (associated suburbs were only contained on the postcode side). If there are additional future user requirements, I can look at changing this to a bi-directional relationship to ensure that each can hold associations of the other.
+
+<div align="center">
+  <img src="../PostCheck-API/planning /postcheck_erd.png" alt="PostCheck API">
+</div>
+
 ## Key Features
 
 ### Backend
@@ -38,7 +57,8 @@ Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index
 1. **Implementing JWT Auth:** While a service token may have been more appropriate given the nature of the API, I wanted to explore JWT and how to implement it using Spring Security.
 2. **CRUD API Endpoints:** Full CRUD endpoints are provided for the `Postcode` entity. Create, Read and Update endpoints are provided for the `Suburbs` and `Users` entities.
 3. **API Documentation:** Enhanced use of Swagger to produce more informative documentation on how to use the API.
-4. **Many-to-Many Relationship:** As postcodes and suburbs can contain many of the other entity, I implemented a join table to ensure that they were correctly managed within the DB. Given the proposed use of the API, I decided to implement a uni-directional relationship with the `Postcode` entity owning the relationship (associated suburbs were only contained on the postcode side). If there are additional future user requirements, I can look at changing this to a bi-directional relationship to ensure that each can hold associations of the other.
+4. **Flexable Quering:** Clients are able to search for postcode by suburbs vice a versa.
+5. **Unit Testing:** Services are tested to ensure that the business logic is properly applied.
 
 ### Frontend
 
@@ -64,8 +84,8 @@ Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index
 
 ## Screenshots
 
-| New Form                                 | Update Form                                 | Test                                   |
-| ---------------------------------------- | ------------------------------------------- | -------------------------------------- |
+| New Form                                  | Update Form                                  | Testing -front                                   |
+| ----------------------------------------- | -------------------------------------------- | -------------------------------------- |
 | <img src="./React/public/newform.png"  /> | <img src="./React/public/updateform.png"  /> | <img src="./React/public/test.png"  /> |
 
 ## Technologies Used

@@ -45,3 +45,645 @@
 2024-06-21 12:49:16,236 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
 2024-06-21 12:49:16,236 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
 2024-06-21 12:49:16,236 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:29,013 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:28:29,013 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:28:29,013 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:28:29,013 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:28:29,017 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:29,017 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:29,017 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:29,017 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:35,803 INFO fullLogs [http-nio-8080-exec-9] Sourced all associated PostCodes from the db
+2024-06-21 13:28:35,803 INFO fullLogs [http-nio-8080-exec-9] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:28:39,914 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:28:39,915 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 13:28:55,457 INFO fullLogs [http-nio-8080-exec-3] Sourced all associated PostCodes from the db
+2024-06-21 13:28:55,457 INFO fullLogs [http-nio-8080-exec-3] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:30:59,224 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:30:59,224 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:30:59,224 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:30:59,224 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:30:59,243 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:30:59,243 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:30:59,243 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:30:59,243 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:31:03,673 INFO fullLogs [http-nio-8080-exec-5] Sourced all associated PostCodes from the db
+2024-06-21 13:31:03,674 INFO fullLogs [http-nio-8080-exec-5] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:32:43,087 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:32:43,090 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:32:43,116 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:32:43,117 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:32:43,135 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:32:43,137 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:32:43,167 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:32:43,171 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:32:47,274 INFO fullLogs [http-nio-8080-exec-10] Sourced all associated PostCodes from the db
+2024-06-21 13:32:47,274 INFO fullLogs [http-nio-8080-exec-10] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:33:05,186 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:33:05,186 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:33:05,186 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:33:05,186 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:33:05,207 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:33:05,207 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:33:05,207 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:33:05,207 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:33:12,140 INFO fullLogs [http-nio-8080-exec-5] Sourced all associated PostCodes from the db
+2024-06-21 13:33:12,141 INFO fullLogs [http-nio-8080-exec-5] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:35:33,922 INFO fullLogs [http-nio-8080-exec-10] Sourced all associated PostCodes from the db
+2024-06-21 13:35:33,923 INFO fullLogs [http-nio-8080-exec-10] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:38:13,944 INFO fullLogs [http-nio-8080-exec-4] Sourced all associated PostCodes from the db
+2024-06-21 13:38:13,945 INFO fullLogs [http-nio-8080-exec-4] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:38:40,290 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:38:40,292 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:38:40,292 INFO fullLogs [http-nio-8080-exec-1] Sourced all associated PostCodes from the db
+2024-06-21 13:38:40,293 INFO fullLogs [http-nio-8080-exec-1] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:38:45,765 INFO fullLogs [http-nio-8080-exec-9] Sourced all associated PostCodes from the db
+2024-06-21 13:38:45,765 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:38:45,765 INFO fullLogs [http-nio-8080-exec-9] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:38:45,767 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 13:38:57,213 INFO fullLogs [http-nio-8080-exec-4] Sourced all associated PostCodes from the db
+2024-06-21 13:38:57,214 INFO fullLogs [http-nio-8080-exec-4] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:38:57,216 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:38:57,218 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:05,354 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:05,356 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:10,711 INFO fullLogs [http-nio-8080-exec-9] Sourced all associated PostCodes from the db
+2024-06-21 13:39:10,712 INFO fullLogs [http-nio-8080-exec-9] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:39:16,128 INFO fullLogs [http-nio-8080-exec-6] Sourced all associated PostCodes from the db
+2024-06-21 13:39:16,129 INFO fullLogs [http-nio-8080-exec-6] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:39:30,588 INFO fullLogs [http-nio-8080-exec-4] Sourced all associated PostCodes from the db
+2024-06-21 13:39:30,589 INFO fullLogs [http-nio-8080-exec-4] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:39:30,591 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:30,595 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:35,197 INFO fullLogs [http-nio-8080-exec-3] Sourced all associated PostCodes from the db
+2024-06-21 13:39:35,198 INFO fullLogs [http-nio-8080-exec-3] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:39:40,182 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:40,185 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:40,193 INFO fullLogs [http-nio-8080-exec-5] Sourced all associated PostCodes from the db
+2024-06-21 13:39:40,194 INFO fullLogs [http-nio-8080-exec-5] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:39:41,634 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:41,634 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:41,636 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:41,636 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:41,644 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:41,646 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:39:41,647 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:41,649 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 13:39:47,727 INFO fullLogs [http-nio-8080-exec-8] Sourced all associated PostCodes from the db
+2024-06-21 13:39:47,728 INFO fullLogs [http-nio-8080-exec-8] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:41:18,881 INFO fullLogs [http-nio-8080-exec-9] Sourced all associatedSuburbs from the db. Total count: 1
+2024-06-21 13:41:18,882 INFO fullLogs [http-nio-8080-exec-9] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:41:59,783 INFO fullLogs [http-nio-8080-exec-4] Sourced all associatedSuburbs from the db. Total count: 1
+2024-06-21 13:41:59,784 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:41:59,784 INFO fullLogs [http-nio-8080-exec-4] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:41:59,785 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 13:42:04,143 INFO fullLogs [http-nio-8080-exec-3] Sourced all associatedSuburbs from the db. Total count: 1
+2024-06-21 13:42:04,144 INFO fullLogs [http-nio-8080-exec-3] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:42:15,568 INFO fullLogs [http-nio-8080-exec-8] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 13:42:15,573 INFO fullLogs [http-nio-8080-exec-8] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:42:58,393 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:42:58,394 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 13:42:58,395 INFO fullLogs [http-nio-8080-exec-6] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 13:42:58,396 INFO fullLogs [http-nio-8080-exec-6] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:43:01,427 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:43:01,428 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:43:01,428 INFO fullLogs [http-nio-8080-exec-10] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 13:43:01,429 INFO fullLogs [http-nio-8080-exec-10] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 13:45:02,440 INFO fullLogs [http-nio-8080-exec-1] Sourced all associated PostCodes from the db
+2024-06-21 13:45:02,441 INFO fullLogs [http-nio-8080-exec-1] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:45:31,562 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:45:31,562 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:45:31,564 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:45:31,566 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:45:31,567 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:45:31,568 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:45:31,572 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:45:31,574 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:45:40,676 INFO fullLogs [http-nio-8080-exec-9] Sourced all associatedPostCodes from the db. Total count: 0
+2024-06-21 13:45:40,676 INFO fullLogs [http-nio-8080-exec-9] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:58:05,689 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:58:05,689 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:58:05,691 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:58:05,691 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:58:05,698 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:58:05,701 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:58:05,704 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:58:05,706 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:58:08,507 ERROR fullLogs [http-nio-8080-exec-5] Handler dispatch failed: java.lang.Error: Unresolved compilation problem: 
+	The method findPostCodesByAssociatedSuburbsName(String) is undefined for the type PostCodeRepository
+
+2024-06-21 13:59:01,090 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:59:01,090 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:59:01,090 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:59:01,090 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 13:59:01,091 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 13:59:01,091 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 13:59:01,091 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 13:59:01,091 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 13:59:08,263 INFO fullLogs [http-nio-8080-exec-9] Sourced all associatedPostCodes from the db. Total count: 1
+2024-06-21 13:59:08,264 INFO fullLogs [http-nio-8080-exec-9] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 13:59:12,829 INFO fullLogs [http-nio-8080-exec-10] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 13:59:12,830 INFO fullLogs [http-nio-8080-exec-10] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:06:27,157 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:06:27,158 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:06:33,875 INFO fullLogs [http-nio-8080-exec-3] Sourced all associatedPostCodes from the db. Total count: 1
+2024-06-21 14:06:33,876 INFO fullLogs [http-nio-8080-exec-3] postCodesBySuburb responses with all associated postCodes.
+2024-06-21 14:06:36,795 INFO fullLogs [http-nio-8080-exec-4] Sourced all associatedSuburbs from the db. Total count: 4
+2024-06-21 14:06:36,796 INFO fullLogs [http-nio-8080-exec-4] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:07:09,116 INFO fullLogs [http-nio-8080-exec-7] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@3941e1f9, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:07:09,176 INFO fullLogs [http-nio-8080-exec-7] JWT token provided in sign ui controller
+2024-06-21 14:07:26,372 INFO fullLogs [http-nio-8080-exec-9] Located PostCode in db with ID: 6
+2024-06-21 14:07:26,424 INFO fullLogs [http-nio-8080-exec-9] PostCode with id: 6 has been deleted 
+2024-06-21 14:09:37,738 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:09:37,741 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:09:37,744 INFO fullLogs [http-nio-8080-exec-2] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 14:09:37,745 INFO fullLogs [http-nio-8080-exec-2] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:09:44,299 INFO fullLogs [http-nio-8080-exec-6] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 14:09:44,299 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:09:44,301 INFO fullLogs [http-nio-8080-exec-6] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:09:44,303 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:20,802 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:20,819 INFO fullLogs [http-nio-8080-exec-10] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 14:14:20,821 INFO fullLogs [http-nio-8080-exec-10] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:14:20,821 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:24,955 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:24,957 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:24,968 INFO fullLogs [http-nio-8080-exec-2] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 14:14:24,969 INFO fullLogs [http-nio-8080-exec-2] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:14:35,745 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:35,745 INFO fullLogs [http-nio-8080-exec-5] Sourced all associatedSuburbs from the db. Total count: 3
+2024-06-21 14:14:35,747 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:35,747 INFO fullLogs [http-nio-8080-exec-5] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:14:52,248 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:52,248 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:52,249 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:52,249 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:52,250 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:52,250 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:52,251 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:52,251 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:53,440 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:53,442 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:53,443 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:53,444 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:53,448 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:53,449 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:14:53,476 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:14:53,478 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:11,582 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:11,584 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:11,584 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:11,584 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:11,585 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:11,585 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:11,585 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:11,586 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:23,729 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:23,731 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:23,733 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:23,734 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:23,736 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:23,736 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:23,737 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:23,737 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:25,471 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:25,471 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:25,472 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:25,472 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:25,472 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:25,473 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:25,473 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:25,475 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:29,370 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:29,370 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:29,370 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:29,370 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:29,371 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:29,371 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:29,371 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:29,371 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:35,723 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:35,723 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:35,725 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:35,725 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:35,728 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:35,728 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:35,730 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:35,730 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:50,602 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:50,602 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:50,602 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:50,602 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:50,604 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:50,604 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:50,605 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:50,605 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:53,478 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:53,478 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:53,478 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:53,479 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:53,479 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:53,479 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:53,481 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:53,483 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:57,577 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:57,577 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:57,577 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:57,578 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:57,578 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:57,578 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:15:57,579 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:15:57,580 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:01,966 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:01,967 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:01,970 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:01,970 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:01,971 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:01,971 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:01,978 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:01,980 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:06,255 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:06,255 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:06,255 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:06,256 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:06,256 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:06,256 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:06,257 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:06,258 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:15,450 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:15,450 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:15,451 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:15,452 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:15,452 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:15,453 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:15,453 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:15,455 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:16,935 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:16,935 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:16,935 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:16,936 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:16,936 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:16,936 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:16,954 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:16,954 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:21,765 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:21,766 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:21,768 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:21,770 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:21,772 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:21,773 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:21,774 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:21,775 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:23,507 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:23,507 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:23,508 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:23,509 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:23,509 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:23,510 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:23,511 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:23,511 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:39,630 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:39,630 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:39,631 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:39,631 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:39,632 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:39,633 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:39,647 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:39,648 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:41,581 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:41,582 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:41,582 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:41,583 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:41,584 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:41,584 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:41,586 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:41,587 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:50,243 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:50,243 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:50,243 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:50,243 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:16:50,244 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:50,244 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:50,244 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:16:50,244 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:49,412 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:49,412 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:49,414 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:49,414 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:49,414 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:49,414 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:49,415 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:49,415 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:56,959 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:56,959 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:56,959 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:56,960 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:56,960 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:56,961 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:17:56,962 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:17:56,965 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:01,371 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:01,372 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:01,373 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:01,373 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:01,374 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:01,374 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:01,375 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:01,376 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:03,464 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:03,464 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:03,464 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:03,465 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:03,465 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:03,465 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:03,465 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:03,467 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:16,401 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:16,402 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:16,403 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:16,404 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:16,410 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:16,412 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:16,415 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:16,416 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:18,487 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:18,488 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:18,488 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:18,489 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:18,491 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:18,492 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:18,493 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:18,496 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:22,260 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:22,264 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:22,285 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:22,285 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:22,286 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:22,287 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:22,287 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:22,288 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:24,630 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:24,630 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:24,631 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:24,631 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:24,633 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:24,634 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:24,636 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:24,639 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:27,553 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:27,553 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:27,554 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:27,555 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:27,556 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:27,556 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:18:27,559 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:18:27,560 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:00,271 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:22:00,274 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:22:00,274 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:22:00,274 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:22:00,278 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:00,278 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:00,278 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:00,289 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:08,107 INFO fullLogs [http-nio-8080-exec-5] Sourced all associatedSuburbs from the db. Total count: 1
+2024-06-21 14:22:08,108 INFO fullLogs [http-nio-8080-exec-5] suburbsByPostCode responses with all associated suburbs.
+2024-06-21 14:22:10,409 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:22:10,411 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:22:35,674 INFO fullLogs [http-nio-8080-exec-3] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@2c24e2c3, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:22:35,723 INFO fullLogs [http-nio-8080-exec-3] JWT token provided in sign ui controller
+2024-06-21 14:22:45,654 INFO fullLogs [http-nio-8080-exec-7] Located PostCode in db with ID: 3
+2024-06-21 14:22:45,713 INFO fullLogs [http-nio-8080-exec-7] PostCode with id: 3 has been deleted 
+2024-06-21 14:23:37,417 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 7
+2024-06-21 14:23:37,418 INFO fullLogs [http-nio-8080-exec-8] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:23:37,453 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 7
+2024-06-21 14:23:37,454 INFO fullLogs [http-nio-8080-exec-1] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:23:45,486 INFO fullLogs [http-nio-8080-exec-10] Suburb ids are[4, 5]
+2024-06-21 14:23:45,486 INFO fullLogs [http-nio-8080-exec-10] Processing suburbId: 4
+2024-06-21 14:23:45,493 INFO fullLogs [http-nio-8080-exec-10] Located Suburb in db with ID: 4
+2024-06-21 14:23:45,493 INFO fullLogs [http-nio-8080-exec-10] Processing suburbId: 5
+2024-06-21 14:23:45,495 INFO fullLogs [http-nio-8080-exec-10] Located Suburb in db with ID: 5
+2024-06-21 14:23:45,647 INFO fullLogs [http-nio-8080-exec-10] Created new PostCode in db with ID: 6
+2024-06-21 14:23:45,687 INFO fullLogs [http-nio-8080-exec-10] createPostCode responses responded with new PostCode: {id: 6, postcode: 2095, associated suburbs: [{id: 5, name: manly east, state: NSW}, {id: 4, name: manly, state: NSW}]}
+2024-06-21 14:23:45,714 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:23:45,714 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:23:45,716 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:23:45,716 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:23:45,719 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:23:45,721 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:23:45,725 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:23:45,727 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:23:52,268 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 3
+2024-06-21 14:23:52,269 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:24:04,473 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 7
+2024-06-21 14:24:04,474 INFO fullLogs [http-nio-8080-exec-2] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:24:04,474 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 7
+2024-06-21 14:24:04,475 INFO fullLogs [http-nio-8080-exec-3] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:24:13,649 INFO fullLogs [http-nio-8080-exec-7] Suburb ids are[7]
+2024-06-21 14:24:13,649 INFO fullLogs [http-nio-8080-exec-7] Processing suburbId: 7
+2024-06-21 14:24:13,651 INFO fullLogs [http-nio-8080-exec-7] Located Suburb in db with ID: 7
+2024-06-21 14:24:13,653 INFO fullLogs [http-nio-8080-exec-7] Created new PostCode in db with ID: 7
+2024-06-21 14:24:13,662 INFO fullLogs [http-nio-8080-exec-7] createPostCode responses responded with new PostCode: {id: 7, postcode: 2000, associated suburbs: [{id: 7, name: sydney, state: NSW}]}
+2024-06-21 14:24:13,687 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:24:13,688 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:24:13,691 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:24:13,692 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:24:13,692 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:24:13,692 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:24:13,693 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:24:13,694 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:34:45,975 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:34:45,975 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:34:45,975 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:34:45,975 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:34:45,977 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:34:45,977 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:34:45,977 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:34:45,977 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:35:04,205 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:35:04,206 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:35:04,207 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:35:04,207 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:35:04,208 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:35:04,210 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:35:04,220 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:35:04,221 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:35:12,601 INFO fullLogs [http-nio-8080-exec-6] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@6113836f, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:35:12,603 INFO fullLogs [http-nio-8080-exec-6] JWT token provided in sign ui controller
+2024-06-21 14:36:01,363 INFO fullLogs [http-nio-8080-exec-2] Created new Suburb in db:{id: 10, name: collaroy plateau, state: NSW}
+2024-06-21 14:36:01,374 INFO fullLogs [http-nio-8080-exec-2] createSuburb Controller responded with new Suburb: {id: 10, name: collaroy plateau, state: NSW}
+2024-06-21 14:36:01,404 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:01,408 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:01,409 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:01,411 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:01,412 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:01,413 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:01,417 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:01,418 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:08,788 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:36:08,790 INFO fullLogs [http-nio-8080-exec-9] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:36:08,794 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:36:08,796 INFO fullLogs [http-nio-8080-exec-2] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:36:14,774 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:14,776 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:14,776 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:14,777 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:14,778 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:14,778 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:14,779 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:14,780 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:25,433 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:36:25,435 INFO fullLogs [http-nio-8080-exec-2] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:36:25,437 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:36:25,438 INFO fullLogs [http-nio-8080-exec-3] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:36:25,447 INFO fullLogs [http-nio-8080-exec-7] Located PostCode in db with ID: 4
+2024-06-21 14:36:25,454 INFO fullLogs [http-nio-8080-exec-7] findPostCodesById responses with the found postcode:{id: 4, postcode: 2097, associated suburbs: [{id: 2, name: collaroy, state: NSW}]}
+2024-06-21 14:36:25,468 INFO fullLogs [http-nio-8080-exec-6] Located PostCode in db with ID: 4
+2024-06-21 14:36:25,471 INFO fullLogs [http-nio-8080-exec-6] findPostCodesById responses with the found postcode:{id: 4, postcode: 2097, associated suburbs: [{id: 2, name: collaroy, state: NSW}]}
+2024-06-21 14:36:31,528 INFO fullLogs [http-nio-8080-exec-9] Located PostCode in db with ID: 4
+2024-06-21 14:36:31,529 INFO fullLogs [http-nio-8080-exec-9] Suburb ids are[2, 10]
+2024-06-21 14:36:31,529 INFO fullLogs [http-nio-8080-exec-9] Processing suburbId: 2
+2024-06-21 14:36:31,531 INFO fullLogs [http-nio-8080-exec-9] Located Suburb in db with ID: 2
+2024-06-21 14:36:31,531 INFO fullLogs [http-nio-8080-exec-9] Processing suburbId: 10
+2024-06-21 14:36:31,532 INFO fullLogs [http-nio-8080-exec-9] Located Suburb in db with ID: 10
+2024-06-21 14:36:31,547 INFO fullLogs [http-nio-8080-exec-9] Update PostCode in db with ID: 4
+2024-06-21 14:36:31,600 INFO fullLogs [http-nio-8080-exec-9] updatePostCodeById responses with updated postcode:{id: 4, postcode: 2097, associated suburbs: [{id: 2, name: collaroy, state: NSW}, {id: 10, name: collaroy plateau, state: NSW}]}
+2024-06-21 14:36:31,621 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:31,623 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:31,631 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:31,631 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:31,632 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:31,632 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:31,634 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:31,635 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:53,943 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:53,943 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:53,944 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:53,945 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:36:53,946 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:53,946 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:53,946 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:36:53,947 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:53,571 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:53,571 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:53,573 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:53,573 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:53,579 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:53,579 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:53,581 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:53,581 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:59,747 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:59,748 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:59,749 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:59,749 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:59,750 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:59,751 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:37:59,752 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:37:59,754 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:04,443 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:04,444 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:04,443 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:04,444 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:04,447 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:04,448 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:04,448 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:04,449 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:20,335 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:20,335 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:20,337 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:20,337 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:20,337 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:20,339 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:20,355 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:20,356 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:38,434 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:38,434 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:38,434 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:38,434 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:40:38,437 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:38,437 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:38,440 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:40:38,440 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:16,763 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:16,763 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:16,763 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:16,763 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:16,765 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:16,765 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:16,765 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:16,766 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:49,000 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:49,001 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:49,002 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:49,003 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:49,005 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:49,007 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:42:49,009 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:42:49,014 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:48:38,277 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:48:38,277 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:48:38,277 INFO fullLogs [http-nio-8080-exec-3] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:48:38,277 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:48:38,279 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:48:38,279 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:48:38,279 INFO fullLogs [http-nio-8080-exec-3] findAllPostCodes responses with all postcodes.
+2024-06-21 14:48:38,279 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:49:42,180 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:49:42,180 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:49:42,180 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:49:42,181 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:49:42,181 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:49:42,181 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-21 14:49:42,184 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:49:42,185 INFO fullLogs [http-nio-8080-exec-6] findAllPostCodes responses with all postcodes.
+2024-06-21 14:54:37,665 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:54:37,665 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:54:37,665 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:54:37,665 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:54:37,686 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:54:37,686 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:54:37,686 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.
+2024-06-21 14:54:37,686 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:56:32,546 INFO fullLogs [http-nio-8080-exec-10] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@878335c, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:56:32,572 INFO fullLogs [http-nio-8080-exec-10] JWT token provided in sign ui controller
+2024-06-21 14:57:00,685 ERROR fullLogs [http-nio-8080-exec-7] UserDetailsService returned null, which is an interface contract violation
+2024-06-21 14:57:10,713 INFO fullLogs [http-nio-8080-exec-2] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@767e9105, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:57:10,715 INFO fullLogs [http-nio-8080-exec-2] JWT token provided in sign ui controller
+2024-06-21 14:57:34,636 INFO fullLogs [http-nio-8080-exec-8] this is authUser UsernamePasswordAuthenticationToken [Principal=com.auspost.postcode.User.User@78e1fd37, Credentials=[PROTECTED], Authenticated=true, Details=null, Granted Authorities=[ROLE_ADMIN, ROLE_USER]]
+2024-06-21 14:57:34,638 INFO fullLogs [http-nio-8080-exec-8] JWT token provided in sign ui controller
+2024-06-21 14:57:38,845 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:57:38,848 INFO fullLogs [http-nio-8080-exec-4] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:57:38,867 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:57:38,868 INFO fullLogs [http-nio-8080-exec-1] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:57:47,596 INFO fullLogs [http-nio-8080-exec-3] Suburb ids are[6]
+2024-06-21 14:57:47,596 INFO fullLogs [http-nio-8080-exec-3] Processing suburbId: 6
+2024-06-21 14:57:47,614 INFO fullLogs [http-nio-8080-exec-3] Located Suburb in db with ID: 6
+2024-06-21 14:57:47,677 INFO fullLogs [http-nio-8080-exec-3] Created new PostCode in db with ID: 8
+2024-06-21 14:57:47,704 INFO fullLogs [http-nio-8080-exec-3] createPostCode responses responded with new PostCode: {id: 8, postcode: 2011, associated suburbs: [{id: 6, name: france, state: NSW}]}
+2024-06-21 14:57:47,743 INFO fullLogs [http-nio-8080-exec-10] Sourced all postcodes from the db. Total count: 5
+2024-06-21 14:57:47,744 INFO fullLogs [http-nio-8080-exec-7] Sourced all postcodes from the db. Total count: 5
+2024-06-21 14:57:47,744 INFO fullLogs [http-nio-8080-exec-10] findAllPostCodes responses with all postcodes.
+2024-06-21 14:57:47,744 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 5
+2024-06-21 14:57:47,745 INFO fullLogs [http-nio-8080-exec-7] findAllPostCodes responses with all postcodes.
+2024-06-21 14:57:47,746 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:57:47,762 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 5
+2024-06-21 14:57:47,764 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:57:54,996 INFO fullLogs [http-nio-8080-exec-8] Located PostCode in db with ID: 8
+2024-06-21 14:57:55,028 INFO fullLogs [http-nio-8080-exec-8] PostCode with id: 8 has been deleted 
+2024-06-21 14:57:57,670 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:57:57,671 INFO fullLogs [http-nio-8080-exec-1] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:57:57,686 INFO fullLogs [http-nio-8080-exec-6] Sourced all postcodes from the db. Total count: 8
+2024-06-21 14:57:57,687 INFO fullLogs [http-nio-8080-exec-6] findAllSuburbs Controller with all Suburbs.
+2024-06-21 14:57:57,693 INFO fullLogs [http-nio-8080-exec-10] Located PostCode in db with ID: 7
+2024-06-21 14:57:57,696 INFO fullLogs [http-nio-8080-exec-10] findPostCodesById responses with the found postcode:{id: 7, postcode: 2000, associated suburbs: [{id: 7, name: sydney, state: NSW}]}
+2024-06-21 14:57:57,718 INFO fullLogs [http-nio-8080-exec-7] Located PostCode in db with ID: 7
+2024-06-21 14:57:57,721 INFO fullLogs [http-nio-8080-exec-7] findPostCodesById responses with the found postcode:{id: 7, postcode: 2000, associated suburbs: [{id: 7, name: sydney, state: NSW}]}
+2024-06-21 14:58:04,051 INFO fullLogs [http-nio-8080-exec-9] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:58:04,053 INFO fullLogs [http-nio-8080-exec-9] findAllPostCodes responses with all postcodes.
+2024-06-21 14:58:04,062 INFO fullLogs [http-nio-8080-exec-8] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:58:04,064 INFO fullLogs [http-nio-8080-exec-8] findAllPostCodes responses with all postcodes.
+2024-06-21 14:58:04,066 INFO fullLogs [http-nio-8080-exec-5] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:58:04,065 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-21 14:58:04,067 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
+2024-06-21 14:58:04,068 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-21 14:58:15,833 ERROR fullLogs [http-nio-8080-exec-4] UserDetailsService returned null, which is an interface contract violation

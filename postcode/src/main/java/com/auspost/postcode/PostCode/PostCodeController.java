@@ -111,14 +111,13 @@ public class PostCodeController {
     @Operation(summary = "Find suburbs by PostCode", description = "Return a list of suburbs associated with the given PostCode")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operation successful"),
-            @ApiResponse(responseCode = "404", description = "Suburbs not found"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+
     })
     @GetMapping("/suburbs")
-    public ResponseEntity<?> findSuburbsByPostCode(@RequestParam String postcode) {
+    public ResponseEntity<List<PostCode>> findSuburbsByPostCode(@RequestParam String postcode)
+            throws ServiceValidationException {
         List<PostCode> suburbsByPostCode = this.postcodeService.findSuburbsByPostCode(postcode);
-        if (suburbsByPostCode.isEmpty()) {
-            return new ResponseEntity<>("No suburbs found for postcode: " + postcode, HttpStatus.NOT_FOUND);
-        }
         fullLogsLogger.info("suburbsByPostCode responses with all associated suburbs.");
         return new ResponseEntity<>(suburbsByPostCode, HttpStatus.OK);
     }
@@ -126,14 +125,13 @@ public class PostCodeController {
     @Operation(summary = "Find PostCodes by suburb", description = "Return a list of PostCodes associated with the given suburb")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Operation successful"),
-            @ApiResponse(responseCode = "404", description = "PostCodes not found"),
+            @ApiResponse(responseCode = "500", description = "Internal server error")
+
     })
     @GetMapping("/postcodes")
-    public ResponseEntity<?> findPostCodesBySuburb(@RequestParam String suburb) {
+    public ResponseEntity<List<PostCode>> findPostCodesBySuburb(@RequestParam String suburb)
+            throws ServiceValidationException {
         List<PostCode> postCodesBySuburb = this.postcodeService.findPostCodesBySuburb(suburb);
-        if (postCodesBySuburb.isEmpty()) {
-            return new ResponseEntity<>("No postcodes found for suburb: " + suburb, HttpStatus.NOT_FOUND);
-        }
         fullLogsLogger.info("postCodesBySuburb responses with all associated postCodes.");
         return new ResponseEntity<>(postCodesBySuburb, HttpStatus.OK);
     }

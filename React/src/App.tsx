@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import "dayjs/locale/en-gb";
 import theme from "./styling/theme";
 import IndexPage from "./pages/IndexPage/IndexPage";
 import "./App.scss";

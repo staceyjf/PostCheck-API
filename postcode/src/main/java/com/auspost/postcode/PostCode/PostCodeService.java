@@ -1,5 +1,6 @@
 package com.auspost.postcode.PostCode;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -7,8 +8,12 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
 
 import com.auspost.postcode.Suburb.Suburb;
@@ -69,7 +74,7 @@ public class PostCodeService {
         // as the unique constraint is at the bd level
         try {
             PostCode savedPostCode = this.repo.save(newPostCode);
-              fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
+            fullLogsLogger.info("Created new PostCode in db with ID: " + savedPostCode.getId());
             return savedPostCode;
         } catch (DataIntegrityViolationException e) {
             if (e.getCause() instanceof ConstraintViolationException) {
@@ -85,7 +90,8 @@ public class PostCodeService {
     // will return an empty array which negate error handling needs
     public List<PostCode> findAllPostCodes() {
         List<PostCode> postCodes = this.repo.findAll();
-    fullLogsLogger.info("Sourced all postcodes from the db. Total count: " + postCodes.size());
+        Collections.sort(postCodes);
+        fullLogsLogger.info("Sourced all postcodes from the db. Total count: " + postCodes.size());
         return postCodes;
     }
 
@@ -158,14 +164,26 @@ public class PostCodeService {
     }
 
     public List<PostCode> findSuburbsByPostCode(String postCode) {
-        List<PostCode> associatedSuburbs = this.repo.findByPostcode(postCode);
-        fullLogsLogger.info("Sourced all associated Suburbs from the db");
+        PostCode probe = new PostCode();
+        probe.setPostcode(postCode);
+
+        // Examplematcher allows for more granular mathiching
+        ExampleMatcher matcher = ExampleMatcher.matching()
+                .withMatcher("postcode", match -> match.contains()); // This will match any postcode containing the
+                                                                     // specified sequence
+
+        Example<PostCode> example = Example.of(probe, matcher);
+
+        // to use Example<PostCode> we need to use the more flexible findAll instead of
+        // the specific findbypostcode
+        List<PostCode> associatedSuburbs = this.repo.findAll(example, Sort.by(Sort.Order.asc("postcode")));
+        fullLogsLogger.info("Sourced all associatedSuburbs from the db. Total count: " + associatedSuburbs.size());
         return associatedSuburbs;
     }
 
     public List<PostCode> findPostCodesBySuburb(String suburb) {
-        List<PostCode> associatedPostCodes = this.repo.findPostCodesByAssociatedSuburbsName(suburb);
-        fullLogsLogger.info("Sourced all associated PostCodes from the db");
+        List<PostCode> associatedPostCodes = this.repo.findPostCodesByAssociatedSuburbsNameContainingIgnoreCase(suburb);
+        fullLogsLogger.info("Sourced all associatedPostCodes from the db. Total count: " + associatedPostCodes.size());
         return associatedPostCodes;
     }
 
@@ -179,7 +197,7 @@ public class PostCodeService {
 
         foundPostCode.associatedSuburbs.clear();
 
-        //TODO: add a function to remove Orphaned sububs
+        // TODO: add a function to remove Orphaned sububs
 
         this.repo.delete(foundPostCode);
         return true;

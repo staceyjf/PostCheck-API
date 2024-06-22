@@ -28,7 +28,6 @@ const CreateUpdateForm = ({
     defaultValues?.associatedSuburbs || []
   );
   const [postcodeError, setPostcodeError] = useState<string | null>(null);
-  const [suburbError, setSuburbError] = useState<string | null>(null);
 
   const handlePostcodeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const postcode = e.target.value;
@@ -53,7 +52,7 @@ const CreateUpdateForm = ({
     const associatedSuburbsIds = selectedSuburbs.map((suburb) => suburb.id);
 
     // submit when there are no errors
-    if (postcode && !postcodeError && !suburbError) {
+    if (postcode && !postcodeError) {
       onSubmit(postcode, associatedSuburbsIds);
     }
   };

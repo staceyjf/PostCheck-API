@@ -30,11 +30,15 @@ const CreateUpdatePage = ({ mode }: CreateUpdatePageProps) => {
   const [open, setOpen] = useState(false);
 
   // helper error to reduce code in the useEffect
-  const handleError = (e: Error, errorMessage: string, errorLog: string) => {
+  const handleError = (
+    error: Error,
+    errorMessage: string,
+    errorLog: string
+  ) => {
     setError(new Error(errorMessage));
     setOpen(true);
     setFetchStatus("FAILED");
-    console.error(errorLog);
+    console.error(errorLog + " " + error);
   };
 
   useEffect(() => {

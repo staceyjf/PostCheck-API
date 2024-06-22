@@ -1,5 +1,6 @@
 package com.auspost.postcode;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import io.swagger.v3.oas.models.OpenAPI;
@@ -10,10 +11,13 @@ import java.util.List;
 
 @Configuration
 public class OpenAPIConfig {
+    @Value("${server.url:http://localhost:8080}")
+    private String serverUrl;
+
     @Bean
     public OpenAPI defineOpenApi() {
         Server server = new Server();
-        server.setUrl("http://localhost:8080");
+         server.setUrl(serverUrl);
         server.setDescription("Development");
 
         Contact myContact = new Contact();

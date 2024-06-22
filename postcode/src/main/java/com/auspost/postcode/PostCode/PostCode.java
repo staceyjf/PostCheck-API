@@ -21,7 +21,7 @@ import jakarta.persistence.ManyToMany;
 
 @Entity
 @Table(name = "postcodes")
-public class PostCode {
+public class PostCode implements Comparable<PostCode> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -67,5 +67,11 @@ public class PostCode {
         return String.format(
                 "{id: %d, postcode: %s, associated suburbs: %s}",
                 getId(), getPostcode(), getAssociatedSuburbs());
+    }
+
+    // using the comparable interface to enable sorting by the postcode field
+    @Override
+    public int compareTo(PostCode other) {
+        return this.postcode.compareTo(other.postcode);
     }
 }
