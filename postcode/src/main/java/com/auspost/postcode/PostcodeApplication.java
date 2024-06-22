@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 
 @SpringBootApplication
 @Profile("!test") // set to run when not in test profile
-@PropertySource("file:${user.dir}/.env")
+// @PropertySource("file:${user.dir}/.env") // set it directly in  the docker run
 public class PostcodeApplication {
 
 	private static final Logger logger = LogManager.getLogger(PostcodeApplication.class);

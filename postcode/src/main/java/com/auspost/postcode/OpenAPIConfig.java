@@ -11,13 +11,13 @@ import java.util.List;
 
 @Configuration
 public class OpenAPIConfig {
-    @Value("${server.url:http://localhost:8080}")
+    @Value("${SERVER_URL:http://localhost:8080}")
     private String serverUrl;
 
     @Bean
     public OpenAPI defineOpenApi() {
         Server server = new Server();
-         server.setUrl(serverUrl);
+        server.setUrl(serverUrl);
         server.setDescription("Development");
 
         Contact myContact = new Contact();

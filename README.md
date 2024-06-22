@@ -82,6 +82,26 @@ Before starting the project, I lendt into my planning background to understand t
 2. **Documentation:** Improve the documentation by adding content objects to my `@APIResponse` annotations for better visibility into what is expected from a successful or valid HTTP request.
 3. **Spring Testing:** Continue to investigate how I can use Spring testing and overcome the challenges in providing a valid token (all requests came back with a 401 or 403, which in some ways is positive as it shows that the auth was correctly working).
 
+Changelog
+Date: 21/06/24
+
+Updates:
+
+Search Improvements:
+
+Enhanced search functionality: Improved search functionality to accept partical matches for postcode and suburbs.
+
+UI Improvements:
+
+Customised scrollbar add for better consistency with the overall look and feel.
+
+README:
+
+
+
+
+
+
 ## Screenshots
 
 | New Form                                  | Update Form                                  | Testing -front                                   |

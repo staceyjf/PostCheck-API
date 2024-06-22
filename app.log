@@ -687,3 +687,11 @@
 2024-06-21 14:58:04,067 INFO fullLogs [http-nio-8080-exec-5] findAllPostCodes responses with all postcodes.
 2024-06-21 14:58:04,068 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
 2024-06-21 14:58:15,833 ERROR fullLogs [http-nio-8080-exec-4] UserDetailsService returned null, which is an interface contract violation
+2024-06-22 20:40:41,770 INFO fullLogs [http-nio-8080-exec-1] Sourced all postcodes from the db. Total count: 4
+2024-06-22 20:40:41,807 INFO fullLogs [http-nio-8080-exec-1] findAllPostCodes responses with all postcodes.
+2024-06-22 20:40:42,040 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-22 20:40:42,041 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-22 20:40:42,060 INFO fullLogs [http-nio-8080-exec-2] Sourced all postcodes from the db. Total count: 4
+2024-06-22 20:40:42,061 INFO fullLogs [http-nio-8080-exec-2] findAllPostCodes responses with all postcodes.
+2024-06-22 20:40:42,094 INFO fullLogs [http-nio-8080-exec-4] Sourced all postcodes from the db. Total count: 4
+2024-06-22 20:40:42,095 INFO fullLogs [http-nio-8080-exec-4] findAllPostCodes responses with all postcodes.

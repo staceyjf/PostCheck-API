@@ -1,25 +1,14 @@
-# Stage 1: Build the React application
-FROM --platform=$BUILDPLATFORM node:lts AS react-build
-WORKDIR /workspace/frontend
-
-# Define build arguments for Vite environment variables
-ARG VITE_API_BASE_URL
-
-# Set environment variables for the build stage
-ENV VITE_API_BASE_URL=$VITE_API_BASE_URL
-
-COPY React/package*.json ./
-RUN npm install
-COPY React/ ./
-RUN npm run build
-
 # Stage 2: Build the Spring Boot application
 FROM eclipse-temurin:21-jdk-jammy AS spring-boot-build
 WORKDIR /workspace/app
 
+# Declare ARG for server.url and JWT_SECRET
+ARG SERVER_URL
+ARG JWT_SECRET
+
 # Set environment variables for the runtime stage
 ENV JWT_SECRET=$JWT_SECRET
-ENV server.url=$server.url
+ENV SERVER_URL=$SERVER_URL
 
 # Install Maven and other necessary tools
 RUN apt-get update \
@@ -29,6 +18,7 @@ RUN apt-get update \
 # Set Maven environment variables
 ENV MAVEN_HOME /usr/share/maven
 ENV MAVEN_CONFIG "/root/.m2"
+COPY .env /workspace/app/.env
 
 # Copy Maven from the official Maven Docker image
 COPY --from=maven:3.9.7-eclipse-temurin-11 ${MAVEN_HOME} ${MAVEN_HOME}
@@ -41,8 +31,14 @@ RUN ln -s ${MAVEN_HOME}/bin/mvn /usr/bin/mvn
 # Copy the Spring Boot application's pom.xml and source code
 COPY ./postcode/pom.xml .
 COPY ./postcode/src src
-# Copy the built React application to the Spring Boot static resources directory
-COPY --from=react-build /workspace/frontend/build /workspace/app/src/main/resources/static
+
+# Copy Maven Wrapper files
+COPY ./postcode/.mvn .mvn
+COPY ./postcode/mvnw .
+COPY ./postcode/mvnw.cmd .
+
+# Ensure mvnw is executable
+RUN chmod +x ./mvnw
 
 # Build the Spring Boot application without running tests
 RUN mvn install -DskipTests -P dev -q
