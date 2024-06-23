@@ -33,7 +33,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: React/build
+          path: React/dist
 
   deploy:
     name: Deploy
@@ -49,10 +49,10 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: production-files
-          path: React/build
+          path: React/dist
 
       - name: Deploying to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: React/build
+          publish_dir: React/dist
