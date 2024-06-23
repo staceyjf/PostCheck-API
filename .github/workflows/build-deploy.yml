@@ -21,19 +21,19 @@ jobs:
 
       - name: Install dependencies
         run: |
-          cd /home/staceyf/projects/PostCheck-API/React
+          cd React/
           npm ci
 
       - name: Building project
         run: |
-          cd /home/staceyf/projects/PostCheck-API/React
+          cd React/
           npm run build
 
       - name: Uploading production-ready build files
         uses: actions/upload-artifact@v2
         with:
           name: production-files
-          path: /home/staceyf/projects/PostCheck-API/React/build
+          path: React/build
 
   deploy:
     name: Deploy
