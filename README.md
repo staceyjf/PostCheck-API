@@ -3,7 +3,7 @@
 A Spring Boot backend powered by SQLite with a TypeScript React frontend demo.
 
 <div align="center">
-  <img src="./React/public/homepage.png" alt="Homepage">
+  <img src="./React/public/postcheckAPI.gif" alt="Homepage">
 </div>
 
 ## Build Steps
@@ -95,16 +95,18 @@ UI Improvements:
 
 Customised scrollbar add for better consistency with the overall look and feel.
 
+Date: 22/06/24
+
+Updates:
+
+
+Docker containerization for Spring boot API: x.
+
 README:
-
-
-
-
-
 
 ## Screenshots
 
-| New Form                                  | Update Form                                  | Testing -front                                   |
+| New Form                                  | Update Form                                  | Testing -front                         |
 | ----------------------------------------- | -------------------------------------------- | -------------------------------------- |
 | <img src="./React/public/newform.png"  /> | <img src="./React/public/updateform.png"  /> | <img src="./React/public/test.png"  /> |
 
