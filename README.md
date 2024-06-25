@@ -1,6 +1,6 @@
 # Welcome to PostChecker-API
 
-A Spring Boot backend powered by SQLite with a TypeScript React frontend demo.
+A Spring Boot backend powered by SQLite.
 
 <div align="center">
   <img src="./React/public/postcheckAPI.gif" alt="Homepage">
@@ -9,10 +9,8 @@ A Spring Boot backend powered by SQLite with a TypeScript React frontend demo.
 ## Build Steps
 
 1. Clone the repo.
-2. Run `npm install` to install the relevant dependencies.
-3. Start the Spring Boot backend via `PostcodeApplication.java`.
-4. Navigate into `/React` and start the frontend via `npm run dev`.
-5. Tests can be run in `/React` with `npm run test`.
+2. Start the Spring Boot backend via `PostcodeApplication.java`.
+3. Tests can be run via `src/test/java/com/auspost/postcode`.
 
 ## About
 
@@ -60,12 +58,6 @@ Before starting the project, I lendt into my planning background to understand t
 4. **Flexable Quering:** Clients are able to search for postcode by suburbs vice a versa.
 5. **Unit Testing:** Services are tested to ensure that the business logic is properly applied.
 
-### Frontend
-
-1. **Full CRUD for Postcodes:** Users are able to create, read, update, and delete new postcodes.
-2. **Login and Auth:** Users are able to log in to access restricted areas such as creating, updating, and deleting postcodes.
-3. **Component Testing:** Components have a range of tests to ensure elements render as expected.
-
 ## Key Learning Highlights
 
 1. **Managing Auth:** The journey of understanding how authentication is implemented with Spring Security, including:
@@ -87,22 +79,19 @@ Date: 21/06/24
 
 Updates:
 
-Search Improvements:
-
-Enhanced search functionality: Improved search functionality to accept partical matches for postcode and suburbs.
-
-UI Improvements:
-
-Customised scrollbar add for better consistency with the overall look and feel.
+1. Search Improvements: Enhanced search functionality: Improved search functionality to accept partical matches for postcode and suburbs.
+2. UI Improvements: Customised scrollbar add for better consistency with the overall look and feel.
 
 Date: 22/06/24
 
-Updates:
+Updates: 
+1. Docker containerization for Spring boot API and deployed to Google Run. While the backend is deployed there is an issue with deployment which needs to be further investigated.
 
+Date: 25/06/24
 
-Docker containerization for Spring boot API: x.
+Updates: 
+1. Nested React front app has been moved to its only repo at https://github.com/staceyjf/Postcheck-front
 
-README:
 
 ## Screenshots
 
@@ -118,10 +107,6 @@ README:
 ![React Testing Library](https://img.shields.io/badge/-React%20Testing%20Library-05122A?style=flat&logo=testinglibrary)
 ![Log4j2](https://img.shields.io/badge/-Log4j2-05122A?style=flat&logo=apache)
 ![OpenAPI](https://img.shields.io/badge/-OpenAPI-05122A?style=flat&logo=openapiinitiative)
-![React](https://img.shields.io/badge/-React-05122A?style=flat&logo=react)
-![HTML5](https://img.shields.io/badge/-HTML5-05122A?style=flat&logo=html5)
-![CSS3](https://img.shields.io/badge/-CSS3-05122A?style=flat&logo=css3)
-![JavaScript](https://img.shields.io/badge/-JavaScript-05122A?style=flat&logo=javascript)
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
 ![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)
 
