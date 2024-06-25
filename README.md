@@ -3,7 +3,7 @@
 A Spring Boot backend powered by SQLite.
 
 <div align="center">
-  <img src="./React/public/postcheckAPI.gif" alt="Homepage">
+  <img src="./planning /postcheckAPI.gif" alt="Homepage">
 </div>
 
 ## Build Steps
