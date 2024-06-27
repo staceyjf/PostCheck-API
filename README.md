@@ -37,7 +37,7 @@ Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index
 Given the fictional brief, I used the existing Aus-post Postcode checker as my design insprration.
 
 <div align="center">
-  <img src="../PostCheck-API/planning /aus-post-inspiration.png"  alt="Aus-post home page">
+  <img src="./planning //aus-post-inspiration.png"  alt="Aus-post home page">
 </div>
 
 ## ERD
@@ -45,7 +45,7 @@ Given the fictional brief, I used the existing Aus-post Postcode checker as my d
 Before starting the project, I lendt into my planning background to understand the nature of the relationship that exist between my entites (PostCcodes, Surburbs and Users). As postcodes and suburbs can contain many of the other entity, I implemented a join table to ensure that they were correctly managed within the DB. Given the proposed use of the API, I decided to implement a uni-directional relationship with the `Postcode` entity owning the relationship (associated suburbs were only contained on the postcode side). If there are additional future user requirements, I can look at changing this to a bi-directional relationship to ensure that each can hold associations of the other.
 
 <div align="center">
-  <img src="../PostCheck-API/planning /postcheck_erd.png" alt="PostCheck API">
+  <img src="./planning /postcheck_erd.png" alt="PostCheck API">
 </div>
 
 ## Key Features
