@@ -1,6 +1,6 @@
 # Welcome to PostChecker-API
 
-A Spring Boot backend powered by SQLite.
+A Spring Boot backend powered by SQLite and deployed via Google Run.
 
 <div align="center">
   <img src="./planning /postcheckAPI.gif" alt="Homepage">
@@ -92,6 +92,11 @@ Date: 25/06/24
 Updates: 
 1. Nested React front app has been moved to its only repo at https://github.com/staceyjf/Postcheck-front
 
+Date: 27/06/24
+
+Updates: 
+1. Deployment: Successful deployed on Google Run. Cors settings in webconf have been updated with front end deployed link.
+
 
 ## Screenshots
 
@@ -105,6 +110,7 @@ Updates:
 
 ![Spring Boot](https://img.shields.io/badge/-Spring%20Boot-05122A?style=flat&logo=springboot)
 ![React Testing Library](https://img.shields.io/badge/-React%20Testing%20Library-05122A?style=flat&logo=testinglibrary)
+![Google Cloud Run](https://img.shields.io/badge/Google_Cloud_Run-4285F4?style=flat&logo=google-cloud&logoColor=white)
 ![Log4j2](https://img.shields.io/badge/-Log4j2-05122A?style=flat&logo=apache)
 ![OpenAPI](https://img.shields.io/badge/-OpenAPI-05122A?style=flat&logo=openapiinitiative)
 ![Git](https://img.shields.io/badge/-Git-05122A?style=flat&logo=git)
