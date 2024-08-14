@@ -1,6 +1,6 @@
-2024-06-21 12:26:38,868 ERROR error [http-nio-8080-exec-8] could not execute statement [[SQLITE_CONSTRAINT_UNIQUE]  A UNIQUE constraint failed (UNIQUE constraint failed: suburbs.name)] [insert into suburbs (name,state) values (?,?)]
-2024-06-21 13:58:08,507 ERROR error [http-nio-8080-exec-5] Handler dispatch failed: java.lang.Error: Unresolved compilation problem: 
-	The method findPostCodesByAssociatedSuburbsName(String) is undefined for the type PostCodeRepository
-
-2024-06-21 14:57:00,685 ERROR error [http-nio-8080-exec-7] UserDetailsService returned null, which is an interface contract violation
-2024-06-21 14:58:15,833 ERROR error [http-nio-8080-exec-4] UserDetailsService returned null, which is an interface contract violation
+2024-08-15 06:43:16,253 ERROR error [http-nio-8080-exec-1] No static resource .
+2024-08-15 06:43:16,642 ERROR error [http-nio-8080-exec-2] No static resource favicon.ico.
+2024-08-15 06:47:29,340 ERROR error [http-nio-8080-exec-1] No static resource .
+2024-08-15 06:47:29,701 ERROR error [http-nio-8080-exec-2] No static resource favicon.ico.
+2024-08-15 06:50:29,936 ERROR error [http-nio-8080-exec-3] No value present
+2024-08-15 07:00:56,109 ERROR error [http-nio-8080-exec-8] could not execute statement [[SQLITE_CONSTRAINT_UNIQUE]  A UNIQUE constraint failed (UNIQUE constraint failed: suburbs.name)] [insert into suburbs (name,state) values (?,?)]

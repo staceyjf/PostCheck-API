@@ -3,18 +3,18 @@
 A Spring Boot backend powered by SQLite.
 
 <div align="center">
-  <img src="./planning /postcheckAPI.gif" alt="Homepage">
+  <img src="./planning/postcheckAPI.gif" alt="Homepage">
 </div>
 
 ## Build Steps
 
 ```bash
-1. Clone the repo with `git clone https://github.com/staceyjf/PostCheck-API`
-2. Cd into `cd PostCheck-Api` folder
-3. Build with Maven: `mvn -B package --file pom.xml`
+1. git clone https://github.com/staceyjf/PostCheck-API
+2. cd PostCheck-Api
+3. mvn -B package --file pom.xml
 4. Add your credential in a .env to connect to a mySQL database. An example env configure can be found at `.env.example`
-5. Run app:`mvn spring-boot:run`
-6. Run tests: `mvn --batch-mode --update-snapshots verify`.
+5. mvn spring-boot:run
+6. Run tests: `mvn --batch-mode --update-snapshots verify`
 ```
 
 ## Brief
@@ -33,7 +33,13 @@ The MVP to deliver on this client brief was:
 
 PostChecker-API delivers on this and more - check out below.
 
+## Documentation
+
 Explore the Spring API documentation at: `http://localhost:8080/swagger-ui/index.html` with the search term `/api-docs`.
+
+<div align="center">
+  <img src="./planning/postcheck_spring.png" alt="PostCheck API">
+</div>
 
 ## Planning
 
@@ -46,7 +52,7 @@ As postcodes and suburbs can be associated with many of the other entities, I im
 Given the proposed use of the API, I decided to implement a unidirectional relationship with the `Postcode` entity owning the relationship (associated suburbs were only contained on the postcode side). This approach is slightly different from the Flask version of this backend, and it was valuable to explore both options across the different versions.
 
 <div align="center">
-  <img src="./planning /postcheck_erd.png" alt="PostCheck API">
+  <img src="./planning/postcheck_erd.png" alt="PostCheck API">
 </div>
 
 ## Key Features

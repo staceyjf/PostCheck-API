@@ -8,7 +8,6 @@ import java.util.Set;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.hibernate.mapping.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Example;
@@ -167,7 +166,7 @@ public class PostCodeService {
         PostCode probe = new PostCode();
         probe.setPostcode(postCode);
 
-        // Examplematcher allows for more granular mathiching
+        // Examplematcher allows for more granular matching
         ExampleMatcher matcher = ExampleMatcher.matching()
                 .withMatcher("postcode", match -> match.contains()); // This will match any postcode containing the
                                                                      // specified sequence
