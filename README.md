@@ -10,10 +10,11 @@ A Spring Boot backend powered by SQLite.
 
 ```bash
 1. Clone the repo with `git clone https://github.com/staceyjf/PostCheck-API`
-2. Cd into `PostCheck-Api` folder
+2. Cd into `cd PostCheck-Api` folder
 3. Build with Maven: `mvn -B package --file pom.xml`
-4. Run app:`mvn spring-boot:run`
-5. Run tests: `mvn --batch-mode --update-snapshots verify`.
+4. Add your credential in a .env to connect to a mySQL database. An example env configure can be found at `.env.example`
+5. Run app:`mvn spring-boot:run`
+6. Run tests: `mvn --batch-mode --update-snapshots verify`.
 ```
 
 ## Brief
